@@ -5,6 +5,8 @@
  */
 package proyecto_teoria1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -43,6 +45,7 @@ public class Principal extends javax.swing.JFrame {
         compa_marca = new javax.swing.JTextField();
         Compa_id = new javax.swing.JTextField();
         compa_nombre = new javax.swing.JTextField();
+        Btn_crearEmpre = new javax.swing.JButton();
         lb_Fondo_C_empre = new javax.swing.JLabel();
         C_Planta = new javax.swing.JDialog();
         C_Proveedor = new javax.swing.JDialog();
@@ -68,6 +71,11 @@ public class Principal extends javax.swing.JFrame {
         Jd_Mcreacion.getContentPane().add(Crear_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 110, -1));
 
         Crear_compa.setText("Compañia");
+        Crear_compa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Crear_compaMouseClicked(evt);
+            }
+        });
         Jd_Mcreacion.getContentPane().add(Crear_compa, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 110, -1));
 
         lb_fondocreacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/diseno-fondo-moderno-blanco-3d_53876-88246.jpg"))); // NOI18N
@@ -111,6 +119,14 @@ public class Principal extends javax.swing.JFrame {
         C_Compañia.getContentPane().add(compa_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 120, -1));
         C_Compañia.getContentPane().add(Compa_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 120, -1));
         C_Compañia.getContentPane().add(compa_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 120, -1));
+
+        Btn_crearEmpre.setText("Crear");
+        Btn_crearEmpre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_crearEmpreMouseClicked(evt);
+            }
+        });
+        C_Compañia.getContentPane().add(Btn_crearEmpre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
 
         lb_Fondo_C_empre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         C_Compañia.getContentPane().add(lb_Fondo_C_empre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
@@ -164,6 +180,11 @@ public class Principal extends javax.swing.JFrame {
 
         Bt_Menu_Creacion.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         Bt_Menu_Creacion.setText("Creacion");
+        Bt_Menu_Creacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Bt_Menu_CreacionMouseClicked(evt);
+            }
+        });
         getContentPane().add(Bt_Menu_Creacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 550, 230, 50));
 
         Bt_Menu_Modificar.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
@@ -179,6 +200,54 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Bt_Menu_CreacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bt_Menu_CreacionMouseClicked
+        Jd_Mcreacion.setLocationRelativeTo(this);
+        Jd_Mcreacion.pack();
+        Jd_Mcreacion.setModal(true);
+        Jd_Mcreacion.setVisible(true);
+    }//GEN-LAST:event_Bt_Menu_CreacionMouseClicked
+
+    private void Crear_compaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_compaMouseClicked
+        C_Compañia.setLocationRelativeTo(this);
+        C_Compañia.pack();
+        C_Compañia.setModal(true);
+        C_Compañia.setVisible(true);
+    }//GEN-LAST:event_Crear_compaMouseClicked
+
+    private void Btn_crearEmpreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearEmpreMouseClicked
+        // creacion de companias:  id compa nombre compa y marca
+        String Nombre_com = "";
+        int id_compa = 0;
+        String Marca_compa = "";
+        boolean verificar = false;
+
+        Nombre_com = compa_nombre.getText();
+        compa_nombre.setText("");
+        Marca_compa = compa_marca.getText();
+        compa_marca.setText("");
+        try {
+            //TRY CATCH PARA QUE AL INGRESAR CARACETEES NO SE QUIEBRE EL PROGRAMA
+            id_compa = Integer.parseInt(Compa_id.getText());
+            Compa_id.setText("");
+            if (id_compa > 0 && Marca_compa.length() > 0 && Nombre_com.length() > 0) {
+                verificar = true;
+            }
+
+            //EJECUTAR TRIGGER DE INSERTAR EN LA TABLA DE EMPRESAS
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(C_Compañia, "en id se debe ingresar un valor numerico");
+            C_Compañia.setVisible(false);
+        }
+        if (verificar) {
+            JOptionPane.showMessageDialog(C_Compañia, "se guardaron los datos de forma satisfactoria\nfalta llamar los triggers");
+            C_Compañia.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(C_Compañia, "tiene algun problema a la hora de ingresar el nombre o la marca");
+            C_Compañia.setVisible(false);
+        }
+
+    }//GEN-LAST:event_Btn_crearEmpreMouseClicked
 
     /**
      * @param args the command line arguments
@@ -219,6 +288,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Bt_Menu_Creacion;
     private javax.swing.JButton Bt_Menu_Eliminacion;
     private javax.swing.JButton Bt_Menu_Modificar;
+    private javax.swing.JButton Btn_crearEmpre;
     private javax.swing.JDialog C_Cliente;
     private javax.swing.JDialog C_Compañia;
     private javax.swing.JDialog C_Conse;

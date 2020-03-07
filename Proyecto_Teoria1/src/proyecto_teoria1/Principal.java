@@ -6,7 +6,7 @@
 package proyecto_teoria1;
 
 import javax.swing.JOptionPane;
-
+ 
 /**
  *
  * @author User

@@ -78,19 +78,18 @@ public class Principal extends javax.swing.JFrame {
         C_vehiculo = new javax.swing.JDialog();
         id_compa10 = new javax.swing.JLabel();
         id_compa11 = new javax.swing.JLabel();
-        Btn_crearEmpre1 = new javax.swing.JButton();
-        Compa_id1 = new javax.swing.JTextField();
-        compa_marca1 = new javax.swing.JTextField();
+        Btn_creaVehi = new javax.swing.JButton();
         id_compa12 = new javax.swing.JLabel();
-        compa_nombre1 = new javax.swing.JTextField();
-        compa_nombre2 = new javax.swing.JTextField();
-        compa_nombre3 = new javax.swing.JTextField();
-        compa_nombre4 = new javax.swing.JTextField();
-        compa_nombre5 = new javax.swing.JTextField();
+        vehi_modelo = new javax.swing.JTextField();
+        vehi_color = new javax.swing.JTextField();
+        vehi_vin = new javax.swing.JTextField();
+        Vehi_motor = new javax.swing.JTextField();
         id_compa13 = new javax.swing.JLabel();
         id_compa14 = new javax.swing.JLabel();
-        id_compa15 = new javax.swing.JLabel();
         id_compa16 = new javax.swing.JLabel();
+        id_compa17 = new javax.swing.JLabel();
+        vehi_trans = new javax.swing.JComboBox<>();
+        vehi_carro = new javax.swing.JComboBox<>();
         lb_Fondo_C_empre4 = new javax.swing.JLabel();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
@@ -287,47 +286,50 @@ public class Principal extends javax.swing.JFrame {
         C_vehiculo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         id_compa10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa10.setText("Id Compañia");
+        id_compa10.setText("TIPO CARROCERIA");
         C_vehiculo.getContentPane().add(id_compa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
 
         id_compa11.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa11.setText("Nombre compañia");
-        C_vehiculo.getContentPane().add(id_compa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
+        id_compa11.setText("VIN");
+        C_vehiculo.getContentPane().add(id_compa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
 
-        Btn_crearEmpre1.setText("Crear");
-        Btn_crearEmpre1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Btn_creaVehi.setText("Crear");
+        Btn_creaVehi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_crearEmpre1MouseClicked(evt);
+                Btn_creaVehiMouseClicked(evt);
             }
         });
-        C_vehiculo.getContentPane().add(Btn_crearEmpre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, -1, -1));
-        C_vehiculo.getContentPane().add(Compa_id1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 120, -1));
-        C_vehiculo.getContentPane().add(compa_marca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 120, -1));
+        C_vehiculo.getContentPane().add(Btn_creaVehi, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, -1, -1));
 
         id_compa12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa12.setText("Marca");
-        C_vehiculo.getContentPane().add(id_compa12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
-        C_vehiculo.getContentPane().add(compa_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 120, -1));
-        C_vehiculo.getContentPane().add(compa_nombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 120, -1));
-        C_vehiculo.getContentPane().add(compa_nombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 120, -1));
-        C_vehiculo.getContentPane().add(compa_nombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 120, -1));
-        C_vehiculo.getContentPane().add(compa_nombre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 120, -1));
+        id_compa12.setText("COLOR");
+        C_vehiculo.getContentPane().add(id_compa12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+        C_vehiculo.getContentPane().add(vehi_modelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 120, -1));
+        C_vehiculo.getContentPane().add(vehi_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 120, -1));
+        C_vehiculo.getContentPane().add(vehi_vin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 120, -1));
+        C_vehiculo.getContentPane().add(Vehi_motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 120, -1));
 
         id_compa13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa13.setText("Nombre compañia");
-        C_vehiculo.getContentPane().add(id_compa13, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
+        id_compa13.setText("TRANSMISION");
+        C_vehiculo.getContentPane().add(id_compa13, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
         id_compa14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa14.setText("Nombre compañia");
-        C_vehiculo.getContentPane().add(id_compa14, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
-
-        id_compa15.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa15.setText("Nombre compañia");
-        C_vehiculo.getContentPane().add(id_compa15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, -1, -1));
+        id_compa14.setText("MODELO");
+        C_vehiculo.getContentPane().add(id_compa14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
 
         id_compa16.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa16.setText("Nombre compañia");
-        C_vehiculo.getContentPane().add(id_compa16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        id_compa16.setText("CREACION VEHICULOS");
+        C_vehiculo.getContentPane().add(id_compa16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+
+        id_compa17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa17.setText("Tipo Motor");
+        C_vehiculo.getContentPane().add(id_compa17, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, -1, -1));
+
+        vehi_trans.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mecanico", "Automatico" }));
+        C_vehiculo.getContentPane().add(vehi_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 200, 110, -1));
+
+        vehi_carro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "media cabina", "1 cabina", "2 cabinas" }));
+        C_vehiculo.getContentPane().add(vehi_carro, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 250, 110, -1));
 
         lb_Fondo_C_empre4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         C_vehiculo.getContentPane().add(lb_Fondo_C_empre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 560));
@@ -378,7 +380,7 @@ public class Principal extends javax.swing.JFrame {
         int id_compa = 0;
         String Marca_compa = "";
         boolean verificar = false;
-
+        
         Nombre_com = compa_nombre.getText();
         compa_nombre.setText("");
         Marca_compa = compa_marca.getText();
@@ -430,16 +432,37 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_Crear_proveedorMouseClicked
 
     private void Crear_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_vehiculoMouseClicked
-        // TODO add your handling code here:
+        C_vehiculo.setLocationRelativeTo(this);
+        C_vehiculo.pack();
+        C_vehiculo.setModal(true);
+        C_vehiculo.setVisible(true);
     }//GEN-LAST:event_Crear_vehiculoMouseClicked
 
     private void Btn_crearconseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearconseMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_crearconseMouseClicked
 
-    private void Btn_crearEmpre1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearEmpre1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Btn_crearEmpre1MouseClicked
+    private void Btn_creaVehiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_creaVehiMouseClicked
+        //creacion vehiculos
+        String motor = "", transmision = "", modelo = "", carroceria = "", color = "", vin = "";
+        motor = Vehi_motor.getText();
+        Vehi_motor.setText("");
+        transmision = vehi_trans.getSelectedItem().toString();
+        System.out.println(transmision);
+        vehi_trans.setSelectedIndex(0);
+        vin = vehi_vin.getText();
+        vehi_vin.setText("");
+        modelo = vehi_modelo.getText();
+        vehi_modelo.setText("");
+        carroceria = vehi_carro.getSelectedItem().toString();
+        vehi_carro.setSelectedIndex(0);
+        System.out.println(carroceria);
+        color = vehi_color.getText();
+        vehi_color.setText("");
+        JOptionPane.showMessageDialog(C_Planta, "se creo el vehiculo");
+        C_vehiculo.setVisible(false);
+
+    }//GEN-LAST:event_Btn_creaVehiMouseClicked
 
     /**
      * @param args the command line arguments
@@ -480,8 +503,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Bt_Menu_Creacion;
     private javax.swing.JButton Bt_Menu_Eliminacion;
     private javax.swing.JButton Bt_Menu_Modificar;
+    private javax.swing.JButton Btn_creaVehi;
     private javax.swing.JButton Btn_crearEmpre;
-    private javax.swing.JButton Btn_crearEmpre1;
     private javax.swing.JButton Btn_crearconse;
     private javax.swing.JButton Btn_crearplanta;
     private javax.swing.JButton Btn_crearproveedor;
@@ -492,7 +515,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog C_Proveedor;
     private javax.swing.JDialog C_vehiculo;
     private javax.swing.JTextField Compa_id;
-    private javax.swing.JTextField Compa_id1;
     private javax.swing.JButton Crear_Planta;
     private javax.swing.JButton Crear_cliente;
     private javax.swing.JButton Crear_compa;
@@ -504,14 +526,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog Jd_Mmodificacion;
     private javax.swing.JTextField Proveedor_id;
     private javax.swing.JTextField Proveedor_nombre;
+    private javax.swing.JTextField Vehi_motor;
     private javax.swing.JTextField compa_marca;
-    private javax.swing.JTextField compa_marca1;
     private javax.swing.JTextField compa_nombre;
-    private javax.swing.JTextField compa_nombre1;
-    private javax.swing.JTextField compa_nombre2;
-    private javax.swing.JTextField compa_nombre3;
-    private javax.swing.JTextField compa_nombre4;
-    private javax.swing.JTextField compa_nombre5;
     private javax.swing.JTextField conse_nombre;
     private javax.swing.JTextField conse_rtn;
     private javax.swing.JLabel id_compa;
@@ -521,8 +538,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel id_compa12;
     private javax.swing.JLabel id_compa13;
     private javax.swing.JLabel id_compa14;
-    private javax.swing.JLabel id_compa15;
     private javax.swing.JLabel id_compa16;
+    private javax.swing.JLabel id_compa17;
     private javax.swing.JLabel id_compa2;
     private javax.swing.JLabel id_compa3;
     private javax.swing.JLabel id_compa4;
@@ -544,6 +561,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField planta_id;
     private javax.swing.JTextField planta_nombre;
     private javax.swing.JTextField planta_tipo;
+    private javax.swing.JComboBox<String> vehi_carro;
+    private javax.swing.JTextField vehi_color;
+    private javax.swing.JTextField vehi_modelo;
+    private javax.swing.JComboBox<String> vehi_trans;
+    private javax.swing.JTextField vehi_vin;
     // End of variables declaration//GEN-END:variables
 
     /*
@@ -553,5 +575,8 @@ public class Principal extends javax.swing.JFrame {
     cliente telefono direccion nombre rtn // persona id sexo ingreso anual // empresa tipo de empresa
     vehiculo tipo motor, vin color transmision tipo carroceria modelo
     --planta id planta nombre tipo
+     */
+ /*
+Cuentas del log in
      */
 }

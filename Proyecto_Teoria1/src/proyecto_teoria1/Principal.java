@@ -115,6 +115,11 @@ public class Principal extends javax.swing.JFrame {
         Jd_Mcreacion.getContentPane().add(Crear_proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 110, -1));
 
         Crear_conse.setText("Consecionario");
+        Crear_conse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Crear_conseMouseClicked(evt);
+            }
+        });
         Jd_Mcreacion.getContentPane().add(Crear_conse, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
 
         Crear_cliente.setText("Cliente");
@@ -380,7 +385,7 @@ public class Principal extends javax.swing.JFrame {
         int id_compa = 0;
         String Marca_compa = "";
         boolean verificar = false;
-        
+
         Nombre_com = compa_nombre.getText();
         compa_nombre.setText("");
         Marca_compa = compa_marca.getText();
@@ -393,7 +398,6 @@ public class Principal extends javax.swing.JFrame {
                 verificar = true;
             }
 
-            //EJECUTAR TRIGGER DE INSERTAR EN LA TABLA DE EMPRESAS
         } catch (Exception e) {
             JOptionPane.showMessageDialog(C_Compañia, "en id se debe ingresar un valor numerico");
             C_Compañia.setVisible(false);
@@ -401,6 +405,7 @@ public class Principal extends javax.swing.JFrame {
         if (verificar) {
             JOptionPane.showMessageDialog(C_Compañia, "se guardaron los datos de forma satisfactoria\nfalta llamar los triggers");
             C_Compañia.setVisible(false);
+            //EJECUTAR TRIGGER DE INSERTAR EN LA TABLA DE EMPRESAS
         } else {
             JOptionPane.showMessageDialog(C_Compañia, "tiene algun problema a la hora de ingresar el nombre o la marca");
             C_Compañia.setVisible(false);
@@ -410,6 +415,34 @@ public class Principal extends javax.swing.JFrame {
 
     private void Btn_crearplantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearplantaMouseClicked
         // creacion de plantas
+        int id=0;
+        String nombre = "", tipo = "";
+        boolean verificar=false;
+        nombre=planta_nombre.getText();
+        planta_nombre.setText("");
+        tipo=planta_tipo.getText();
+        planta_tipo.setText("");
+        try {
+            //TRY CATCH PARA QUE AL INGRESAR CARACETEES NO SE QUIEBRE EL PROGRAMA
+            id = Integer.parseInt(planta_id.getText());
+            planta_id.setText("");
+            if (id > 0) {
+                verificar = true;
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(C_Planta, "en id se debe ingresar un valor numerico");
+            C_Planta.setVisible(false);
+        }
+        if (verificar) {
+            JOptionPane.showMessageDialog(C_Planta, "se guardaron los datos de forma satisfactoria\nfalta llamar los triggers");
+            C_Planta.setVisible(false);
+            //EJECUTAR TRIGGER DE INSERTAR EN LA TABLA DE EMPRESAS
+        } else {
+            JOptionPane.showMessageDialog(C_Planta, "tiene algun problema a la hora de ingresar el nombre o la marca");
+            C_Planta.setVisible(false);
+        }
+        
     }//GEN-LAST:event_Btn_crearplantaMouseClicked
 
     private void Crear_PlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_PlantaMouseClicked
@@ -420,15 +453,22 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_Crear_PlantaMouseClicked
 
     private void Btn_crearproveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearproveedorMouseClicked
+        String nombrepro = "", idpro = "";
+        nombrepro = Proveedor_nombre.getText();
+        Proveedor_nombre.setText("");
+        idpro = Proveedor_id.getText();
+        Proveedor_id.setText("");
+        JOptionPane.showMessageDialog(C_Proveedor, "se creo el proveedor");
+        C_Proveedor.setVisible(false);
+        //trigger de crear proveedor
+    }//GEN-LAST:event_Btn_crearproveedorMouseClicked
+
+    private void Crear_proveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_proveedorMouseClicked
         // TODO add your handling code here:
         C_Proveedor.setLocationRelativeTo(this);
         C_Proveedor.pack();
         C_Proveedor.setModal(true);
         C_Proveedor.setVisible(true);
-    }//GEN-LAST:event_Btn_crearproveedorMouseClicked
-
-    private void Crear_proveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_proveedorMouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_Crear_proveedorMouseClicked
 
     private void Crear_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_vehiculoMouseClicked
@@ -440,6 +480,14 @@ public class Principal extends javax.swing.JFrame {
 
     private void Btn_crearconseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearconseMouseClicked
         // TODO add your handling code here:
+        String nombre = "", rtn = "";
+        nombre = conse_nombre.getText();
+        conse_nombre.setText("");
+        rtn = conse_rtn.getText();
+        conse_rtn.setText("");
+        // poner trigger de insersion
+        JOptionPane.showMessageDialog(C_Conse, "se creo el consecionario");
+        C_Conse.setVisible(false);
     }//GEN-LAST:event_Btn_crearconseMouseClicked
 
     private void Btn_creaVehiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_creaVehiMouseClicked
@@ -461,8 +509,16 @@ public class Principal extends javax.swing.JFrame {
         vehi_color.setText("");
         JOptionPane.showMessageDialog(C_Planta, "se creo el vehiculo");
         C_vehiculo.setVisible(false);
-
+        //usar trigger
     }//GEN-LAST:event_Btn_creaVehiMouseClicked
+
+    private void Crear_conseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_conseMouseClicked
+        // TODO add your handling code here:
+        C_Conse.setLocationRelativeTo(this);
+        C_Conse.pack();
+        C_Conse.setModal(true);
+        C_Conse.setVisible(true);
+    }//GEN-LAST:event_Crear_conseMouseClicked
 
     /**
      * @param args the command line arguments

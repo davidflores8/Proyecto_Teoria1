@@ -363,19 +363,20 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(lb_fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 980, 700));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Bt_Menu_CreacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bt_Menu_CreacionMouseClicked
-        Jd_Mcreacion.setLocationRelativeTo(this);
-        Jd_Mcreacion.pack();
         Jd_Mcreacion.setModal(true);
+        Jd_Mcreacion.pack();
+        Jd_Mcreacion.setLocationRelativeTo(this); 
         Jd_Mcreacion.setVisible(true);
     }//GEN-LAST:event_Bt_Menu_CreacionMouseClicked
 
     private void Crear_compaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_compaMouseClicked
-        C_Compañia.setLocationRelativeTo(this);
-        C_Compañia.pack();
         C_Compañia.setModal(true);
+        C_Compañia.pack();
+        C_Compañia.setLocationRelativeTo(this);
         C_Compañia.setVisible(true);
     }//GEN-LAST:event_Crear_compaMouseClicked
 
@@ -446,9 +447,9 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_crearplantaMouseClicked
 
     private void Crear_PlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_PlantaMouseClicked
-        C_Planta.setLocationRelativeTo(this);
-        C_Planta.pack();
         C_Planta.setModal(true);
+        C_Planta.pack();
+        C_Planta.setLocationRelativeTo(this);
         C_Planta.setVisible(true);
     }//GEN-LAST:event_Crear_PlantaMouseClicked
 
@@ -465,16 +466,16 @@ public class Principal extends javax.swing.JFrame {
 
     private void Crear_proveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_proveedorMouseClicked
         // TODO add your handling code here:
-        C_Proveedor.setLocationRelativeTo(this);
-        C_Proveedor.pack();
         C_Proveedor.setModal(true);
+        C_Proveedor.pack();
+        C_Proveedor.setLocationRelativeTo(this);
         C_Proveedor.setVisible(true);
     }//GEN-LAST:event_Crear_proveedorMouseClicked
 
     private void Crear_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_vehiculoMouseClicked
-        C_vehiculo.setLocationRelativeTo(this);
-        C_vehiculo.pack();
         C_vehiculo.setModal(true);
+        C_vehiculo.pack();
+        C_vehiculo.setLocationRelativeTo(this);
         C_vehiculo.setVisible(true);
     }//GEN-LAST:event_Crear_vehiculoMouseClicked
 
@@ -514,9 +515,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void Crear_conseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_conseMouseClicked
         // TODO add your handling code here:
-        C_Conse.setLocationRelativeTo(this);
-        C_Conse.pack();
         C_Conse.setModal(true);
+        C_Conse.pack();
+        C_Conse.setLocationRelativeTo(this);
         C_Conse.setVisible(true);
     }//GEN-LAST:event_Crear_conseMouseClicked
 

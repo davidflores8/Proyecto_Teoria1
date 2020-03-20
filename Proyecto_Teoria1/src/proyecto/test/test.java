@@ -24,12 +24,12 @@ public class test {
         v.setTransmision("Automatico");
         v.setTipo_carroceria("Urbano");
         v.setModelo("Telluride");
-        mensaje=vbo.agregarEmpleado(v);
+        mensaje=vbo.agregarVehiculo(v);
         System.out.println(mensaje);
     }
     
     public void eliminar() throws SQLException{
-        mensaje=vbo.eliminarEmpleado("1");
+        mensaje=vbo.eliminarVehiculo("1");
         System.out.println(mensaje);
     }
     

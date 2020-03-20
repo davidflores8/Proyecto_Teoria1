@@ -5,9 +5,18 @@
  */
 package proyecto.principal;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import proyecto.bo.VehiculoBO;
+import proyecto.entidades.Vehiculo;
 
 /**
  *
@@ -98,9 +107,29 @@ public class Principal extends javax.swing.JFrame {
         vehi_trans = new javax.swing.JComboBox<>();
         vehi_carro = new javax.swing.JComboBox<>();
         lb_Fondo_C_empre4 = new javax.swing.JLabel();
-        V_Vehiculos = new javax.swing.JDialog();
+        V_Vehiculo = new javax.swing.JDialog();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
+        tabla_vehiculos = new javax.swing.JTable();
+        boton_agregar_vehiculo = new javax.swing.JButton();
+        boton_modificar_vehiculo = new javax.swing.JButton();
+        boton_eliminar_vehiculo = new javax.swing.JButton();
+        boton_listar_vehiculo = new javax.swing.JButton();
+        M_Vehiculo = new javax.swing.JDialog();
+        id_compa15 = new javax.swing.JLabel();
+        id_compa18 = new javax.swing.JLabel();
+        boton_modificar_vehi = new javax.swing.JButton();
+        id_compa19 = new javax.swing.JLabel();
+        vehi_modelo1 = new javax.swing.JTextField();
+        vehi_color1 = new javax.swing.JTextField();
+        vehi_vin1 = new javax.swing.JTextField();
+        vehi_motor1 = new javax.swing.JTextField();
+        id_compa20 = new javax.swing.JLabel();
+        id_compa21 = new javax.swing.JLabel();
+        id_compa22 = new javax.swing.JLabel();
+        id_compa23 = new javax.swing.JLabel();
+        vehi_trans1 = new javax.swing.JComboBox<>();
+        vehi_carro1 = new javax.swing.JComboBox<>();
+        lb_Fondo_C_empre5 = new javax.swing.JLabel();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
@@ -333,7 +362,7 @@ public class Principal extends javax.swing.JFrame {
         C_vehiculo.getContentPane().add(id_compa14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
 
         id_compa16.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa16.setText("CREACION VEHICULOS");
+        id_compa16.setText("CREAR VEHICULO");
         C_vehiculo.getContentPane().add(id_compa16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         id_compa17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -349,32 +378,136 @@ public class Principal extends javax.swing.JFrame {
         lb_Fondo_C_empre4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         C_vehiculo.getContentPane().add(lb_Fondo_C_empre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 490, 560));
 
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_vehiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-
+                "VIN", "TIPO_MOTOR", "COLOR", "TRANSMISION", "TIPO_CARROCERIA", "MODELO"
             }
-        ));
-        jScrollPane1.setViewportView(tabla);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
 
-        javax.swing.GroupLayout V_VehiculosLayout = new javax.swing.GroupLayout(V_Vehiculos.getContentPane());
-        V_Vehiculos.getContentPane().setLayout(V_VehiculosLayout);
-        V_VehiculosLayout.setHorizontalGroup(
-            V_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(V_VehiculosLayout.createSequentialGroup()
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabla_vehiculos);
+
+        boton_agregar_vehiculo.setText("Agregar");
+        boton_agregar_vehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_agregar_vehiculoMouseClicked(evt);
+            }
+        });
+
+        boton_modificar_vehiculo.setText("Modificar");
+        boton_modificar_vehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_modificar_vehiculoMouseClicked(evt);
+            }
+        });
+
+        boton_eliminar_vehiculo.setText("Eliminar");
+        boton_eliminar_vehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_eliminar_vehiculoMouseClicked(evt);
+            }
+        });
+
+        boton_listar_vehiculo.setText("Listar");
+        boton_listar_vehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_listar_vehiculoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout V_VehiculoLayout = new javax.swing.GroupLayout(V_Vehiculo.getContentPane());
+        V_Vehiculo.getContentPane().setLayout(V_VehiculoLayout);
+        V_VehiculoLayout.setHorizontalGroup(
+            V_VehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(V_VehiculoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
+                .addGroup(V_VehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+                    .addGroup(V_VehiculoLayout.createSequentialGroup()
+                        .addComponent(boton_agregar_vehiculo)
+                        .addGap(18, 18, 18)
+                        .addComponent(boton_modificar_vehiculo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_listar_vehiculo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(boton_eliminar_vehiculo)))
                 .addContainerGap())
         );
-        V_VehiculosLayout.setVerticalGroup(
-            V_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, V_VehiculosLayout.createSequentialGroup()
+        V_VehiculoLayout.setVerticalGroup(
+            V_VehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, V_VehiculoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(324, 324, 324))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(V_VehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton_agregar_vehiculo)
+                    .addComponent(boton_modificar_vehiculo)
+                    .addComponent(boton_eliminar_vehiculo)
+                    .addComponent(boton_listar_vehiculo))
+                .addContainerGap())
         );
+
+        M_Vehiculo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        id_compa15.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa15.setText("TIPO CARROCERIA");
+        M_Vehiculo.getContentPane().add(id_compa15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, -1, -1));
+
+        id_compa18.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa18.setText("VIN");
+        M_Vehiculo.getContentPane().add(id_compa18, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+
+        boton_modificar_vehi.setText("GUARDAR CAMBIOS");
+        boton_modificar_vehi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_modificar_vehiMouseClicked(evt);
+            }
+        });
+        M_Vehiculo.getContentPane().add(boton_modificar_vehi, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, -1, -1));
+
+        id_compa19.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa19.setText("COLOR");
+        M_Vehiculo.getContentPane().add(id_compa19, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
+        M_Vehiculo.getContentPane().add(vehi_modelo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 120, -1));
+        M_Vehiculo.getContentPane().add(vehi_color1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 120, -1));
+
+        vehi_vin1.setEditable(false);
+        M_Vehiculo.getContentPane().add(vehi_vin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 120, -1));
+        M_Vehiculo.getContentPane().add(vehi_motor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 120, -1));
+
+        id_compa20.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa20.setText("TRANSMISION");
+        M_Vehiculo.getContentPane().add(id_compa20, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
+
+        id_compa21.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa21.setText("MODELO");
+        M_Vehiculo.getContentPane().add(id_compa21, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
+
+        id_compa22.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa22.setText("MODIFICAR VEHICULOS");
+        M_Vehiculo.getContentPane().add(id_compa22, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+
+        id_compa23.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa23.setText("Tipo Motor");
+        M_Vehiculo.getContentPane().add(id_compa23, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
+
+        vehi_trans1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mecanico", "Automatico" }));
+        M_Vehiculo.getContentPane().add(vehi_trans1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 110, -1));
+
+        vehi_carro1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urbano", "Sedan (Turismo)", "Familiar", "Deportivo", "SUV (Camioneta)", "Pick-Up media cabina", "Pick-Up 1 cabina", "Pick -Up 2 cabinas", "Camion de trabajo" }));
+        M_Vehiculo.getContentPane().add(vehi_carro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 110, -1));
+
+        lb_Fondo_C_empre5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
+        M_Vehiculo.getContentPane().add(lb_Fondo_C_empre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 490, 560));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -510,10 +643,10 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_Crear_proveedorMouseClicked
 
     private void Crear_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_vehiculoMouseClicked
-        C_vehiculo.setModal(true);
-        C_vehiculo.pack();
-        C_vehiculo.setLocationRelativeTo(this);
-        C_vehiculo.setVisible(true);
+        V_Vehiculo.setModal(true);
+        V_Vehiculo.pack();
+        V_Vehiculo.setLocationRelativeTo(this);
+        V_Vehiculo.setVisible(true);
     }//GEN-LAST:event_Crear_vehiculoMouseClicked
 
     private void Btn_crearconseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearconseMouseClicked
@@ -546,14 +679,36 @@ public class Principal extends javax.swing.JFrame {
         color = vehi_color.getText();
         vehi_color.setText("");
         JOptionPane.showMessageDialog(C_Planta, "Se creó el vehiculo");
-        C_vehiculo.setVisible(false);
-        V_Vehiculos.setModal(true);
-        V_Vehiculos.pack();
-        V_Vehiculos.setLocationRelativeTo(this);
-        V_Vehiculos.setVisible(true);
+        C_vehiculo.dispose();
+        String mensaje="";
+        VehiculoBO vbo =new VehiculoBO();
+        Vehiculo v=new Vehiculo();
+        v.setVIN(vin);
+        v.setTipo_motor(motor);
+        v.setColor(color);
+        v.setTipo_carroceria(carroceria);
+        v.setModelo(modelo);
+        v.setTransmision(transmision);
+        try {
+            mensaje=vbo.agregarVehiculo(v);
+            System.out.println("Mensaje\n "+mensaje);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            vbo.listarVehiculo(tabla_vehiculos);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        //muestra la ventana de los vehiculos, donde hace el CRUD
+        V_Vehiculo.setModal(true);
+        V_Vehiculo.pack();
+        V_Vehiculo.setLocationRelativeTo(this);
+        V_Vehiculo.setVisible(true);
         //usar trigger
     }//GEN-LAST:event_Btn_creaVehiMouseClicked
 
+    
     private void Crear_conseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_conseMouseClicked
         // TODO add your handling code here:
         C_Conse.setModal(true);
@@ -561,6 +716,144 @@ public class Principal extends javax.swing.JFrame {
         C_Conse.setLocationRelativeTo(this);
         C_Conse.setVisible(true);
     }//GEN-LAST:event_Crear_conseMouseClicked
+
+    private void boton_agregar_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_agregar_vehiculoMouseClicked
+        // TODO add your handling code here:
+        C_vehiculo.setModal(true);
+        C_vehiculo.pack();
+        C_vehiculo.setLocationRelativeTo(this);
+        C_vehiculo.setVisible(true);
+    }//GEN-LAST:event_boton_agregar_vehiculoMouseClicked
+
+    private void boton_modificar_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_modificar_vehiculoMouseClicked
+        // TODO add your handling code here:
+        if (tabla_vehiculos.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleciconar un elemento de la tabla para poder modifciarlo");
+        }
+        else{
+            System.out.println("esta bueno");
+            DefaultTableModel modelo = (DefaultTableModel)tabla_vehiculos.getModel();
+            String vin=String.valueOf(modelo.getValueAt(tabla_vehiculos.getSelectedRow(), 0));
+            System.out.println("vin "+vin);
+            VehiculoBO vbo= new VehiculoBO();
+            ArrayList <String> data=new ArrayList();
+            try {
+                data=vbo.obtenerVehiculo(vin);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            for (int i = 0; i <data.size(); i++) {
+                System.out.println("dato = "+data.get(i));
+            }
+            vehi_vin1.setText(data.get(0));
+            vehi_motor1.setText(data.get(1));
+            vehi_color1.setText(data.get(2));
+            vehi_modelo1.setText(data.get(5));
+            //vehi_carro1.setName(data.get(3));
+            for (int i = 0; i <vehi_carro1.getItemCount(); i++) {
+                if(vehi_carro1.getItemAt(i).equals(data.get(4))){
+                    System.out.println("entro1");
+                    vehi_carro1.setSelectedIndex(i);
+                    i=1000;
+                }
+            }
+            //vehi_trans1.setName(data.get(5));
+            for (int i = 0; i <vehi_trans1.getItemCount(); i++) {
+                    System.out.println("el dato en el coso ese "+vehi_trans1.getItemAt(i));
+                    System.out.println("coso en el data "+data.get(4));
+                if((vehi_trans1.getItemAt(i)).equals(data.get(3))){
+                    System.out.println("entro2");
+                    vehi_trans1.setSelectedIndex(i);
+                    i=1000;
+                }
+            }
+            
+           M_Vehiculo.setModal(true);
+           M_Vehiculo.pack();
+           M_Vehiculo.setLocationRelativeTo(this);
+           M_Vehiculo.setVisible(true);
+       
+        }
+    }//GEN-LAST:event_boton_modificar_vehiculoMouseClicked
+
+    private void boton_listar_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_listar_vehiculoMouseClicked
+        // TODO add your handling code here:
+        VehiculoBO vbo = new VehiculoBO();
+        try {
+            vbo.listarVehiculo(tabla_vehiculos);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_boton_listar_vehiculoMouseClicked
+
+    private void boton_modificar_vehiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_modificar_vehiMouseClicked
+        // TODO add your handling code here:
+        String motor = "", transmision = "", modelo = "", carroceria = "", color = "", vin = "";
+        motor = vehi_motor1.getText();
+        vehi_motor1.setText("");
+        transmision = vehi_trans1.getSelectedItem().toString();
+        System.out.println(transmision);
+        vehi_trans1.setSelectedIndex(0);
+        vin = vehi_vin1.getText();
+        vehi_vin.setText("");
+        modelo = vehi_modelo1.getText();
+        vehi_modelo1.setText("");
+        carroceria = vehi_carro1.getSelectedItem().toString();
+        vehi_carro1.setSelectedIndex(0);
+        System.out.println(carroceria);
+        color = vehi_color1.getText();
+        vehi_color1.setText("");
+        JOptionPane.showMessageDialog(M_Vehiculo, "Se modifico el vehiculo con exito ");
+        M_Vehiculo.dispose();
+        String mensaje="";
+        VehiculoBO vbo =new VehiculoBO();
+        Vehiculo v=new Vehiculo();
+        v.setVIN(vin);
+        v.setTipo_motor(motor);
+        v.setColor(color);
+        v.setTipo_carroceria(carroceria);
+        v.setModelo(modelo);
+        v.setTransmision(transmision);
+        try {
+            mensaje=vbo.modificarVehiculo(v);
+            System.out.println("Mensaje\n "+mensaje);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            vbo.listarVehiculo(tabla_vehiculos);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_boton_modificar_vehiMouseClicked
+
+    private void boton_eliminar_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_eliminar_vehiculoMouseClicked
+        // TODO add your handling code here:
+        if (tabla_vehiculos.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleciconar un elemento de la tabla para poder modifciarlo");
+        }
+        else{
+            int i=JOptionPane.showConfirmDialog(null, "¿Desea eliminar este vehiculo?");
+            if(i==0){
+                System.out.println("Si");
+                DefaultTableModel modelo = (DefaultTableModel)tabla_vehiculos.getModel();
+                String vin=String.valueOf(modelo.getValueAt(tabla_vehiculos.getSelectedRow(), 0));
+                System.out.println("vin "+vin);
+                VehiculoBO vbo= new VehiculoBO();
+                try {
+                    vbo.eliminarVehiculo(vin);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    vbo.listarVehiculo(tabla_vehiculos);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            
+        }
+    }//GEN-LAST:event_boton_eliminar_vehiculoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -622,10 +915,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog Jd_Mcreacion;
     private javax.swing.JDialog Jd_Meliminacion;
     private javax.swing.JDialog Jd_Mmodificacion;
+    private javax.swing.JDialog M_Vehiculo;
     private javax.swing.JTextField Proveedor_id;
     private javax.swing.JTextField Proveedor_nombre;
-    private javax.swing.JDialog V_Vehiculos;
+    private javax.swing.JDialog V_Vehiculo;
     private javax.swing.JTextField Vehi_motor;
+    private javax.swing.JButton boton_agregar_vehiculo;
+    private javax.swing.JButton boton_eliminar_vehiculo;
+    private javax.swing.JButton boton_listar_vehiculo;
+    private javax.swing.JButton boton_modificar_vehi;
+    private javax.swing.JButton boton_modificar_vehiculo;
     private javax.swing.JTextField compa_marca;
     private javax.swing.JTextField compa_nombre;
     private javax.swing.JTextField conse_nombre;
@@ -637,9 +936,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel id_compa12;
     private javax.swing.JLabel id_compa13;
     private javax.swing.JLabel id_compa14;
+    private javax.swing.JLabel id_compa15;
     private javax.swing.JLabel id_compa16;
     private javax.swing.JLabel id_compa17;
+    private javax.swing.JLabel id_compa18;
+    private javax.swing.JLabel id_compa19;
     private javax.swing.JLabel id_compa2;
+    private javax.swing.JLabel id_compa20;
+    private javax.swing.JLabel id_compa21;
+    private javax.swing.JLabel id_compa22;
+    private javax.swing.JLabel id_compa23;
     private javax.swing.JLabel id_compa3;
     private javax.swing.JLabel id_compa4;
     private javax.swing.JLabel id_compa5;
@@ -656,17 +962,24 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lb_Fondo_C_empre2;
     private javax.swing.JLabel lb_Fondo_C_empre3;
     private javax.swing.JLabel lb_Fondo_C_empre4;
+    private javax.swing.JLabel lb_Fondo_C_empre5;
     private javax.swing.JLabel lb_fondo1;
     private javax.swing.JLabel lb_fondocreacion;
     private javax.swing.JTextField planta_id;
     private javax.swing.JTextField planta_nombre;
     private javax.swing.JTextField planta_tipo;
-    private javax.swing.JTable tabla;
+    private javax.swing.JTable tabla_vehiculos;
     private javax.swing.JComboBox<String> vehi_carro;
+    private javax.swing.JComboBox<String> vehi_carro1;
     private javax.swing.JTextField vehi_color;
+    private javax.swing.JTextField vehi_color1;
     private javax.swing.JTextField vehi_modelo;
+    private javax.swing.JTextField vehi_modelo1;
+    private javax.swing.JTextField vehi_motor1;
     private javax.swing.JComboBox<String> vehi_trans;
+    private javax.swing.JComboBox<String> vehi_trans1;
     private javax.swing.JTextField vehi_vin;
+    private javax.swing.JTextField vehi_vin1;
     // End of variables declaration//GEN-END:variables
 
     /*

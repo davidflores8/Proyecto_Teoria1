@@ -7,6 +7,7 @@ package proyecto.bo;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import proyecto.dao.VehiculoDAO;
 import proyecto.db.Conexion;
@@ -21,10 +22,10 @@ public class VehiculoBO {
      public String mensaje="";
      public VehiculoDAO vdao=new VehiculoDAO();
     
-    public String agregarEmpleado (Vehiculo v) throws SQLException{
+    public String agregarVehiculo(Vehiculo v) throws SQLException{
         Connection con =Conexion.getConnection();
         try {
-            mensaje=vdao.agregarEmpleado(con, v);
+            mensaje=vdao.agregarVehiculo(con, v);
         } catch (Exception e) {
             mensaje=mensaje+ " "+e.getMessage();
         }
@@ -40,10 +41,10 @@ public class VehiculoBO {
         return mensaje;
     }
     
-    public String modificarEmpleado (Vehiculo v) throws SQLException{
+    public String modificarVehiculo (Vehiculo v) throws SQLException{
          Connection con =Conexion.getConnection();
         try {
-            mensaje=vdao.modificarEmpleado(con, v);
+            mensaje=vdao.modificarVehiculo(con, v);
         } catch (Exception e) {
             mensaje=mensaje+ " "+e.getMessage();
         }
@@ -60,10 +61,10 @@ public class VehiculoBO {
        
     }
     
-    public String eliminarEmpleado (String vin) throws SQLException{
+    public String eliminarVehiculo (String vin) throws SQLException{
          Connection con =Conexion.getConnection();
         try {
-            mensaje=vdao.eliminarEmpleado(con, vin);
+            mensaje=vdao.eliminarVehiculo(con, vin);
         } catch (Exception e) {
             mensaje=mensaje+ " "+e.getMessage();
         }
@@ -79,9 +80,30 @@ public class VehiculoBO {
         return mensaje;
     }
     
-    public void listarEmpleado (JTable tabla) throws SQLException{
+    public ArrayList obtenerVehiculo(String vin) throws SQLException{
+        ArrayList <String> datos=new ArrayList();
         Connection con =Conexion.getConnection();
-     //   vdao.listarEmpleado(con, tabla);
+        try {
+            datos=vdao.obtenerVehiculo(con, vin);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return datos;
+        
+    }
+    
+    public void listarVehiculo (JTable tabla) throws SQLException{
+        Connection con =Conexion.getConnection();
+        vdao.listarVehiculo(con, tabla);
         con.close();
     }
     

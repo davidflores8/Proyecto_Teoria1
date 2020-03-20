@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_teoria1;
+package proyecto.principal;
 
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import proyecto.bo.VehiculoBO;
 
 /**
  *
@@ -16,9 +18,14 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    
+
     public Principal() {
         initComponents();
+        
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,6 +98,9 @@ public class Principal extends javax.swing.JFrame {
         vehi_trans = new javax.swing.JComboBox<>();
         vehi_carro = new javax.swing.JComboBox<>();
         lb_Fondo_C_empre4 = new javax.swing.JLabel();
+        V_Vehiculos = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
@@ -304,7 +314,7 @@ public class Principal extends javax.swing.JFrame {
                 Btn_creaVehiMouseClicked(evt);
             }
         });
-        C_vehiculo.getContentPane().add(Btn_creaVehi, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, -1, -1));
+        C_vehiculo.getContentPane().add(Btn_creaVehi, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, -1, -1));
 
         id_compa12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa12.setText("COLOR");
@@ -324,7 +334,7 @@ public class Principal extends javax.swing.JFrame {
 
         id_compa16.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa16.setText("CREACION VEHICULOS");
-        C_vehiculo.getContentPane().add(id_compa16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+        C_vehiculo.getContentPane().add(id_compa16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         id_compa17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa17.setText("Tipo Motor");
@@ -333,11 +343,38 @@ public class Principal extends javax.swing.JFrame {
         vehi_trans.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mecanico", "Automatico" }));
         C_vehiculo.getContentPane().add(vehi_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 200, 110, -1));
 
-        vehi_carro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "media cabina", "1 cabina", "2 cabinas" }));
+        vehi_carro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urbano", "Sedan (Turismo)", "Familiar", "Deportivo", "SUV (Camioneta)", "Pick-Up media cabina", "Pick-Up 1 cabina", "Pick -Up 2 cabinas", "Camion de trabajo" }));
         C_vehiculo.getContentPane().add(vehi_carro, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 250, 110, -1));
 
         lb_Fondo_C_empre4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
-        C_vehiculo.getContentPane().add(lb_Fondo_C_empre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 560));
+        C_vehiculo.getContentPane().add(lb_Fondo_C_empre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 490, 560));
+
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tabla);
+
+        javax.swing.GroupLayout V_VehiculosLayout = new javax.swing.GroupLayout(V_Vehiculos.getContentPane());
+        V_Vehiculos.getContentPane().setLayout(V_VehiculosLayout);
+        V_VehiculosLayout.setHorizontalGroup(
+            V_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(V_VehiculosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        V_VehiculosLayout.setVerticalGroup(
+            V_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, V_VehiculosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(324, 324, 324))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -349,18 +386,18 @@ public class Principal extends javax.swing.JFrame {
                 Bt_Menu_CreacionMouseClicked(evt);
             }
         });
-        getContentPane().add(Bt_Menu_Creacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 550, 230, 50));
+        getContentPane().add(Bt_Menu_Creacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 550, 230, 50));
 
         Bt_Menu_Modificar.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         Bt_Menu_Modificar.setText("Modificar");
-        getContentPane().add(Bt_Menu_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, 30));
+        getContentPane().add(Bt_Menu_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, 30));
 
         Bt_Menu_Eliminacion.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         Bt_Menu_Eliminacion.setText("Eliminar");
-        getContentPane().add(Bt_Menu_Eliminacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 200, -1, -1));
+        getContentPane().add(Bt_Menu_Eliminacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 210, -1, -1));
 
         lb_fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WhatsApp Image 2020-03-05 at 6.43.00 PM.jpeg"))); // NOI18N
-        getContentPane().add(lb_fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 980, 700));
+        getContentPane().add(lb_fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 700));
 
         pack();
         setLocationRelativeTo(null);
@@ -508,8 +545,12 @@ public class Principal extends javax.swing.JFrame {
         System.out.println(carroceria);
         color = vehi_color.getText();
         vehi_color.setText("");
-        JOptionPane.showMessageDialog(C_Planta, "se creo el vehiculo");
+        JOptionPane.showMessageDialog(C_Planta, "Se creó el vehiculo");
         C_vehiculo.setVisible(false);
+        V_Vehiculos.setModal(true);
+        V_Vehiculos.pack();
+        V_Vehiculos.setLocationRelativeTo(this);
+        V_Vehiculos.setVisible(true);
         //usar trigger
     }//GEN-LAST:event_Btn_creaVehiMouseClicked
 
@@ -532,7 +573,7 @@ public class Principal extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -583,6 +624,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog Jd_Mmodificacion;
     private javax.swing.JTextField Proveedor_id;
     private javax.swing.JTextField Proveedor_nombre;
+    private javax.swing.JDialog V_Vehiculos;
     private javax.swing.JTextField Vehi_motor;
     private javax.swing.JTextField compa_marca;
     private javax.swing.JTextField compa_nombre;
@@ -608,6 +650,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_Fondo_C_empre;
     private javax.swing.JLabel lb_Fondo_C_empre1;
     private javax.swing.JLabel lb_Fondo_C_empre2;
@@ -618,6 +661,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField planta_id;
     private javax.swing.JTextField planta_nombre;
     private javax.swing.JTextField planta_tipo;
+    private javax.swing.JTable tabla;
     private javax.swing.JComboBox<String> vehi_carro;
     private javax.swing.JTextField vehi_color;
     private javax.swing.JTextField vehi_modelo;

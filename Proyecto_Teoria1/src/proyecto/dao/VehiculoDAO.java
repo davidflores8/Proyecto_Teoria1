@@ -92,31 +92,31 @@ public class VehiculoDAO {
         return mensaje;
     }
     
-    public String listarEmpleado (Connection con, JTable tabla){
-       
-        DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
-        String [] columna = {"VIN", "TIPO_MOTOR" , "COLOR" , "TRANSMISION", "TIPO_CARROCERIA", "MODELO"};
-        modelo =new DefaultTableModel(null, columna);
-        
-        String sql="SELECT * FROM VEHICULOS ORDER BY VIN";
-        String [] fila = new String [7];
-        Statement st=null;
-        ResultSet rs=null;
-        try {
-            st=con.createStatement();
-            rs=st.executeQuery(sql);
-            while (rs.next()){
-                for (int i = 0; i <7; i++) {
-                    fila[i]=rs.getString(i+1);
-                }
-                modelo.addRow(fila);
-            }
-            tabla.setModel(modelo);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se puede mostrar la tabla");
-        }
-        return null;
-    }
+//    public String listarEmpleado (Connection con, JTable tabla){
+//       
+//        DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
+//        String [] columna = {"VIN", "TIPO_MOTOR" , "COLOR" , "TRANSMISION", "TIPO_CARROCERIA", "MODELO"};
+//        modelo =new DefaultTableModel(null, columna);
+//        
+//        String sql="SELECT * FROM VEHICULOS ORDER BY VIN";
+//        String [] fila = new String [7];
+//        Statement st=null;
+//        ResultSet rs=null;
+//        try {
+//            st=con.createStatement();
+//            rs=st.executeQuery(sql);
+//            while (rs.next()){
+//                for (int i = 0; i <7; i++) {
+//                    fila[i]=rs.getString(i+1);
+//                }
+//                modelo.addRow(fila);
+//            }
+//            tabla.setModel(modelo);
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "No se puede mostrar la tabla");
+//        }
+//        return null;
+//    }
 }
     
    

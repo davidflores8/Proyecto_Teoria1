@@ -81,7 +81,7 @@ public class VehiculoBO {
     
     public void listarEmpleado (JTable tabla) throws SQLException{
         Connection con =Conexion.getConnection();
-        vdao.listarEmpleado(con, tabla);
+     //   vdao.listarEmpleado(con, tabla);
         con.close();
     }
     

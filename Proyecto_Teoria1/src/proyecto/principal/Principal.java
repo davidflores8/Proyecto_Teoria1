@@ -15,7 +15,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import proyecto.bo.Planta_fabricacionBO;
 import proyecto.bo.VehiculoBO;
+import proyecto.entidades.Planta_fabricacion;
 import proyecto.entidades.Vehiculo;
 
 /**
@@ -130,6 +132,23 @@ public class Principal extends javax.swing.JFrame {
         vehi_trans1 = new javax.swing.JComboBox<>();
         vehi_carro1 = new javax.swing.JComboBox<>();
         lb_Fondo_C_empre5 = new javax.swing.JLabel();
+        V_Planta = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla_plantas = new javax.swing.JTable();
+        boton_agregar_planta = new javax.swing.JButton();
+        boton_modificar_planta = new javax.swing.JButton();
+        boton_eliminar_planta = new javax.swing.JButton();
+        boton_listar_planta = new javax.swing.JButton();
+        M_Planta = new javax.swing.JDialog();
+        planta_tipo1 = new javax.swing.JTextField();
+        planta_nombre1 = new javax.swing.JTextField();
+        planta_id1 = new javax.swing.JTextField();
+        Btn_crearplanta1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        id_compa24 = new javax.swing.JLabel();
+        id_compa25 = new javax.swing.JLabel();
+        id_compa26 = new javax.swing.JLabel();
+        lb_Fondo_C_empre6 = new javax.swing.JLabel();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
@@ -234,32 +253,32 @@ public class Principal extends javax.swing.JFrame {
         C_Compañia.getContentPane().add(lb_Fondo_C_empre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
 
         C_Planta.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        C_Planta.getContentPane().add(planta_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 120, -1));
-        C_Planta.getContentPane().add(planta_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 120, -1));
-        C_Planta.getContentPane().add(planta_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 120, -1));
+        C_Planta.getContentPane().add(planta_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 120, -1));
+        C_Planta.getContentPane().add(planta_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 120, -1));
+        C_Planta.getContentPane().add(planta_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 120, -1));
 
-        Btn_crearplanta.setText("Crear");
+        Btn_crearplanta.setText("CREAR");
         Btn_crearplanta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Btn_crearplantaMouseClicked(evt);
             }
         });
-        C_Planta.getContentPane().add(Btn_crearplanta, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
+        C_Planta.getContentPane().add(Btn_crearplanta, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, -1));
 
-        jLabel1.setText("CREACION DE PLANTAS ");
+        jLabel1.setText("CREAR PLANTA");
         C_Planta.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
 
         id_compa3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa3.setText("Id planta");
-        C_Planta.getContentPane().add(id_compa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, -1, -1));
+        C_Planta.getContentPane().add(id_compa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
 
         id_compa4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa4.setText("Nombre planta");
-        C_Planta.getContentPane().add(id_compa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
+        C_Planta.getContentPane().add(id_compa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
 
         id_compa5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa5.setText("tipo planta");
-        C_Planta.getContentPane().add(id_compa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
+        C_Planta.getContentPane().add(id_compa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, -1));
 
         lb_Fondo_C_empre1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         C_Planta.getContentPane().add(lb_Fondo_C_empre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
@@ -509,6 +528,117 @@ public class Principal extends javax.swing.JFrame {
         lb_Fondo_C_empre5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         M_Vehiculo.getContentPane().add(lb_Fondo_C_empre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 490, 560));
 
+        tabla_plantas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID_PLANTA", "TIPO_PLANTA", "NOMBRE"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tabla_plantas);
+
+        boton_agregar_planta.setText("Agregar");
+        boton_agregar_planta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_agregar_plantaMouseClicked(evt);
+            }
+        });
+
+        boton_modificar_planta.setText("Modificar");
+        boton_modificar_planta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_modificar_plantaMouseClicked(evt);
+            }
+        });
+
+        boton_eliminar_planta.setText("Eliminar");
+        boton_eliminar_planta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_eliminar_plantaMouseClicked(evt);
+            }
+        });
+
+        boton_listar_planta.setText("Listar");
+        boton_listar_planta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_listar_plantaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout V_PlantaLayout = new javax.swing.GroupLayout(V_Planta.getContentPane());
+        V_Planta.getContentPane().setLayout(V_PlantaLayout);
+        V_PlantaLayout.setHorizontalGroup(
+            V_PlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(V_PlantaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(V_PlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+                    .addGroup(V_PlantaLayout.createSequentialGroup()
+                        .addComponent(boton_agregar_planta)
+                        .addGap(18, 18, 18)
+                        .addComponent(boton_modificar_planta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_listar_planta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(boton_eliminar_planta)))
+                .addContainerGap())
+        );
+        V_PlantaLayout.setVerticalGroup(
+            V_PlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, V_PlantaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(V_PlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton_agregar_planta)
+                    .addComponent(boton_modificar_planta)
+                    .addComponent(boton_eliminar_planta)
+                    .addComponent(boton_listar_planta))
+                .addContainerGap())
+        );
+
+        M_Planta.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        M_Planta.getContentPane().add(planta_tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 120, -1));
+        M_Planta.getContentPane().add(planta_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 120, -1));
+
+        planta_id1.setEditable(false);
+        M_Planta.getContentPane().add(planta_id1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 120, -1));
+
+        Btn_crearplanta1.setText("GUARDAR CAMBIOS");
+        Btn_crearplanta1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_crearplanta1MouseClicked(evt);
+            }
+        });
+        M_Planta.getContentPane().add(Btn_crearplanta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, -1));
+
+        jLabel4.setText("MODIFICAR PLANTA");
+        M_Planta.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
+
+        id_compa24.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa24.setText("Id planta");
+        M_Planta.getContentPane().add(id_compa24, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
+
+        id_compa25.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa25.setText("Nombre planta");
+        M_Planta.getContentPane().add(id_compa25, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
+
+        id_compa26.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa26.setText("tipo planta");
+        M_Planta.getContentPane().add(id_compa26, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+
+        lb_Fondo_C_empre6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
+        M_Planta.getContentPane().add(lb_Fondo_C_empre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -586,41 +716,39 @@ public class Principal extends javax.swing.JFrame {
 
     private void Btn_crearplantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearplantaMouseClicked
         // creacion de plantas
-        int id=0;
+        String id="";
         String nombre = "", tipo = "";
-        boolean verificar=false;
         nombre=planta_nombre.getText();
         planta_nombre.setText("");
         tipo=planta_tipo.getText();
         planta_tipo.setText("");
+        id=planta_id.getText();
+        planta_id.setText("");
+        Planta_fabricacionBO pfbo= new Planta_fabricacionBO();
+        Planta_fabricacion pf=new Planta_fabricacion();
+        pf.setID_Planta(id);
+        pf.setNombre_planta(nombre);
+        pf.setTipo_planta(tipo);
         try {
-            //TRY CATCH PARA QUE AL INGRESAR CARACETEES NO SE QUIEBRE EL PROGRAMA
-            id = Integer.parseInt(planta_id.getText());
-            planta_id.setText("");
-            if (id > 0) {
-                verificar = true;
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(C_Planta, "en id se debe ingresar un valor numerico");
-            C_Planta.setVisible(false);
+            pfbo.agregarPlanta(pf);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-        if (verificar) {
-            JOptionPane.showMessageDialog(C_Planta, "se guardaron los datos de forma satisfactoria\nfalta llamar los triggers");
-            C_Planta.setVisible(false);
-            //EJECUTAR TRIGGER DE INSERTAR EN LA TABLA DE EMPRESAS
-        } else {
-            JOptionPane.showMessageDialog(C_Planta, "tiene algun problema a la hora de ingresar el nombre o la marca");
-            C_Planta.setVisible(false);
+        try {
+            pfbo.listarPlanta(tabla_plantas);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
-        
+        JOptionPane.showMessageDialog(this, "Planta creada exitosamente");
+        C_Planta.dispose();
     }//GEN-LAST:event_Btn_crearplantaMouseClicked
 
     private void Crear_PlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_PlantaMouseClicked
-        C_Planta.setModal(true);
-        C_Planta.pack();
-        C_Planta.setLocationRelativeTo(this);
-        C_Planta.setVisible(true);
+        V_Planta.setModal(true);
+        V_Planta.pack();
+        V_Planta.setLocationRelativeTo(this);
+        V_Planta.setVisible(true);
     }//GEN-LAST:event_Crear_PlantaMouseClicked
 
     private void Btn_crearproveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearproveedorMouseClicked
@@ -731,7 +859,6 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe seleciconar un elemento de la tabla para poder modifciarlo");
         }
         else{
-            System.out.println("esta bueno");
             DefaultTableModel modelo = (DefaultTableModel)tabla_vehiculos.getModel();
             String vin=String.valueOf(modelo.getValueAt(tabla_vehiculos.getSelectedRow(), 0));
             System.out.println("vin "+vin);
@@ -835,7 +962,6 @@ public class Principal extends javax.swing.JFrame {
         else{
             int i=JOptionPane.showConfirmDialog(null, "¿Desea eliminar este vehiculo?");
             if(i==0){
-                System.out.println("Si");
                 DefaultTableModel modelo = (DefaultTableModel)tabla_vehiculos.getModel();
                 String vin=String.valueOf(modelo.getValueAt(tabla_vehiculos.getSelectedRow(), 0));
                 System.out.println("vin "+vin);
@@ -854,6 +980,109 @@ public class Principal extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_boton_eliminar_vehiculoMouseClicked
+
+    private void boton_agregar_plantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_agregar_plantaMouseClicked
+        // TODO add your handling code here:
+        C_Planta.setModal(true);
+        C_Planta.pack();
+        C_Planta.setLocationRelativeTo(this);
+        C_Planta.setVisible(true);
+    }//GEN-LAST:event_boton_agregar_plantaMouseClicked
+
+    private void boton_modificar_plantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_modificar_plantaMouseClicked
+        // TODO add your handling code here:
+        if(tabla_plantas.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder modificarlo");
+        }
+        else{
+            DefaultTableModel modelo = (DefaultTableModel)tabla_plantas.getModel();
+            String id=String.valueOf(modelo.getValueAt(tabla_plantas.getSelectedRow(), 0));
+            String ID="'"+id+"'";
+            System.out.println("ID "+ID);
+            Planta_fabricacionBO pfbo=new Planta_fabricacionBO();
+            ArrayList<String> data=new ArrayList();
+            try {
+                data=pfbo.obtenerPlanta(ID);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            planta_id1.setText(data.get(0));
+            planta_tipo1.setText(data.get(1));
+            planta_nombre1.setText(data.get(2));
+            M_Planta.setModal(true);
+            M_Planta.pack();
+            M_Planta.setLocationRelativeTo(this);
+            M_Planta.setVisible(true);
+        }
+        
+       
+    }//GEN-LAST:event_boton_modificar_plantaMouseClicked
+
+    private void boton_eliminar_plantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_eliminar_plantaMouseClicked
+        // TODO add your handling code here:
+        if(tabla_plantas.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder eliminarlo");
+        }
+        else{
+            int i=JOptionPane.showConfirmDialog(null, "¿Desea eliminar esta planta?");
+            if(i==0){
+                DefaultTableModel modelo = (DefaultTableModel)tabla_plantas.getModel();
+                String id=String.valueOf(modelo.getValueAt(tabla_plantas.getSelectedRow(), 0));
+                String ID="'"+id+"'";
+                System.out.println("vin "+ID);
+                Planta_fabricacionBO pfbo= new Planta_fabricacionBO();
+                try {
+                    pfbo.eliminarPlanta(ID);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    pfbo.listarPlanta(tabla_plantas);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            
+        }
+    }//GEN-LAST:event_boton_eliminar_plantaMouseClicked
+
+    private void boton_listar_plantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_listar_plantaMouseClicked
+        // TODO add your handling code here:
+        Planta_fabricacionBO pfbo=new Planta_fabricacionBO();
+        try {
+            pfbo.listarPlanta(tabla_plantas);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_boton_listar_plantaMouseClicked
+
+    private void Btn_crearplanta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearplanta1MouseClicked
+        // TODO add your handling code here:
+        String id="", nombre="", tipo="";
+        id=planta_id1.getText();
+        nombre=planta_nombre1.getText();
+        tipo=planta_tipo1.getText();
+        planta_id1.setText("");
+        planta_nombre1.setText("");
+        planta_tipo1.setText("");
+        Planta_fabricacionBO pfbo=new Planta_fabricacionBO();
+        Planta_fabricacion pf=new Planta_fabricacion();
+        pf.setID_Planta(id);
+        pf.setNombre_planta(nombre);
+        pf.setTipo_planta(tipo);
+        String mensaje="";
+        try {
+                mensaje=pfbo.modificarPlanta(pf);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+        }
+        try {
+            pfbo.listarPlanta(tabla_plantas);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        M_Planta.dispose();
+    }//GEN-LAST:event_Btn_crearplanta1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -898,6 +1127,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Btn_crearEmpre;
     private javax.swing.JButton Btn_crearconse;
     private javax.swing.JButton Btn_crearplanta;
+    private javax.swing.JButton Btn_crearplanta1;
     private javax.swing.JButton Btn_crearproveedor;
     private javax.swing.JDialog C_Cliente;
     private javax.swing.JDialog C_Compañia;
@@ -915,14 +1145,20 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog Jd_Mcreacion;
     private javax.swing.JDialog Jd_Meliminacion;
     private javax.swing.JDialog Jd_Mmodificacion;
+    private javax.swing.JDialog M_Planta;
     private javax.swing.JDialog M_Vehiculo;
     private javax.swing.JTextField Proveedor_id;
     private javax.swing.JTextField Proveedor_nombre;
+    private javax.swing.JDialog V_Planta;
     private javax.swing.JDialog V_Vehiculo;
     private javax.swing.JTextField Vehi_motor;
+    private javax.swing.JButton boton_agregar_planta;
     private javax.swing.JButton boton_agregar_vehiculo;
+    private javax.swing.JButton boton_eliminar_planta;
     private javax.swing.JButton boton_eliminar_vehiculo;
+    private javax.swing.JButton boton_listar_planta;
     private javax.swing.JButton boton_listar_vehiculo;
+    private javax.swing.JButton boton_modificar_planta;
     private javax.swing.JButton boton_modificar_vehi;
     private javax.swing.JButton boton_modificar_vehiculo;
     private javax.swing.JTextField compa_marca;
@@ -946,6 +1182,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel id_compa21;
     private javax.swing.JLabel id_compa22;
     private javax.swing.JLabel id_compa23;
+    private javax.swing.JLabel id_compa24;
+    private javax.swing.JLabel id_compa25;
+    private javax.swing.JLabel id_compa26;
     private javax.swing.JLabel id_compa3;
     private javax.swing.JLabel id_compa4;
     private javax.swing.JLabel id_compa5;
@@ -956,18 +1195,25 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lb_Fondo_C_empre;
     private javax.swing.JLabel lb_Fondo_C_empre1;
     private javax.swing.JLabel lb_Fondo_C_empre2;
     private javax.swing.JLabel lb_Fondo_C_empre3;
     private javax.swing.JLabel lb_Fondo_C_empre4;
     private javax.swing.JLabel lb_Fondo_C_empre5;
+    private javax.swing.JLabel lb_Fondo_C_empre6;
     private javax.swing.JLabel lb_fondo1;
     private javax.swing.JLabel lb_fondocreacion;
     private javax.swing.JTextField planta_id;
+    private javax.swing.JTextField planta_id1;
     private javax.swing.JTextField planta_nombre;
+    private javax.swing.JTextField planta_nombre1;
     private javax.swing.JTextField planta_tipo;
+    private javax.swing.JTextField planta_tipo1;
+    private javax.swing.JTable tabla_plantas;
     private javax.swing.JTable tabla_vehiculos;
     private javax.swing.JComboBox<String> vehi_carro;
     private javax.swing.JComboBox<String> vehi_carro1;

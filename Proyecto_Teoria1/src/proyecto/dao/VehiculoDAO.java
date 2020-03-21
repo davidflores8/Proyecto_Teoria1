@@ -27,9 +27,7 @@ public class VehiculoDAO {
     
     public String agregarVehiculo (Connection con, Vehiculo v){
         PreparedStatement pst = null;
-        String sql = "INSERT INTO VEHICULO (VIN,TIPO_MOTOR,COLOR,TRANSMISION,TIPO_CARROCERIA, MODELO) "
-                + "VALUES (VEHICULO_SEQ.NEXTVAL,?,?,?,?,?)";
-        
+        String sql = "begin crear_Vehiculo(VEHICULO_SEQ.NEXTVAL,?,?,?,?,?); end;";
         try {
             pst =con.prepareStatement(sql);
             pst.setString(1, v.getTipo_motor());

@@ -14,25 +14,23 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import proyecto.entidades.Planta_fabricacion;
+import proyecto.entidades.Proveedor;
 
 /**
  *
  * @author David
  */
-public class Planta_fabricacionDAO {
-    
+public class ProveedorDAO {
     String mensaje="";
     
-     public String agregarPlanta (Connection con, Planta_fabricacion pf){
+    public String agregarProveedor(Connection con, Proveedor p){
         PreparedStatement pst = null;
-        String sql = "begin crear_Planta(?,?,?);end;";
+        String sql = "begin crearProveedor(?,?); end;";
         
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, pf.getID_Planta());
-            pst.setString(2, pf.getTipo_planta());
-            pst.setString(3, pf.getNombre_planta());
+            pst.setString(1, p.getID_proveedor());
+            pst.setString(2, p.getNombre_proveedor());
             mensaje="GUARDADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -44,16 +42,16 @@ public class Planta_fabricacionDAO {
         return mensaje;
     }
     
-    public String modificarPlanta (Connection con, Planta_fabricacion pf){
+    public String modificarProveedor(Connection con, Proveedor p){
         PreparedStatement pst = null;
-        String sql = "UPDATE PLANTA_FABRICACION SET TIPO_PLANTA = ?, NOMBRE_PLANTA = ? "
-                 + "WHERE ID_PLANTA = ?";
+        String sql = "UPDATE PROVEEDOR SET NOMBRE_PROVEEDOR = ? "
+                 + "WHERE ID_PROVEEDOR= ?";
         
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, pf.getTipo_planta());
-            pst.setString(2, pf.getNombre_planta());
-            pst.setString(3, pf.getID_Planta());
+            
+            pst.setString(2, p.getID_proveedor());
+            pst.setString(1, p.getNombre_proveedor());
             mensaje="MODIFICADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -66,9 +64,9 @@ public class Planta_fabricacionDAO {
         return mensaje;
     }
     
-    public String eliminarPlanta (Connection con, String ID){
+    public String eliminarProveedor(Connection con, String ID){
         PreparedStatement pst = null;
-        String sql = "DELETE FROM PLANTA_FABRICACION WHERE ID_PLANTA = "+ID;
+        String sql = "DELETE FROM PROVEEDOR WHERE ID_PROVEEDOR = "+ID;
         try {
             pst =con.prepareStatement(sql);
             System.out.println("Borro");
@@ -85,11 +83,11 @@ public class Planta_fabricacionDAO {
         return mensaje;
     }
     
-    public String listarPlanta (Connection con, JTable tabla){
+    public String listarProveedor(Connection con, JTable tabla){
        
         DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
-        String sql="SELECT * FROM PLANTA_FABRICACION ORDER BY ID_PLANTA";
-        String [] fila = new String [3];
+        String sql="SELECT * FROM PROVEEDOR ORDER BY ID_PROVEEDOR";
+        String [] fila = new String [2];
         Statement st=null;
         ResultSet rs=null;
         modelo.setRowCount(0);
@@ -97,7 +95,7 @@ public class Planta_fabricacionDAO {
             st=con.createStatement();
             rs=st.executeQuery(sql);
             while (rs.next()){
-                for (int i = 0; i <3; i++) {
+                for (int i = 0; i <2; i++) {
                     fila[i]=rs.getString(i+1);
                 }
                 modelo.addRow(fila);
@@ -110,16 +108,16 @@ public class Planta_fabricacionDAO {
         return null;
     }
     
-    public ArrayList obtenerPlanta(Connection con, String ID){
+    public ArrayList obtenerProveedor(Connection con, String ID){
         ArrayList <String> datos = new ArrayList();
-        String sql="SELECT * FROM PLANTA_FABRICACION WHERE ID_PLANTA = "+ID;
+        String sql="SELECT * FROM PROVEEDOR WHERE ID_PROVEEDOR = "+ID;
         Statement st=null;
         ResultSet rs=null;
         try {
             st=con.createStatement();
             rs=st.executeQuery(sql);
             while (rs.next()){
-                    for(int i=0; i<3; i++){
+                    for(int i=0; i<2; i++){
                         datos.add(rs.getString(i+1));
                     }
             }
@@ -130,6 +128,5 @@ public class Planta_fabricacionDAO {
         return datos;
         
     }
-    
     
 }

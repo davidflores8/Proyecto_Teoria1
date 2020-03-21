@@ -16,8 +16,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import proyecto.bo.Planta_fabricacionBO;
+import proyecto.bo.ProveedorBO;
 import proyecto.bo.VehiculoBO;
 import proyecto.entidades.Planta_fabricacion;
+import proyecto.entidades.Proveedor;
 import proyecto.entidades.Vehiculo;
 
 /**
@@ -149,6 +151,21 @@ public class Principal extends javax.swing.JFrame {
         id_compa25 = new javax.swing.JLabel();
         id_compa26 = new javax.swing.JLabel();
         lb_Fondo_C_empre6 = new javax.swing.JLabel();
+        V_Proveedor = new javax.swing.JDialog();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tabla_proveedores = new javax.swing.JTable();
+        boton_agregar_proveedor = new javax.swing.JButton();
+        boton_modificar_proveedor = new javax.swing.JButton();
+        boton_eliminar_proveedor = new javax.swing.JButton();
+        boton_listar_proveedor = new javax.swing.JButton();
+        M_Proveedor = new javax.swing.JDialog();
+        Proveedor_id1 = new javax.swing.JTextField();
+        Proveedor_nombre1 = new javax.swing.JTextField();
+        Btn_modificarproveedor = new javax.swing.JButton();
+        id_compa27 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        id_compa28 = new javax.swing.JLabel();
+        lb_Fondo_C_empre7 = new javax.swing.JLabel();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
@@ -284,8 +301,8 @@ public class Principal extends javax.swing.JFrame {
         C_Planta.getContentPane().add(lb_Fondo_C_empre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
 
         C_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        C_Proveedor.getContentPane().add(Proveedor_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 120, -1));
-        C_Proveedor.getContentPane().add(Proveedor_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 120, -1));
+        C_Proveedor.getContentPane().add(Proveedor_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 120, -1));
+        C_Proveedor.getContentPane().add(Proveedor_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 120, -1));
 
         Btn_crearproveedor.setText("Crear");
         Btn_crearproveedor.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -293,18 +310,18 @@ public class Principal extends javax.swing.JFrame {
                 Btn_crearproveedorMouseClicked(evt);
             }
         });
-        C_Proveedor.getContentPane().add(Btn_crearproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
+        C_Proveedor.getContentPane().add(Btn_crearproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
 
         id_compa6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa6.setText("Id proveedor");
-        C_Proveedor.getContentPane().add(id_compa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        C_Proveedor.getContentPane().add(id_compa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
 
         jLabel2.setText("CREACION DE PROVEEDOR");
         C_Proveedor.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
 
         id_compa7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa7.setText("Nombre proveedor");
-        C_Proveedor.getContentPane().add(id_compa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
+        C_Proveedor.getContentPane().add(id_compa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
 
         lb_Fondo_C_empre2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         C_Proveedor.getContentPane().add(lb_Fondo_C_empre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
@@ -639,6 +656,112 @@ public class Principal extends javax.swing.JFrame {
         lb_Fondo_C_empre6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         M_Planta.getContentPane().add(lb_Fondo_C_empre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
 
+        tabla_proveedores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID_PROVEEDOR", "NOMBRE_PROVEEDOR"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tabla_proveedores);
+
+        boton_agregar_proveedor.setText("Agregar");
+        boton_agregar_proveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_agregar_proveedorMouseClicked(evt);
+            }
+        });
+
+        boton_modificar_proveedor.setText("Modificar");
+        boton_modificar_proveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_modificar_proveedorMouseClicked(evt);
+            }
+        });
+
+        boton_eliminar_proveedor.setText("Eliminar");
+        boton_eliminar_proveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_eliminar_proveedorMouseClicked(evt);
+            }
+        });
+
+        boton_listar_proveedor.setText("Listar");
+        boton_listar_proveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_listar_proveedorMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout V_ProveedorLayout = new javax.swing.GroupLayout(V_Proveedor.getContentPane());
+        V_Proveedor.getContentPane().setLayout(V_ProveedorLayout);
+        V_ProveedorLayout.setHorizontalGroup(
+            V_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(V_ProveedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(V_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+                    .addGroup(V_ProveedorLayout.createSequentialGroup()
+                        .addComponent(boton_agregar_proveedor)
+                        .addGap(18, 18, 18)
+                        .addComponent(boton_modificar_proveedor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_listar_proveedor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(boton_eliminar_proveedor)))
+                .addContainerGap())
+        );
+        V_ProveedorLayout.setVerticalGroup(
+            V_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, V_ProveedorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(V_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton_agregar_proveedor)
+                    .addComponent(boton_modificar_proveedor)
+                    .addComponent(boton_eliminar_proveedor)
+                    .addComponent(boton_listar_proveedor))
+                .addContainerGap())
+        );
+
+        M_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Proveedor_id1.setEditable(false);
+        M_Proveedor.getContentPane().add(Proveedor_id1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 120, -1));
+        M_Proveedor.getContentPane().add(Proveedor_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 120, -1));
+
+        Btn_modificarproveedor.setText("GUARDAR CAMBIOS");
+        Btn_modificarproveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_modificarproveedorMouseClicked(evt);
+            }
+        });
+        M_Proveedor.getContentPane().add(Btn_modificarproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, -1, -1));
+
+        id_compa27.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa27.setText("Id proveedor");
+        M_Proveedor.getContentPane().add(id_compa27, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, -1, -1));
+
+        jLabel5.setText("MODIFICACION DE PROVEEDOR");
+        M_Proveedor.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
+
+        id_compa28.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa28.setText("Nombre proveedor");
+        M_Proveedor.getContentPane().add(id_compa28, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
+
+        lb_Fondo_C_empre7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
+        M_Proveedor.getContentPane().add(lb_Fondo_C_empre7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -757,6 +880,20 @@ public class Principal extends javax.swing.JFrame {
         Proveedor_nombre.setText("");
         idpro = Proveedor_id.getText();
         Proveedor_id.setText("");
+        Proveedor p=new Proveedor();
+        ProveedorBO pbo=new ProveedorBO();
+        p.setID_proveedor(idpro);
+        p.setNombre_proveedor(nombrepro);
+        try {
+            pbo.agregarProveedor(p);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            pbo.listarProveedor(tabla_proveedores);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
         JOptionPane.showMessageDialog(C_Proveedor, "se creo el proveedor");
         C_Proveedor.setVisible(false);
         //trigger de crear proveedor
@@ -764,10 +901,10 @@ public class Principal extends javax.swing.JFrame {
 
     private void Crear_proveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_proveedorMouseClicked
         // TODO add your handling code here:
-        C_Proveedor.setModal(true);
-        C_Proveedor.pack();
-        C_Proveedor.setLocationRelativeTo(this);
-        C_Proveedor.setVisible(true);
+        V_Proveedor.setModal(true);
+        V_Proveedor.pack();
+        V_Proveedor.setLocationRelativeTo(this);
+        V_Proveedor.setVisible(true);
     }//GEN-LAST:event_Crear_proveedorMouseClicked
 
     private void Crear_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_vehiculoMouseClicked
@@ -1084,6 +1221,102 @@ public class Principal extends javax.swing.JFrame {
         M_Planta.dispose();
     }//GEN-LAST:event_Btn_crearplanta1MouseClicked
 
+    private void boton_agregar_proveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_agregar_proveedorMouseClicked
+        // TODO add your handling code here:
+        C_Proveedor.setModal(true);
+        C_Proveedor.pack();
+        C_Proveedor.setLocationRelativeTo(this);
+        C_Proveedor.setVisible(true);
+    }//GEN-LAST:event_boton_agregar_proveedorMouseClicked
+
+    private void boton_modificar_proveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_modificar_proveedorMouseClicked
+        // TODO add your handling code here:
+        if(tabla_proveedores.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder modificarlo");
+        }
+        else{
+            DefaultTableModel modelo = (DefaultTableModel)tabla_proveedores.getModel();
+            String id=String.valueOf(modelo.getValueAt(tabla_proveedores.getSelectedRow(), 0));
+            String ID="'"+id+"'";
+            System.out.println("ID "+ID);
+            ProveedorBO pbo=new ProveedorBO();
+            ArrayList<String> data=new ArrayList();
+            try {
+                data=pbo.obtenerProveedor(ID);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            Proveedor_id1.setText(data.get(0));
+            Proveedor_nombre1.setText(data.get(1));
+            M_Proveedor.setModal(true);
+            M_Proveedor.pack();
+            M_Proveedor.setLocationRelativeTo(this);
+            M_Proveedor.setVisible(true);
+        }
+    }//GEN-LAST:event_boton_modificar_proveedorMouseClicked
+
+    private void boton_eliminar_proveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_eliminar_proveedorMouseClicked
+        // TODO add your handling code here:
+        if(tabla_proveedores.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder eliminarlo");
+        }
+        else{
+            int i=JOptionPane.showConfirmDialog(null, "¿Desea eliminar este proveedor?");
+            if(i==0){
+                DefaultTableModel modelo = (DefaultTableModel)tabla_proveedores.getModel();
+                String id=String.valueOf(modelo.getValueAt(tabla_proveedores.getSelectedRow(), 0));
+                String ID="'"+id+"'";
+                System.out.println("vin "+ID);
+                ProveedorBO pbo= new ProveedorBO();
+                try {
+                    pbo.eliminarProveedor(ID);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    pbo.listarProveedor(tabla_proveedores);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } 
+            }
+            
+        }
+    }//GEN-LAST:event_boton_eliminar_proveedorMouseClicked
+
+    private void boton_listar_proveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_listar_proveedorMouseClicked
+        // TODO add your handling code here:
+        ProveedorBO pbo=new ProveedorBO();
+        try {
+            pbo.listarProveedor(tabla_proveedores);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_boton_listar_proveedorMouseClicked
+
+    private void Btn_modificarproveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_modificarproveedorMouseClicked
+        // TODO add your handling code here:
+        String nombre="", id="";
+        nombre=Proveedor_nombre1.getText();
+        id=Proveedor_id1.getText();
+        Proveedor_nombre.setText("");
+        Proveedor_id.setText("");
+        ProveedorBO pbo=new ProveedorBO();
+        Proveedor p=new Proveedor();
+        p.setID_proveedor(id);
+        p.setNombre_proveedor(nombre);
+        try {
+            pbo.modificarProveedor(p);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            pbo.listarProveedor(tabla_proveedores);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        M_Proveedor.dispose();
+    }//GEN-LAST:event_Btn_modificarproveedorMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1129,6 +1362,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Btn_crearplanta;
     private javax.swing.JButton Btn_crearplanta1;
     private javax.swing.JButton Btn_crearproveedor;
+    private javax.swing.JButton Btn_modificarproveedor;
     private javax.swing.JDialog C_Cliente;
     private javax.swing.JDialog C_Compañia;
     private javax.swing.JDialog C_Conse;
@@ -1146,19 +1380,27 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog Jd_Meliminacion;
     private javax.swing.JDialog Jd_Mmodificacion;
     private javax.swing.JDialog M_Planta;
+    private javax.swing.JDialog M_Proveedor;
     private javax.swing.JDialog M_Vehiculo;
     private javax.swing.JTextField Proveedor_id;
+    private javax.swing.JTextField Proveedor_id1;
     private javax.swing.JTextField Proveedor_nombre;
+    private javax.swing.JTextField Proveedor_nombre1;
     private javax.swing.JDialog V_Planta;
+    private javax.swing.JDialog V_Proveedor;
     private javax.swing.JDialog V_Vehiculo;
     private javax.swing.JTextField Vehi_motor;
     private javax.swing.JButton boton_agregar_planta;
+    private javax.swing.JButton boton_agregar_proveedor;
     private javax.swing.JButton boton_agregar_vehiculo;
     private javax.swing.JButton boton_eliminar_planta;
+    private javax.swing.JButton boton_eliminar_proveedor;
     private javax.swing.JButton boton_eliminar_vehiculo;
     private javax.swing.JButton boton_listar_planta;
+    private javax.swing.JButton boton_listar_proveedor;
     private javax.swing.JButton boton_listar_vehiculo;
     private javax.swing.JButton boton_modificar_planta;
+    private javax.swing.JButton boton_modificar_proveedor;
     private javax.swing.JButton boton_modificar_vehi;
     private javax.swing.JButton boton_modificar_vehiculo;
     private javax.swing.JTextField compa_marca;
@@ -1185,6 +1427,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel id_compa24;
     private javax.swing.JLabel id_compa25;
     private javax.swing.JLabel id_compa26;
+    private javax.swing.JLabel id_compa27;
+    private javax.swing.JLabel id_compa28;
     private javax.swing.JLabel id_compa3;
     private javax.swing.JLabel id_compa4;
     private javax.swing.JLabel id_compa5;
@@ -1196,8 +1440,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lb_Fondo_C_empre;
     private javax.swing.JLabel lb_Fondo_C_empre1;
     private javax.swing.JLabel lb_Fondo_C_empre2;
@@ -1205,6 +1451,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lb_Fondo_C_empre4;
     private javax.swing.JLabel lb_Fondo_C_empre5;
     private javax.swing.JLabel lb_Fondo_C_empre6;
+    private javax.swing.JLabel lb_Fondo_C_empre7;
     private javax.swing.JLabel lb_fondo1;
     private javax.swing.JLabel lb_fondocreacion;
     private javax.swing.JTextField planta_id;
@@ -1214,6 +1461,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField planta_tipo;
     private javax.swing.JTextField planta_tipo1;
     private javax.swing.JTable tabla_plantas;
+    private javax.swing.JTable tabla_proveedores;
     private javax.swing.JTable tabla_vehiculos;
     private javax.swing.JComboBox<String> vehi_carro;
     private javax.swing.JComboBox<String> vehi_carro1;

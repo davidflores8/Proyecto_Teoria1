@@ -16,10 +16,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import proyecto.bo.CompaniaBO;
+import proyecto.bo.ConcesionarioBO;
 import proyecto.bo.Planta_fabricacionBO;
 import proyecto.bo.ProveedorBO;
 import proyecto.bo.VehiculoBO;
 import proyecto.entidades.Compania;
+import proyecto.entidades.Concesionario;
 import proyecto.entidades.Planta_fabricacion;
 import proyecto.entidades.Proveedor;
 import proyecto.entidades.Vehiculo;
@@ -87,13 +89,14 @@ public class Principal extends javax.swing.JFrame {
         id_compa7 = new javax.swing.JLabel();
         lb_Fondo_C_empre2 = new javax.swing.JLabel();
         C_Conse = new javax.swing.JDialog();
-        conse_rtn = new javax.swing.JTextField();
         conse_nombre = new javax.swing.JTextField();
+        conse_id = new javax.swing.JTextField();
         Btn_crearconse = new javax.swing.JButton();
         id_compa8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         id_compa9 = new javax.swing.JLabel();
-        lb_Fondo_C_empre3 = new javax.swing.JLabel();
+        id_compa30 = new javax.swing.JLabel();
+        conse_ubicacion = new javax.swing.JTextField();
         C_Cliente = new javax.swing.JDialog();
         C_vehiculo = new javax.swing.JDialog();
         id_compa10 = new javax.swing.JLabel();
@@ -180,6 +183,22 @@ public class Principal extends javax.swing.JFrame {
         compa_nombre1 = new javax.swing.JTextField();
         Btn_crearEmpre1 = new javax.swing.JButton();
         lb_Fondo_C_empre8 = new javax.swing.JLabel();
+        V_Concesionario = new javax.swing.JDialog();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tabla_concesionarios = new javax.swing.JTable();
+        boton_agregar_concesionario = new javax.swing.JButton();
+        boton_modificar_concesionario = new javax.swing.JButton();
+        boton_eliminar_concesionario = new javax.swing.JButton();
+        boton_listar_concesionario = new javax.swing.JButton();
+        M_Conse = new javax.swing.JDialog();
+        conse_nombre1 = new javax.swing.JTextField();
+        conse_id1 = new javax.swing.JTextField();
+        Btn_crearconse1 = new javax.swing.JButton();
+        id_compa31 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        id_compa32 = new javax.swing.JLabel();
+        id_compa33 = new javax.swing.JLabel();
+        conse_ubicacion1 = new javax.swing.JTextField();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
@@ -336,8 +355,8 @@ public class Principal extends javax.swing.JFrame {
         C_Proveedor.getContentPane().add(lb_Fondo_C_empre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
 
         C_Conse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        C_Conse.getContentPane().add(conse_rtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 120, -1));
-        C_Conse.getContentPane().add(conse_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 120, -1));
+        C_Conse.getContentPane().add(conse_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 120, -1));
+        C_Conse.getContentPane().add(conse_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 120, -1));
 
         Btn_crearconse.setText("Crear");
         Btn_crearconse.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -345,21 +364,23 @@ public class Principal extends javax.swing.JFrame {
                 Btn_crearconseMouseClicked(evt);
             }
         });
-        C_Conse.getContentPane().add(Btn_crearconse, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
+        C_Conse.getContentPane().add(Btn_crearconse, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, -1, -1));
 
         id_compa8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa8.setText("RTN");
-        C_Conse.getContentPane().add(id_compa8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        id_compa8.setText("ID Concesionario");
+        C_Conse.getContentPane().add(id_compa8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
 
         jLabel3.setText("CREACION DE CONCESIONARIO");
         C_Conse.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
 
         id_compa9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa9.setText("Nombre consecionario");
-        C_Conse.getContentPane().add(id_compa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
+        C_Conse.getContentPane().add(id_compa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
 
-        lb_Fondo_C_empre3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
-        C_Conse.getContentPane().add(lb_Fondo_C_empre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
+        id_compa30.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa30.setText("Ubicacion consecionario");
+        C_Conse.getContentPane().add(id_compa30, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        C_Conse.getContentPane().add(conse_ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 120, -1));
 
         javax.swing.GroupLayout C_ClienteLayout = new javax.swing.GroupLayout(C_Cliente.getContentPane());
         C_Cliente.getContentPane().setLayout(C_ClienteLayout);
@@ -874,6 +895,114 @@ public class Principal extends javax.swing.JFrame {
         lb_Fondo_C_empre8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         M_Compania.getContentPane().add(lb_Fondo_C_empre8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
 
+        tabla_concesionarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID_CONCESIONARIO", "NOMBRE_CONCESIONARIO", "UBICACION"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tabla_concesionarios);
+
+        boton_agregar_concesionario.setText("Agregar");
+        boton_agregar_concesionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_agregar_concesionarioMouseClicked(evt);
+            }
+        });
+
+        boton_modificar_concesionario.setText("Modificar");
+        boton_modificar_concesionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_modificar_concesionarioMouseClicked(evt);
+            }
+        });
+
+        boton_eliminar_concesionario.setText("Eliminar");
+        boton_eliminar_concesionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_eliminar_concesionarioMouseClicked(evt);
+            }
+        });
+
+        boton_listar_concesionario.setText("Listar");
+        boton_listar_concesionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_listar_concesionarioMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout V_ConcesionarioLayout = new javax.swing.GroupLayout(V_Concesionario.getContentPane());
+        V_Concesionario.getContentPane().setLayout(V_ConcesionarioLayout);
+        V_ConcesionarioLayout.setHorizontalGroup(
+            V_ConcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(V_ConcesionarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(V_ConcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+                    .addGroup(V_ConcesionarioLayout.createSequentialGroup()
+                        .addComponent(boton_agregar_concesionario)
+                        .addGap(18, 18, 18)
+                        .addComponent(boton_modificar_concesionario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_listar_concesionario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(boton_eliminar_concesionario)))
+                .addContainerGap())
+        );
+        V_ConcesionarioLayout.setVerticalGroup(
+            V_ConcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, V_ConcesionarioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(V_ConcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton_agregar_concesionario)
+                    .addComponent(boton_modificar_concesionario)
+                    .addComponent(boton_eliminar_concesionario)
+                    .addComponent(boton_listar_concesionario))
+                .addContainerGap())
+        );
+
+        M_Conse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        M_Conse.getContentPane().add(conse_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 120, -1));
+
+        conse_id1.setEditable(false);
+        M_Conse.getContentPane().add(conse_id1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 120, -1));
+
+        Btn_crearconse1.setText("GUARDAR CAMBIOS");
+        Btn_crearconse1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_crearconse1MouseClicked(evt);
+            }
+        });
+        M_Conse.getContentPane().add(Btn_crearconse1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, -1));
+
+        id_compa31.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa31.setText("ID Concesionario");
+        M_Conse.getContentPane().add(id_compa31, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
+
+        jLabel6.setText("MODIFICACION DE CONCESIONARIO");
+        M_Conse.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
+
+        id_compa32.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa32.setText("Nombre consecionario");
+        M_Conse.getContentPane().add(id_compa32, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
+
+        id_compa33.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa33.setText("Ubicacion consecionario");
+        M_Conse.getContentPane().add(id_compa33, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        M_Conse.getContentPane().add(conse_ubicacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 120, -1));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1021,14 +1150,31 @@ public class Principal extends javax.swing.JFrame {
 
     private void Btn_crearconseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearconseMouseClicked
         // TODO add your handling code here:
-        String nombre = "", rtn = "";
+        String nombre = "", id = "", ubicacion="";
+        id = conse_id.getText();
+        conse_id.setText("");
         nombre = conse_nombre.getText();
         conse_nombre.setText("");
-        rtn = conse_rtn.getText();
-        conse_rtn.setText("");
+        ubicacion=conse_ubicacion.getText();
+        conse_ubicacion.setText("");
+        ConcesionarioBO cbo=new ConcesionarioBO();
+        Concesionario c=new Concesionario();
+        c.setID_Concesionario(id);
+        c.setNombre_Concesionario(nombre);
+        c.setUbicacion_Concesionario(ubicacion);
+        try {
+            cbo.agregarConcesionario(c);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            cbo.listarConcesionario(tabla_concesionarios);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // poner trigger de insersion
-        JOptionPane.showMessageDialog(C_Conse, "se creo el consecionario");
-        C_Conse.setVisible(false);
+        JOptionPane.showMessageDialog(this, "El concesionario se ha agregado exitosamente");
+        C_Conse.dispose();
     }//GEN-LAST:event_Btn_crearconseMouseClicked
 
     private void Btn_creaVehiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_creaVehiMouseClicked
@@ -1081,10 +1227,10 @@ public class Principal extends javax.swing.JFrame {
     
     private void Crear_conseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_conseMouseClicked
         // TODO add your handling code here:
-        C_Conse.setModal(true);
-        C_Conse.pack();
-        C_Conse.setLocationRelativeTo(this);
-        C_Conse.setVisible(true);
+        V_Concesionario.setModal(true);
+        V_Concesionario.pack();
+        V_Concesionario.setLocationRelativeTo(this);
+        V_Concesionario.setVisible(true);
     }//GEN-LAST:event_Crear_conseMouseClicked
 
     private void boton_agregar_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_agregar_vehiculoMouseClicked
@@ -1522,6 +1668,108 @@ public class Principal extends javax.swing.JFrame {
         M_Compania.dispose();
     }//GEN-LAST:event_Btn_crearEmpre1MouseClicked
 
+    private void boton_agregar_concesionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_agregar_concesionarioMouseClicked
+        // TODO add your handling code here:
+        C_Conse.setModal(true);
+        C_Conse.pack();
+        C_Conse.setLocationRelativeTo(this);
+        C_Conse.setVisible(true);
+    }//GEN-LAST:event_boton_agregar_concesionarioMouseClicked
+
+    private void boton_modificar_concesionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_modificar_concesionarioMouseClicked
+        // TODO add your handling code here:
+        if(tabla_concesionarios.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder modificarlo");
+        }
+        else{
+            DefaultTableModel modelo = (DefaultTableModel)tabla_concesionarios.getModel();
+            String id=String.valueOf(modelo.getValueAt(tabla_concesionarios.getSelectedRow(), 0));
+            String ID="'"+id+"'";
+            System.out.println("ID "+ID);
+            ConcesionarioBO cbo=new ConcesionarioBO();
+            ArrayList<String> data=new ArrayList();
+            try {
+                data=cbo.obtenerConcesionario(ID);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            conse_id1.setText(data.get(0));
+            conse_nombre1.setText(data.get(1));
+            conse_ubicacion1.setText(data.get(2));
+            M_Conse.setModal(true);
+            M_Conse.pack();
+            M_Conse.setLocationRelativeTo(this);
+            M_Conse.setVisible(true);
+        }
+    }//GEN-LAST:event_boton_modificar_concesionarioMouseClicked
+
+    private void boton_eliminar_concesionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_eliminar_concesionarioMouseClicked
+        // TODO add your handling code here:
+        if(tabla_concesionarios.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder eliminarlo");
+        }
+        else{
+            int i=JOptionPane.showConfirmDialog(null, "¿Desea eliminar este concesionario?");
+            if(i==0){
+                DefaultTableModel modelo = (DefaultTableModel)tabla_concesionarios.getModel();
+                String id=String.valueOf(modelo.getValueAt(tabla_concesionarios.getSelectedRow(), 0));
+                String ID="'"+id+"'";
+                System.out.println("vin "+ID);
+                ConcesionarioBO cbo= new ConcesionarioBO();
+                try {
+                    cbo.eliminarConcesionario(ID);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    cbo.listarConcesionario(tabla_concesionarios);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } 
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Se ha borrado el concesionario exitosamente");
+    }//GEN-LAST:event_boton_eliminar_concesionarioMouseClicked
+
+    private void boton_listar_concesionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_listar_concesionarioMouseClicked
+        // TODO add your handling code here:
+        ConcesionarioBO cbo=new ConcesionarioBO();
+        try {
+            cbo.listarConcesionario(tabla_concesionarios);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_boton_listar_concesionarioMouseClicked
+
+    private void Btn_crearconse1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearconse1MouseClicked
+        // TODO add your handling code here:
+        String id="", nombre="", ubicacion="";
+        id=conse_id1.getText();
+        nombre=conse_nombre1.getText();
+        ubicacion=conse_ubicacion1.getText();
+        conse_ubicacion1.setText("");
+        Compa_id1.setText("");
+        compa_nombre1.setText("");
+        ConcesionarioBO cbo=new ConcesionarioBO();
+        Concesionario c=new Concesionario();
+        c.setID_Concesionario(id);
+        c.setNombre_Concesionario(nombre);
+        c.setUbicacion_Concesionario(ubicacion);
+        String mensaje="";
+        try {
+                mensaje=cbo.modificarConcesionario(c);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+        }
+        try {
+            cbo.listarConcesionario(tabla_concesionarios);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(this, "Cambios guardados exitosamente");
+        M_Conse.dispose();
+    }//GEN-LAST:event_Btn_crearconse1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1565,6 +1813,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Btn_crearEmpre;
     private javax.swing.JButton Btn_crearEmpre1;
     private javax.swing.JButton Btn_crearconse;
+    private javax.swing.JButton Btn_crearconse1;
     private javax.swing.JButton Btn_crearplanta;
     private javax.swing.JButton Btn_crearplanta1;
     private javax.swing.JButton Btn_crearproveedor;
@@ -1587,6 +1836,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog Jd_Meliminacion;
     private javax.swing.JDialog Jd_Mmodificacion;
     private javax.swing.JDialog M_Compania;
+    private javax.swing.JDialog M_Conse;
     private javax.swing.JDialog M_Planta;
     private javax.swing.JDialog M_Proveedor;
     private javax.swing.JDialog M_Vehiculo;
@@ -1595,31 +1845,40 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField Proveedor_nombre;
     private javax.swing.JTextField Proveedor_nombre1;
     private javax.swing.JDialog V_Compania;
+    private javax.swing.JDialog V_Concesionario;
     private javax.swing.JDialog V_Planta;
     private javax.swing.JDialog V_Proveedor;
     private javax.swing.JDialog V_Vehiculo;
     private javax.swing.JTextField Vehi_motor;
     private javax.swing.JButton boton_agregar_companias;
+    private javax.swing.JButton boton_agregar_concesionario;
     private javax.swing.JButton boton_agregar_planta;
     private javax.swing.JButton boton_agregar_proveedor;
     private javax.swing.JButton boton_agregar_vehiculo;
     private javax.swing.JButton boton_eliminar_companias;
+    private javax.swing.JButton boton_eliminar_concesionario;
     private javax.swing.JButton boton_eliminar_planta;
     private javax.swing.JButton boton_eliminar_proveedor;
     private javax.swing.JButton boton_eliminar_vehiculo;
     private javax.swing.JButton boton_listar_companias;
+    private javax.swing.JButton boton_listar_concesionario;
     private javax.swing.JButton boton_listar_planta;
     private javax.swing.JButton boton_listar_proveedor;
     private javax.swing.JButton boton_listar_vehiculo;
     private javax.swing.JButton boton_modificar_companias;
+    private javax.swing.JButton boton_modificar_concesionario;
     private javax.swing.JButton boton_modificar_planta;
     private javax.swing.JButton boton_modificar_proveedor;
     private javax.swing.JButton boton_modificar_vehi;
     private javax.swing.JButton boton_modificar_vehiculo;
     private javax.swing.JTextField compa_nombre;
     private javax.swing.JTextField compa_nombre1;
+    private javax.swing.JTextField conse_id;
+    private javax.swing.JTextField conse_id1;
     private javax.swing.JTextField conse_nombre;
-    private javax.swing.JTextField conse_rtn;
+    private javax.swing.JTextField conse_nombre1;
+    private javax.swing.JTextField conse_ubicacion;
+    private javax.swing.JTextField conse_ubicacion1;
     private javax.swing.JLabel id_compa;
     private javax.swing.JLabel id_compa1;
     private javax.swing.JLabel id_compa10;
@@ -1644,6 +1903,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel id_compa28;
     private javax.swing.JLabel id_compa29;
     private javax.swing.JLabel id_compa3;
+    private javax.swing.JLabel id_compa30;
+    private javax.swing.JLabel id_compa31;
+    private javax.swing.JLabel id_compa32;
+    private javax.swing.JLabel id_compa33;
     private javax.swing.JLabel id_compa4;
     private javax.swing.JLabel id_compa5;
     private javax.swing.JLabel id_compa6;
@@ -1655,14 +1918,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel lb_Fondo_C_empre;
     private javax.swing.JLabel lb_Fondo_C_empre1;
     private javax.swing.JLabel lb_Fondo_C_empre2;
-    private javax.swing.JLabel lb_Fondo_C_empre3;
     private javax.swing.JLabel lb_Fondo_C_empre4;
     private javax.swing.JLabel lb_Fondo_C_empre5;
     private javax.swing.JLabel lb_Fondo_C_empre6;
@@ -1677,6 +1941,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField planta_tipo;
     private javax.swing.JTextField planta_tipo1;
     private javax.swing.JTable tabla_companias;
+    private javax.swing.JTable tabla_concesionarios;
     private javax.swing.JTable tabla_plantas;
     private javax.swing.JTable tabla_proveedores;
     private javax.swing.JTable tabla_vehiculos;

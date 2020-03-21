@@ -15,9 +15,11 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import proyecto.bo.CompaniaBO;
 import proyecto.bo.Planta_fabricacionBO;
 import proyecto.bo.ProveedorBO;
 import proyecto.bo.VehiculoBO;
+import proyecto.entidades.Compania;
 import proyecto.entidades.Planta_fabricacion;
 import proyecto.entidades.Proveedor;
 import proyecto.entidades.Vehiculo;
@@ -59,11 +61,9 @@ public class Principal extends javax.swing.JFrame {
         lb_fondocreacion = new javax.swing.JLabel();
         Jd_Mmodificacion = new javax.swing.JDialog();
         Jd_Meliminacion = new javax.swing.JDialog();
-        C_Compañia = new javax.swing.JDialog();
+        C_Compania = new javax.swing.JDialog();
         id_compa = new javax.swing.JLabel();
         id_compa2 = new javax.swing.JLabel();
-        id_compa1 = new javax.swing.JLabel();
-        compa_marca = new javax.swing.JTextField();
         Compa_id = new javax.swing.JTextField();
         compa_nombre = new javax.swing.JTextField();
         Btn_crearEmpre = new javax.swing.JButton();
@@ -166,6 +166,20 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         id_compa28 = new javax.swing.JLabel();
         lb_Fondo_C_empre7 = new javax.swing.JLabel();
+        V_Compania = new javax.swing.JDialog();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tabla_companias = new javax.swing.JTable();
+        boton_agregar_companias = new javax.swing.JButton();
+        boton_modificar_companias = new javax.swing.JButton();
+        boton_eliminar_companias = new javax.swing.JButton();
+        boton_listar_companias = new javax.swing.JButton();
+        M_Compania = new javax.swing.JDialog();
+        id_compa1 = new javax.swing.JLabel();
+        id_compa29 = new javax.swing.JLabel();
+        Compa_id1 = new javax.swing.JTextField();
+        compa_nombre1 = new javax.swing.JTextField();
+        Btn_crearEmpre1 = new javax.swing.JButton();
+        lb_Fondo_C_empre8 = new javax.swing.JLabel();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
@@ -241,22 +255,17 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        C_Compañia.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        C_Compania.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         id_compa.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa.setText("Id Compañia");
-        C_Compañia.getContentPane().add(id_compa, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, -1, -1));
+        C_Compania.getContentPane().add(id_compa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
 
         id_compa2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa2.setText("Nombre compañia");
-        C_Compañia.getContentPane().add(id_compa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
-
-        id_compa1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa1.setText("Marca");
-        C_Compañia.getContentPane().add(id_compa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
-        C_Compañia.getContentPane().add(compa_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 120, -1));
-        C_Compañia.getContentPane().add(Compa_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 120, -1));
-        C_Compañia.getContentPane().add(compa_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 120, -1));
+        C_Compania.getContentPane().add(id_compa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
+        C_Compania.getContentPane().add(Compa_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 120, -1));
+        C_Compania.getContentPane().add(compa_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 120, -1));
 
         Btn_crearEmpre.setText("Crear");
         Btn_crearEmpre.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -264,10 +273,10 @@ public class Principal extends javax.swing.JFrame {
                 Btn_crearEmpreMouseClicked(evt);
             }
         });
-        C_Compañia.getContentPane().add(Btn_crearEmpre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
+        C_Compania.getContentPane().add(Btn_crearEmpre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, -1, -1));
 
         lb_Fondo_C_empre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
-        C_Compañia.getContentPane().add(lb_Fondo_C_empre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
+        C_Compania.getContentPane().add(lb_Fondo_C_empre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
 
         C_Planta.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         C_Planta.getContentPane().add(planta_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 120, -1));
@@ -762,6 +771,109 @@ public class Principal extends javax.swing.JFrame {
         lb_Fondo_C_empre7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         M_Proveedor.getContentPane().add(lb_Fondo_C_empre7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
 
+        tabla_companias.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID_COMPANIA", "NOMBRE_COMPANIA"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tabla_companias);
+
+        boton_agregar_companias.setText("Agregar");
+        boton_agregar_companias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_agregar_companiasMouseClicked(evt);
+            }
+        });
+
+        boton_modificar_companias.setText("Modificar");
+        boton_modificar_companias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_modificar_companiasMouseClicked(evt);
+            }
+        });
+
+        boton_eliminar_companias.setText("Eliminar");
+        boton_eliminar_companias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_eliminar_companiasMouseClicked(evt);
+            }
+        });
+
+        boton_listar_companias.setText("Listar");
+        boton_listar_companias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_listar_companiasMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout V_CompaniaLayout = new javax.swing.GroupLayout(V_Compania.getContentPane());
+        V_Compania.getContentPane().setLayout(V_CompaniaLayout);
+        V_CompaniaLayout.setHorizontalGroup(
+            V_CompaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(V_CompaniaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(V_CompaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+                    .addGroup(V_CompaniaLayout.createSequentialGroup()
+                        .addComponent(boton_agregar_companias)
+                        .addGap(18, 18, 18)
+                        .addComponent(boton_modificar_companias)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_listar_companias)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(boton_eliminar_companias)))
+                .addContainerGap())
+        );
+        V_CompaniaLayout.setVerticalGroup(
+            V_CompaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, V_CompaniaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(V_CompaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton_agregar_companias)
+                    .addComponent(boton_modificar_companias)
+                    .addComponent(boton_eliminar_companias)
+                    .addComponent(boton_listar_companias))
+                .addContainerGap())
+        );
+
+        M_Compania.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        id_compa1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa1.setText("Id Compañia");
+        M_Compania.getContentPane().add(id_compa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
+
+        id_compa29.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa29.setText("Nombre compañia");
+        M_Compania.getContentPane().add(id_compa29, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
+
+        Compa_id1.setEditable(false);
+        M_Compania.getContentPane().add(Compa_id1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 120, -1));
+        M_Compania.getContentPane().add(compa_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 120, -1));
+
+        Btn_crearEmpre1.setText("GUARDAR CAMBIOS");
+        Btn_crearEmpre1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_crearEmpre1MouseClicked(evt);
+            }
+        });
+        M_Compania.getContentPane().add(Btn_crearEmpre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, -1, -1));
+
+        lb_Fondo_C_empre8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
+        M_Compania.getContentPane().add(lb_Fondo_C_empre8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -797,44 +909,37 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_Bt_Menu_CreacionMouseClicked
 
     private void Crear_compaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_compaMouseClicked
-        C_Compañia.setModal(true);
-        C_Compañia.pack();
-        C_Compañia.setLocationRelativeTo(this);
-        C_Compañia.setVisible(true);
+        V_Compania.setModal(true);
+        V_Compania.pack();
+        V_Compania.setLocationRelativeTo(this);
+        V_Compania.setVisible(true);
     }//GEN-LAST:event_Crear_compaMouseClicked
 
     private void Btn_crearEmpreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearEmpreMouseClicked
         // creacion de companias:  id compa nombre compa y marca
         String Nombre_com = "";
-        int id_compa = 0;
-        String Marca_compa = "";
+        String id_compa= "";
         boolean verificar = false;
-
         Nombre_com = compa_nombre.getText();
         compa_nombre.setText("");
-        Marca_compa = compa_marca.getText();
-        compa_marca.setText("");
+        id_compa=Compa_id.getText();
+        Compa_id.setText("");
+        Compania c=new Compania();
+        CompaniaBO cbo=new CompaniaBO();
+        c.setID_Compania(id_compa);
+        c.setNombre_compania(Nombre_com);
         try {
-            //TRY CATCH PARA QUE AL INGRESAR CARACETEES NO SE QUIEBRE EL PROGRAMA
-            id_compa = Integer.parseInt(Compa_id.getText());
-            Compa_id.setText("");
-            if (id_compa > 0 && Marca_compa.length() > 0 && Nombre_com.length() > 0) {
-                verificar = true;
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(C_Compañia, "en id se debe ingresar un valor numerico");
-            C_Compañia.setVisible(false);
+            cbo.agregarCompania(c);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-        if (verificar) {
-            JOptionPane.showMessageDialog(C_Compañia, "se guardaron los datos de forma satisfactoria\nfalta llamar los triggers");
-            C_Compañia.setVisible(false);
-            //EJECUTAR TRIGGER DE INSERTAR EN LA TABLA DE EMPRESAS
-        } else {
-            JOptionPane.showMessageDialog(C_Compañia, "tiene algun problema a la hora de ingresar el nombre o la marca");
-            C_Compañia.setVisible(false);
+        try {
+            cbo.listarCompania(tabla_companias);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-
+        JOptionPane.showMessageDialog(this, "Compañia agregada exitosamente");
+        C_Compania.dispose();
     }//GEN-LAST:event_Btn_crearEmpreMouseClicked
 
     private void Btn_crearplantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearplantaMouseClicked
@@ -1317,6 +1422,106 @@ public class Principal extends javax.swing.JFrame {
         M_Proveedor.dispose();
     }//GEN-LAST:event_Btn_modificarproveedorMouseClicked
 
+    private void boton_agregar_companiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_agregar_companiasMouseClicked
+        // TODO add your handling code here:
+        C_Compania.setModal(true);
+        C_Compania.pack();
+        C_Compania.setLocationRelativeTo(this);
+        C_Compania.setVisible(true);
+    }//GEN-LAST:event_boton_agregar_companiasMouseClicked
+
+    private void boton_modificar_companiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_modificar_companiasMouseClicked
+        // TODO add your handling code here:
+       if(tabla_companias.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder modificarlo");
+        }
+        else{
+            DefaultTableModel modelo = (DefaultTableModel)tabla_companias.getModel();
+            String id=String.valueOf(modelo.getValueAt(tabla_companias.getSelectedRow(), 0));
+            String ID="'"+id+"'";
+            System.out.println("ID "+ID);
+            CompaniaBO cbo=new CompaniaBO();
+            ArrayList<String> data=new ArrayList();
+            try {
+                data=cbo.obtenerCompania(ID);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            Compa_id1.setText(data.get(0));
+            compa_nombre1.setText(data.get(1));
+            M_Compania.setModal(true);
+            M_Compania.pack();
+            M_Compania.setLocationRelativeTo(this);
+            M_Compania.setVisible(true);
+        }
+        
+        
+    }//GEN-LAST:event_boton_modificar_companiasMouseClicked
+
+    private void boton_eliminar_companiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_eliminar_companiasMouseClicked
+        // TODO add your handling code here:
+        if(tabla_companias.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder eliminarlo");
+        }
+        else{
+            int i=JOptionPane.showConfirmDialog(null, "¿Desea eliminar esta compania?");
+            if(i==0){
+                DefaultTableModel modelo = (DefaultTableModel)tabla_companias.getModel();
+                String id=String.valueOf(modelo.getValueAt(tabla_companias.getSelectedRow(), 0));
+                String ID="'"+id+"'";
+                System.out.println("vin "+ID);
+                CompaniaBO cbo= new CompaniaBO();
+                try {
+                    cbo.eliminarCompania(ID);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    cbo.listarCompania(tabla_companias);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } 
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Se ha borrado la compania exitosamente");
+    }//GEN-LAST:event_boton_eliminar_companiasMouseClicked
+
+    private void boton_listar_companiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_listar_companiasMouseClicked
+        // TODO add your handling code here:
+        CompaniaBO cbo=new CompaniaBO();
+        try {
+            cbo.listarCompania(tabla_companias);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_boton_listar_companiasMouseClicked
+
+    private void Btn_crearEmpre1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearEmpre1MouseClicked
+        // TODO add your handling code here:
+        String id="", nombre="";
+        id=Compa_id1.getText();
+        nombre=compa_nombre1.getText();
+        Compa_id1.setText("");
+        compa_nombre1.setText("");
+        CompaniaBO cbo=new CompaniaBO();
+        Compania c=new Compania();
+        c.setID_Compania(id);
+        c.setNombre_compania(nombre);
+        String mensaje="";
+        try {
+                mensaje=cbo.modificarCompania(c);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+        }
+        try {
+            cbo.listarCompania(tabla_companias);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(this, "Cambios guardados exitosamente");
+        M_Compania.dispose();
+    }//GEN-LAST:event_Btn_crearEmpre1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1358,18 +1563,20 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Bt_Menu_Modificar;
     private javax.swing.JButton Btn_creaVehi;
     private javax.swing.JButton Btn_crearEmpre;
+    private javax.swing.JButton Btn_crearEmpre1;
     private javax.swing.JButton Btn_crearconse;
     private javax.swing.JButton Btn_crearplanta;
     private javax.swing.JButton Btn_crearplanta1;
     private javax.swing.JButton Btn_crearproveedor;
     private javax.swing.JButton Btn_modificarproveedor;
     private javax.swing.JDialog C_Cliente;
-    private javax.swing.JDialog C_Compañia;
+    private javax.swing.JDialog C_Compania;
     private javax.swing.JDialog C_Conse;
     private javax.swing.JDialog C_Planta;
     private javax.swing.JDialog C_Proveedor;
     private javax.swing.JDialog C_vehiculo;
     private javax.swing.JTextField Compa_id;
+    private javax.swing.JTextField Compa_id1;
     private javax.swing.JButton Crear_Planta;
     private javax.swing.JButton Crear_cliente;
     private javax.swing.JButton Crear_compa;
@@ -1379,6 +1586,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog Jd_Mcreacion;
     private javax.swing.JDialog Jd_Meliminacion;
     private javax.swing.JDialog Jd_Mmodificacion;
+    private javax.swing.JDialog M_Compania;
     private javax.swing.JDialog M_Planta;
     private javax.swing.JDialog M_Proveedor;
     private javax.swing.JDialog M_Vehiculo;
@@ -1386,25 +1594,30 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField Proveedor_id1;
     private javax.swing.JTextField Proveedor_nombre;
     private javax.swing.JTextField Proveedor_nombre1;
+    private javax.swing.JDialog V_Compania;
     private javax.swing.JDialog V_Planta;
     private javax.swing.JDialog V_Proveedor;
     private javax.swing.JDialog V_Vehiculo;
     private javax.swing.JTextField Vehi_motor;
+    private javax.swing.JButton boton_agregar_companias;
     private javax.swing.JButton boton_agregar_planta;
     private javax.swing.JButton boton_agregar_proveedor;
     private javax.swing.JButton boton_agregar_vehiculo;
+    private javax.swing.JButton boton_eliminar_companias;
     private javax.swing.JButton boton_eliminar_planta;
     private javax.swing.JButton boton_eliminar_proveedor;
     private javax.swing.JButton boton_eliminar_vehiculo;
+    private javax.swing.JButton boton_listar_companias;
     private javax.swing.JButton boton_listar_planta;
     private javax.swing.JButton boton_listar_proveedor;
     private javax.swing.JButton boton_listar_vehiculo;
+    private javax.swing.JButton boton_modificar_companias;
     private javax.swing.JButton boton_modificar_planta;
     private javax.swing.JButton boton_modificar_proveedor;
     private javax.swing.JButton boton_modificar_vehi;
     private javax.swing.JButton boton_modificar_vehiculo;
-    private javax.swing.JTextField compa_marca;
     private javax.swing.JTextField compa_nombre;
+    private javax.swing.JTextField compa_nombre1;
     private javax.swing.JTextField conse_nombre;
     private javax.swing.JTextField conse_rtn;
     private javax.swing.JLabel id_compa;
@@ -1429,6 +1642,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel id_compa26;
     private javax.swing.JLabel id_compa27;
     private javax.swing.JLabel id_compa28;
+    private javax.swing.JLabel id_compa29;
     private javax.swing.JLabel id_compa3;
     private javax.swing.JLabel id_compa4;
     private javax.swing.JLabel id_compa5;
@@ -1444,6 +1658,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lb_Fondo_C_empre;
     private javax.swing.JLabel lb_Fondo_C_empre1;
     private javax.swing.JLabel lb_Fondo_C_empre2;
@@ -1452,6 +1667,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lb_Fondo_C_empre5;
     private javax.swing.JLabel lb_Fondo_C_empre6;
     private javax.swing.JLabel lb_Fondo_C_empre7;
+    private javax.swing.JLabel lb_Fondo_C_empre8;
     private javax.swing.JLabel lb_fondo1;
     private javax.swing.JLabel lb_fondocreacion;
     private javax.swing.JTextField planta_id;
@@ -1460,6 +1676,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField planta_nombre1;
     private javax.swing.JTextField planta_tipo;
     private javax.swing.JTextField planta_tipo1;
+    private javax.swing.JTable tabla_companias;
     private javax.swing.JTable tabla_plantas;
     private javax.swing.JTable tabla_proveedores;
     private javax.swing.JTable tabla_vehiculos;

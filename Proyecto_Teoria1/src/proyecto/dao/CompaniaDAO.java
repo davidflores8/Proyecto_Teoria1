@@ -14,23 +14,24 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import proyecto.entidades.Proveedor;
+import proyecto.entidades.Compania;
 
 /**
  *
  * @author David
  */
-public class ProveedorDAO {
-    String mensaje="";
+public class CompaniaDAO {
     
-    public String agregarProveedor(Connection con, Proveedor p){
+     String mensaje="";
+    
+    public String agregarCompania(Connection con, Compania c){
         PreparedStatement pst = null;
-        String sql = "begin crear_Proveedor(?,?); end;";
+        String sql = "begin crear_Compania(?,?); end;";
         
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, p.getID_proveedor());
-            pst.setString(2, p.getNombre_proveedor());
+            pst.setString(1, c.getID_Compania());
+            pst.setString(2, c.getNombre_compania());
             mensaje="GUARDADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -42,16 +43,15 @@ public class ProveedorDAO {
         return mensaje;
     }
     
-    public String modificarProveedor(Connection con, Proveedor p){
+    public String modificarCompania(Connection con, Compania c){
         PreparedStatement pst = null;
-        String sql = "UPDATE PROVEEDOR SET NOMBRE_PROVEEDOR = ? "
-                 + "WHERE ID_PROVEEDOR= ?";
+        String sql = "UPDATE COMPANIA SET NOMBRE_COMPANIA = ? "
+                 + "WHERE ID_COMPANIA = ?";
         
         try {
             pst =con.prepareStatement(sql);
-            
-            pst.setString(2, p.getID_proveedor());
-            pst.setString(1, p.getNombre_proveedor());
+            pst.setString(1, c.getNombre_compania());
+            pst.setString(2, c.getID_Compania());
             mensaje="MODIFICADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -64,9 +64,9 @@ public class ProveedorDAO {
         return mensaje;
     }
     
-    public String eliminarProveedor(Connection con, String ID){
+    public String eliminarCompania(Connection con, String ID){
         PreparedStatement pst = null;
-        String sql = "begin Eliminar_Proveedor("+ID+");end;";
+        String sql = "begin Eliminar_compania("+ID+");end;";
         try {
             pst =con.prepareStatement(sql);
             System.out.println("Borro");
@@ -83,10 +83,10 @@ public class ProveedorDAO {
         return mensaje;
     }
     
-    public String listarProveedor(Connection con, JTable tabla){
+    public String listarCompania(Connection con, JTable tabla){
        
         DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
-        String sql="SELECT * FROM PROVEEDOR ORDER BY ID_PROVEEDOR";
+        String sql="SELECT * FROM COMPANIA ORDER BY ID_COMPANIA";
         String [] fila = new String [2];
         Statement st=null;
         ResultSet rs=null;
@@ -108,9 +108,9 @@ public class ProveedorDAO {
         return null;
     }
     
-    public ArrayList obtenerProveedor(Connection con, String ID){
+    public ArrayList obtenerCompania(Connection con, String ID){
         ArrayList <String> datos = new ArrayList();
-        String sql="SELECT * FROM PROVEEDOR WHERE ID_PROVEEDOR = "+ID;
+        String sql="SELECT * FROM COMPANIA WHERE ID_COMPANIA = "+ID;
         Statement st=null;
         ResultSet rs=null;
         try {

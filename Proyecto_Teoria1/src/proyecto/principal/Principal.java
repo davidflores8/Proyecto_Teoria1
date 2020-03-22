@@ -17,11 +17,13 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import proyecto.bo.CompaniaBO;
 import proyecto.bo.ConcesionarioBO;
+import proyecto.bo.EmpresaBO;
 import proyecto.bo.Planta_fabricacionBO;
 import proyecto.bo.ProveedorBO;
 import proyecto.bo.VehiculoBO;
 import proyecto.entidades.Compania;
 import proyecto.entidades.Concesionario;
+import proyecto.entidades.Empresa;
 import proyecto.entidades.Planta_fabricacion;
 import proyecto.entidades.Proveedor;
 import proyecto.entidades.Vehiculo;
@@ -61,6 +63,7 @@ public class Principal extends javax.swing.JFrame {
         Crear_compa = new javax.swing.JButton();
         Crear_vehiculo = new javax.swing.JButton();
         lb_fondocreacion = new javax.swing.JLabel();
+        Crear_empresa = new javax.swing.JButton();
         Jd_Mmodificacion = new javax.swing.JDialog();
         Jd_Meliminacion = new javax.swing.JDialog();
         C_Compania = new javax.swing.JDialog();
@@ -97,7 +100,6 @@ public class Principal extends javax.swing.JFrame {
         id_compa9 = new javax.swing.JLabel();
         id_compa30 = new javax.swing.JLabel();
         conse_ubicacion = new javax.swing.JTextField();
-        C_Cliente = new javax.swing.JDialog();
         C_vehiculo = new javax.swing.JDialog();
         id_compa10 = new javax.swing.JLabel();
         id_compa11 = new javax.swing.JLabel();
@@ -199,6 +201,46 @@ public class Principal extends javax.swing.JFrame {
         id_compa32 = new javax.swing.JLabel();
         id_compa33 = new javax.swing.JLabel();
         conse_ubicacion1 = new javax.swing.JTextField();
+        V_Persona = new javax.swing.JDialog();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tabla_empresas1 = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        Listar1 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        V_Empresa = new javax.swing.JDialog();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tabla_empresas = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        Listar = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        C_Empresa = new javax.swing.JDialog();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        rtn_empresa = new javax.swing.JTextField();
+        direccion_empresa = new javax.swing.JTextField();
+        telefono_empresa = new javax.swing.JTextField();
+        nombre_empresa = new javax.swing.JTextField();
+        tipo_empresa = new javax.swing.JTextField();
+        M_Empresa = new javax.swing.JDialog();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        rtn_empresa1 = new javax.swing.JTextField();
+        direccion_empresa1 = new javax.swing.JTextField();
+        telefono_empresa1 = new javax.swing.JTextField();
+        nombre_empresa1 = new javax.swing.JTextField();
+        tipo_empresa1 = new javax.swing.JTextField();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
@@ -212,7 +254,7 @@ public class Principal extends javax.swing.JFrame {
                 Crear_PlantaMouseClicked(evt);
             }
         });
-        Jd_Mcreacion.getContentPane().add(Crear_Planta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 110, -1));
+        Jd_Mcreacion.getContentPane().add(Crear_Planta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 110, -1));
 
         Crear_proveedor.setText("Proveedor");
         Crear_proveedor.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,7 +262,7 @@ public class Principal extends javax.swing.JFrame {
                 Crear_proveedorMouseClicked(evt);
             }
         });
-        Jd_Mcreacion.getContentPane().add(Crear_proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 110, -1));
+        Jd_Mcreacion.getContentPane().add(Crear_proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 110, -1));
 
         Crear_conse.setText("Consecionario");
         Crear_conse.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -228,10 +270,10 @@ public class Principal extends javax.swing.JFrame {
                 Crear_conseMouseClicked(evt);
             }
         });
-        Jd_Mcreacion.getContentPane().add(Crear_conse, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
+        Jd_Mcreacion.getContentPane().add(Crear_conse, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, -1, -1));
 
         Crear_cliente.setText("Cliente");
-        Jd_Mcreacion.getContentPane().add(Crear_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 110, -1));
+        Jd_Mcreacion.getContentPane().add(Crear_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 110, -1));
 
         Crear_compa.setText("Compañia");
         Crear_compa.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -239,7 +281,7 @@ public class Principal extends javax.swing.JFrame {
                 Crear_compaMouseClicked(evt);
             }
         });
-        Jd_Mcreacion.getContentPane().add(Crear_compa, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 110, -1));
+        Jd_Mcreacion.getContentPane().add(Crear_compa, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 110, -1));
 
         Crear_vehiculo.setText("Vehiculo");
         Crear_vehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -247,10 +289,18 @@ public class Principal extends javax.swing.JFrame {
                 Crear_vehiculoMouseClicked(evt);
             }
         });
-        Jd_Mcreacion.getContentPane().add(Crear_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 110, -1));
+        Jd_Mcreacion.getContentPane().add(Crear_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 110, -1));
 
         lb_fondocreacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/diseno-fondo-moderno-blanco-3d_53876-88246.jpg"))); // NOI18N
-        Jd_Mcreacion.getContentPane().add(lb_fondocreacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Jd_Mcreacion.getContentPane().add(lb_fondocreacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, -1));
+
+        Crear_empresa.setText("Empresa");
+        Crear_empresa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Crear_empresaMouseClicked(evt);
+            }
+        });
+        Jd_Mcreacion.getContentPane().add(Crear_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 120, -1));
 
         javax.swing.GroupLayout Jd_MmodificacionLayout = new javax.swing.GroupLayout(Jd_Mmodificacion.getContentPane());
         Jd_Mmodificacion.getContentPane().setLayout(Jd_MmodificacionLayout);
@@ -381,17 +431,6 @@ public class Principal extends javax.swing.JFrame {
         id_compa30.setText("Ubicacion consecionario");
         C_Conse.getContentPane().add(id_compa30, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
         C_Conse.getContentPane().add(conse_ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 120, -1));
-
-        javax.swing.GroupLayout C_ClienteLayout = new javax.swing.GroupLayout(C_Cliente.getContentPane());
-        C_Cliente.getContentPane().setLayout(C_ClienteLayout);
-        C_ClienteLayout.setHorizontalGroup(
-            C_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        C_ClienteLayout.setVerticalGroup(
-            C_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
 
         C_vehiculo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1002,6 +1041,321 @@ public class Principal extends javax.swing.JFrame {
         id_compa33.setText("Ubicacion consecionario");
         M_Conse.getContentPane().add(id_compa33, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
         M_Conse.getContentPane().add(conse_ubicacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 120, -1));
+
+        tabla_empresas1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "RTN", "NOMBRE", "TELEFONO", "DIRECCION", "TIPO_EMPRESA"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane7.setViewportView(tabla_empresas1);
+
+        jButton3.setText("Añadir");
+
+        jButton5.setText("Modificar");
+
+        Listar1.setText("Listar");
+
+        jButton6.setText("Eliminar");
+
+        javax.swing.GroupLayout V_PersonaLayout = new javax.swing.GroupLayout(V_Persona.getContentPane());
+        V_Persona.getContentPane().setLayout(V_PersonaLayout);
+        V_PersonaLayout.setHorizontalGroup(
+            V_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(V_PersonaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(V_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
+                    .addGroup(V_PersonaLayout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton5)
+                        .addGap(18, 18, 18)
+                        .addComponent(Listar1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton6)))
+                .addContainerGap())
+        );
+        V_PersonaLayout.setVerticalGroup(
+            V_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(V_PersonaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95)
+                .addGroup(V_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton5)
+                    .addComponent(Listar1)
+                    .addComponent(jButton6))
+                .addContainerGap())
+        );
+
+        tabla_empresas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "RTN", "NOMBRE", "DIRECCION", "TELEFONO", "TIPO_EMPRESA"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(tabla_empresas);
+
+        jButton1.setText("Añadir");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        jButton2.setText("Modificar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        Listar.setText("Listar");
+        Listar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListarMouseClicked(evt);
+            }
+        });
+
+        jButton4.setText("Eliminar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout V_EmpresaLayout = new javax.swing.GroupLayout(V_Empresa.getContentPane());
+        V_Empresa.getContentPane().setLayout(V_EmpresaLayout);
+        V_EmpresaLayout.setHorizontalGroup(
+            V_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(V_EmpresaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(V_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
+                    .addGroup(V_EmpresaLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(Listar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4)))
+                .addContainerGap())
+        );
+        V_EmpresaLayout.setVerticalGroup(
+            V_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(V_EmpresaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95)
+                .addGroup(V_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(Listar)
+                    .addComponent(jButton4))
+                .addContainerGap())
+        );
+
+        jLabel7.setText("Crear Empresa");
+
+        jLabel8.setText("RTN:");
+
+        jLabel9.setText("Nombre:");
+
+        jLabel10.setText("Direccion:");
+
+        jLabel11.setText("Telefono:");
+
+        jLabel12.setText("Tipo Empresa:");
+
+        jButton7.setText("Crear");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout C_EmpresaLayout = new javax.swing.GroupLayout(C_Empresa.getContentPane());
+        C_Empresa.getContentPane().setLayout(C_EmpresaLayout);
+        C_EmpresaLayout.setHorizontalGroup(
+            C_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(C_EmpresaLayout.createSequentialGroup()
+                .addGroup(C_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(C_EmpresaLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel7))
+                    .addGroup(C_EmpresaLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addGroup(C_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(C_EmpresaLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(direccion_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(C_EmpresaLayout.createSequentialGroup()
+                                .addGroup(C_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8))
+                                .addGap(18, 18, 18)
+                                .addGroup(C_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rtn_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombre_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(C_EmpresaLayout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(telefono_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(C_EmpresaLayout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(tipo_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, C_EmpresaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton7)
+                .addGap(130, 130, 130))
+        );
+        C_EmpresaLayout.setVerticalGroup(
+            C_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(C_EmpresaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addGap(34, 34, 34)
+                .addGroup(C_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(rtn_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(C_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(nombre_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(C_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(direccion_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(C_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(telefono_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(C_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tipo_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jButton7)
+                .addGap(105, 105, 105))
+        );
+
+        jLabel13.setText("Modificar Empresa");
+
+        jLabel14.setText("RTN:");
+
+        jLabel15.setText("Nombre:");
+
+        jLabel16.setText("Direccion:");
+
+        jLabel17.setText("Telefono:");
+
+        jLabel18.setText("Tipo Empresa:");
+
+        jButton8.setText("GUARDAR CAMBIOS");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+
+        rtn_empresa1.setEditable(false);
+
+        javax.swing.GroupLayout M_EmpresaLayout = new javax.swing.GroupLayout(M_Empresa.getContentPane());
+        M_Empresa.getContentPane().setLayout(M_EmpresaLayout);
+        M_EmpresaLayout.setHorizontalGroup(
+            M_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(M_EmpresaLayout.createSequentialGroup()
+                .addGroup(M_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(M_EmpresaLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel13))
+                    .addGroup(M_EmpresaLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addGroup(M_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(M_EmpresaLayout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(direccion_empresa1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(M_EmpresaLayout.createSequentialGroup()
+                                .addGroup(M_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel14))
+                                .addGap(18, 18, 18)
+                                .addGroup(M_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rtn_empresa1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombre_empresa1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(M_EmpresaLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(telefono_empresa1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(M_EmpresaLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(18, 18, 18)
+                                .addComponent(tipo_empresa1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, M_EmpresaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addGap(130, 130, 130))
+        );
+        M_EmpresaLayout.setVerticalGroup(
+            M_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(M_EmpresaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addGap(34, 34, 34)
+                .addGroup(M_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(rtn_empresa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(M_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(nombre_empresa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(M_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(direccion_empresa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(M_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(telefono_empresa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(M_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(tipo_empresa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addGap(105, 105, 105))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1770,6 +2124,150 @@ public class Principal extends javax.swing.JFrame {
         M_Conse.dispose();
     }//GEN-LAST:event_Btn_crearconse1MouseClicked
 
+    private void Crear_empresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_empresaMouseClicked
+        // TODO add your handling code here:
+        V_Empresa.setModal(true);
+        V_Empresa.pack();
+        V_Empresa.setLocationRelativeTo(this);
+        V_Empresa.setVisible(true);
+    }//GEN-LAST:event_Crear_empresaMouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        String rtn="", nombre="", direccion="", telefono="",tipo="";
+        rtn=rtn_empresa.getText();
+        nombre=nombre_empresa.getText();
+        direccion=direccion_empresa.getText();
+        telefono=telefono_empresa.getText();
+        tipo=tipo_empresa.getText();
+        rtn_empresa.setText("");
+        nombre_empresa.setText("");
+        direccion_empresa.setText("");
+        telefono_empresa.setText("");
+        tipo_empresa.setText("");
+        EmpresaBO ebo=new EmpresaBO();
+        String mensaje="";
+        Empresa e=new Empresa(rtn, nombre, direccion, telefono, tipo);
+        try {
+            mensaje=ebo.agregarEmpresa(e);
+        } catch (SQLException ex) {
+            JOptionPane.showInputDialog(this, "No se inserto "+mensaje);
+        }
+        JOptionPane.showMessageDialog(this, "Empresa creada exitosamente");
+        try {
+            ebo.listarEmpresa(tabla_empresas);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        C_Empresa.dispose();
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        if(tabla_empresas.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder modificarlo");
+        }
+        else{
+            DefaultTableModel modelo = (DefaultTableModel)tabla_empresas.getModel();
+            String id=String.valueOf(modelo.getValueAt(tabla_empresas.getSelectedRow(), 0));
+            String ID="'"+id+"'";
+            System.out.println("ID "+ID);
+            EmpresaBO ebo=new EmpresaBO();
+            ArrayList<String> data=new ArrayList();
+            try {
+                data=ebo.obtenerEmpresa(ID);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            rtn_empresa1.setText(data.get(0));
+            nombre_empresa1.setText(data.get(1));
+            direccion_empresa1.setText(data.get(2));
+            telefono_empresa1.setText(data.get(3));
+            tipo_empresa1.setText(data.get(4));
+        M_Empresa.setModal(true);
+        M_Empresa.pack();
+        M_Empresa.setLocationRelativeTo(this);
+        M_Empresa.setVisible(true);
+                
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+        String rtn="", nombre="", direccion="", telefono="",tipo="";
+        rtn=rtn_empresa1.getText();
+        nombre=nombre_empresa1.getText();
+        direccion=direccion_empresa1.getText();
+        telefono=telefono_empresa1.getText();
+        tipo=tipo_empresa1.getText();
+        rtn_empresa1.setText("");
+        nombre_empresa1.setText("");
+        direccion_empresa1.setText("");
+        telefono_empresa1.setText("");
+        tipo_empresa1.setText("");
+        EmpresaBO ebo=new EmpresaBO();
+        Empresa e=new Empresa(rtn, nombre,direccion, telefono, tipo);
+        String mensaje="";
+        try {
+                mensaje=ebo.modificarEmpresa(e);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+        }
+        try {
+            ebo.listarEmpresa(tabla_empresas);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(this, "Cambios guardados exitosamente");
+        M_Empresa.dispose();
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        if(tabla_empresas.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder eliminarlo");
+        }
+        else{
+            int i=JOptionPane.showConfirmDialog(null, "¿Desea eliminar esta empresa?");
+            if(i==0){
+                DefaultTableModel modelo = (DefaultTableModel)tabla_empresas.getModel();
+                String id=String.valueOf(modelo.getValueAt(tabla_empresas.getSelectedRow(), 0));
+                String ID="'"+id+"'";
+                System.out.println("vin "+ID);
+                EmpresaBO ebo= new EmpresaBO();
+                try {
+                    ebo.eliminarEmpresa(ID);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    ebo.listarEmpresa(tabla_empresas);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } 
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Se ha borrado el concesionario exitosamente");
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        C_Empresa.setModal(true);
+        C_Empresa.pack();
+        C_Empresa.setLocationRelativeTo(this);
+        C_Empresa.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void ListarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListarMouseClicked
+        // TODO add your handling code here:
+        EmpresaBO ebo=new EmpresaBO();
+        try {
+            ebo.listarEmpresa(tabla_empresas);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_ListarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1818,9 +2316,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Btn_crearplanta1;
     private javax.swing.JButton Btn_crearproveedor;
     private javax.swing.JButton Btn_modificarproveedor;
-    private javax.swing.JDialog C_Cliente;
     private javax.swing.JDialog C_Compania;
     private javax.swing.JDialog C_Conse;
+    private javax.swing.JDialog C_Empresa;
     private javax.swing.JDialog C_Planta;
     private javax.swing.JDialog C_Proveedor;
     private javax.swing.JDialog C_vehiculo;
@@ -1830,13 +2328,17 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Crear_cliente;
     private javax.swing.JButton Crear_compa;
     private javax.swing.JButton Crear_conse;
+    private javax.swing.JButton Crear_empresa;
     private javax.swing.JButton Crear_proveedor;
     private javax.swing.JButton Crear_vehiculo;
     private javax.swing.JDialog Jd_Mcreacion;
     private javax.swing.JDialog Jd_Meliminacion;
     private javax.swing.JDialog Jd_Mmodificacion;
+    private javax.swing.JButton Listar;
+    private javax.swing.JButton Listar1;
     private javax.swing.JDialog M_Compania;
     private javax.swing.JDialog M_Conse;
+    private javax.swing.JDialog M_Empresa;
     private javax.swing.JDialog M_Planta;
     private javax.swing.JDialog M_Proveedor;
     private javax.swing.JDialog M_Vehiculo;
@@ -1846,6 +2348,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField Proveedor_nombre1;
     private javax.swing.JDialog V_Compania;
     private javax.swing.JDialog V_Concesionario;
+    private javax.swing.JDialog V_Empresa;
+    private javax.swing.JDialog V_Persona;
     private javax.swing.JDialog V_Planta;
     private javax.swing.JDialog V_Proveedor;
     private javax.swing.JDialog V_Vehiculo;
@@ -1879,6 +2383,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField conse_nombre1;
     private javax.swing.JTextField conse_ubicacion;
     private javax.swing.JTextField conse_ubicacion1;
+    private javax.swing.JTextField direccion_empresa;
+    private javax.swing.JTextField direccion_empresa1;
     private javax.swing.JLabel id_compa;
     private javax.swing.JLabel id_compa1;
     private javax.swing.JLabel id_compa10;
@@ -1913,17 +2419,39 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel id_compa7;
     private javax.swing.JLabel id_compa8;
     private javax.swing.JLabel id_compa9;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JLabel lb_Fondo_C_empre;
     private javax.swing.JLabel lb_Fondo_C_empre1;
     private javax.swing.JLabel lb_Fondo_C_empre2;
@@ -1934,17 +2462,27 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lb_Fondo_C_empre8;
     private javax.swing.JLabel lb_fondo1;
     private javax.swing.JLabel lb_fondocreacion;
+    private javax.swing.JTextField nombre_empresa;
+    private javax.swing.JTextField nombre_empresa1;
     private javax.swing.JTextField planta_id;
     private javax.swing.JTextField planta_id1;
     private javax.swing.JTextField planta_nombre;
     private javax.swing.JTextField planta_nombre1;
     private javax.swing.JTextField planta_tipo;
     private javax.swing.JTextField planta_tipo1;
+    private javax.swing.JTextField rtn_empresa;
+    private javax.swing.JTextField rtn_empresa1;
     private javax.swing.JTable tabla_companias;
     private javax.swing.JTable tabla_concesionarios;
+    private javax.swing.JTable tabla_empresas;
+    private javax.swing.JTable tabla_empresas1;
     private javax.swing.JTable tabla_plantas;
     private javax.swing.JTable tabla_proveedores;
     private javax.swing.JTable tabla_vehiculos;
+    private javax.swing.JTextField telefono_empresa;
+    private javax.swing.JTextField telefono_empresa1;
+    private javax.swing.JTextField tipo_empresa;
+    private javax.swing.JTextField tipo_empresa1;
     private javax.swing.JComboBox<String> vehi_carro;
     private javax.swing.JComboBox<String> vehi_carro1;
     private javax.swing.JTextField vehi_color;

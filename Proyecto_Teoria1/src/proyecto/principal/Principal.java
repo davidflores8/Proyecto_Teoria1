@@ -18,12 +18,14 @@ import javax.swing.table.DefaultTableModel;
 import proyecto.bo.CompaniaBO;
 import proyecto.bo.ConcesionarioBO;
 import proyecto.bo.EmpresaBO;
+import proyecto.bo.PersonaBO;
 import proyecto.bo.Planta_fabricacionBO;
 import proyecto.bo.ProveedorBO;
 import proyecto.bo.VehiculoBO;
 import proyecto.entidades.Compania;
 import proyecto.entidades.Concesionario;
 import proyecto.entidades.Empresa;
+import proyecto.entidades.Persona;
 import proyecto.entidades.Planta_fabricacion;
 import proyecto.entidades.Proveedor;
 import proyecto.entidades.Vehiculo;
@@ -203,11 +205,47 @@ public class Principal extends javax.swing.JFrame {
         conse_ubicacion1 = new javax.swing.JTextField();
         V_Persona = new javax.swing.JDialog();
         jScrollPane7 = new javax.swing.JScrollPane();
-        tabla_empresas1 = new javax.swing.JTable();
+        tabla_personas = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         Listar1 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        C_Persona = new javax.swing.JDialog();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        rtn_persona = new javax.swing.JTextField();
+        direccion_persona = new javax.swing.JTextField();
+        telefono_persona = new javax.swing.JTextField();
+        nombre_persona = new javax.swing.JTextField();
+        id_persona = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        m = new javax.swing.JRadioButton();
+        f = new javax.swing.JRadioButton();
+        jLabel32 = new javax.swing.JLabel();
+        ingreso_persona = new javax.swing.JTextField();
+        M_Persona = new javax.swing.JDialog();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jButton11 = new javax.swing.JButton();
+        rtn_persona1 = new javax.swing.JTextField();
+        direccion_persona1 = new javax.swing.JTextField();
+        telefono_persona1 = new javax.swing.JTextField();
+        nombre_persona1 = new javax.swing.JTextField();
+        id_persona1 = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
+        m1 = new javax.swing.JRadioButton();
+        f1 = new javax.swing.JRadioButton();
+        jLabel40 = new javax.swing.JLabel();
+        ingreso_persona1 = new javax.swing.JTextField();
         V_Empresa = new javax.swing.JDialog();
         jScrollPane6 = new javax.swing.JScrollPane();
         tabla_empresas = new javax.swing.JTable();
@@ -241,6 +279,7 @@ public class Principal extends javax.swing.JFrame {
         telefono_empresa1 = new javax.swing.JTextField();
         nombre_empresa1 = new javax.swing.JTextField();
         tipo_empresa1 = new javax.swing.JTextField();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
@@ -272,7 +311,12 @@ public class Principal extends javax.swing.JFrame {
         });
         Jd_Mcreacion.getContentPane().add(Crear_conse, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, -1, -1));
 
-        Crear_cliente.setText("Cliente");
+        Crear_cliente.setText("Persona");
+        Crear_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Crear_clienteMouseClicked(evt);
+            }
+        });
         Jd_Mcreacion.getContentPane().add(Crear_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 110, -1));
 
         Crear_compa.setText("Compañia");
@@ -1042,34 +1086,51 @@ public class Principal extends javax.swing.JFrame {
         M_Conse.getContentPane().add(id_compa33, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
         M_Conse.getContentPane().add(conse_ubicacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 120, -1));
 
-        tabla_empresas1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_personas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "RTN", "NOMBRE", "TELEFONO", "DIRECCION", "TIPO_EMPRESA"
+                "RTN", "NOMBRE", "DIRECCION", "TELEFONO", "ID", "SEXO", "INGRESO_ANUAL"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane7.setViewportView(tabla_empresas1);
+        jScrollPane7.setViewportView(tabla_personas);
 
         jButton3.setText("Añadir");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jButton5.setText("Modificar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         Listar1.setText("Listar");
+        Listar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Listar1MouseClicked(evt);
+            }
+        });
 
         jButton6.setText("Eliminar");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout V_PersonaLayout = new javax.swing.GroupLayout(V_Persona.getContentPane());
         V_Persona.getContentPane().setLayout(V_PersonaLayout);
@@ -1101,6 +1162,240 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(Listar1)
                     .addComponent(jButton6))
                 .addContainerGap())
+        );
+
+        jLabel19.setText("Crear Persona");
+
+        jLabel20.setText("RTN:");
+
+        jLabel21.setText("Nombre:");
+
+        jLabel22.setText("Direccion:");
+
+        jLabel23.setText("Telefono:");
+
+        jLabel24.setText("ID");
+
+        jButton9.setText("Crear");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+
+        jLabel31.setText("Sexo:");
+
+        buttonGroup1.add(m);
+        m.setText("Masculino");
+
+        buttonGroup1.add(f);
+        f.setText("Femenino");
+
+        jLabel32.setText("Ingreso Anual:");
+
+        javax.swing.GroupLayout C_PersonaLayout = new javax.swing.GroupLayout(C_Persona.getContentPane());
+        C_Persona.getContentPane().setLayout(C_PersonaLayout);
+        C_PersonaLayout.setHorizontalGroup(
+            C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(C_PersonaLayout.createSequentialGroup()
+                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(C_PersonaLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel19))
+                    .addGroup(C_PersonaLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(C_PersonaLayout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(direccion_persona, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(C_PersonaLayout.createSequentialGroup()
+                                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel20))
+                                .addGap(18, 18, 18)
+                                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rtn_persona, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombre_persona, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(C_PersonaLayout.createSequentialGroup()
+                                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton9)
+                                    .addGroup(C_PersonaLayout.createSequentialGroup()
+                                        .addComponent(jLabel31)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(m)))
+                                .addGap(18, 18, 18)
+                                .addComponent(f))
+                            .addGroup(C_PersonaLayout.createSequentialGroup()
+                                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jLabel24))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(telefono_persona, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                    .addComponent(id_persona)))
+                            .addGroup(C_PersonaLayout.createSequentialGroup()
+                                .addComponent(jLabel32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ingreso_persona, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+        C_PersonaLayout.setVerticalGroup(
+            C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(C_PersonaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel19)
+                .addGap(34, 34, 34)
+                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(rtn_persona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(nombre_persona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(direccion_persona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(telefono_persona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(id_persona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel31)
+                    .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(m)
+                        .addComponent(f)))
+                .addGap(16, 16, 16)
+                .addGroup(C_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(ingreso_persona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jButton9)
+                .addGap(26, 26, 26))
+        );
+
+        jLabel33.setText("Modificar Persona");
+
+        jLabel34.setText("RTN:");
+
+        jLabel35.setText("Nombre:");
+
+        jLabel36.setText("Direccion:");
+
+        jLabel37.setText("Telefono:");
+
+        jLabel38.setText("ID");
+
+        jButton11.setText("GUARDAR CAMBIOS");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
+            }
+        });
+
+        rtn_persona1.setEditable(false);
+
+        jLabel39.setText("Sexo:");
+
+        buttonGroup1.add(m1);
+        m1.setText("Masculino");
+
+        buttonGroup1.add(f1);
+        f1.setText("Femenino");
+
+        jLabel40.setText("Ingreso Anual:");
+
+        javax.swing.GroupLayout M_PersonaLayout = new javax.swing.GroupLayout(M_Persona.getContentPane());
+        M_Persona.getContentPane().setLayout(M_PersonaLayout);
+        M_PersonaLayout.setHorizontalGroup(
+            M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(M_PersonaLayout.createSequentialGroup()
+                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(M_PersonaLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel33))
+                    .addGroup(M_PersonaLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(M_PersonaLayout.createSequentialGroup()
+                                .addComponent(jLabel36)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(direccion_persona1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(M_PersonaLayout.createSequentialGroup()
+                                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel35)
+                                    .addComponent(jLabel34))
+                                .addGap(18, 18, 18)
+                                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rtn_persona1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombre_persona1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(M_PersonaLayout.createSequentialGroup()
+                                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton11)
+                                    .addGroup(M_PersonaLayout.createSequentialGroup()
+                                        .addComponent(jLabel39)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(m1)))
+                                .addGap(18, 18, 18)
+                                .addComponent(f1))
+                            .addGroup(M_PersonaLayout.createSequentialGroup()
+                                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel37)
+                                    .addComponent(jLabel38))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(telefono_persona1, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                    .addComponent(id_persona1)))
+                            .addGroup(M_PersonaLayout.createSequentialGroup()
+                                .addComponent(jLabel40)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ingreso_persona1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        M_PersonaLayout.setVerticalGroup(
+            M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(M_PersonaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel33)
+                .addGap(34, 34, 34)
+                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(rtn_persona1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(nombre_persona1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(direccion_persona1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(telefono_persona1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(id_persona1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel39)
+                    .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(m1)
+                        .addComponent(f1)))
+                .addGap(16, 16, 16)
+                .addGroup(M_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel40)
+                    .addComponent(ingreso_persona1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jButton11)
+                .addGap(26, 26, 26))
         );
 
         tabla_empresas.setModel(new javax.swing.table.DefaultTableModel(
@@ -2247,7 +2542,7 @@ public class Principal extends javax.swing.JFrame {
                 } 
             }
         }
-        JOptionPane.showMessageDialog(this, "Se ha borrado el concesionario exitosamente");
+        JOptionPane.showMessageDialog(this, "Se ha borrado la empresa exitosamente");
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -2267,6 +2562,179 @@ public class Principal extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_ListarMouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        // TODO add your handling code here:
+        String rtn="", nombre="", direccion="", telefono="", id="",sexo="",ingreso="";
+        rtn=rtn_persona.getText();
+        nombre=nombre_persona.getText();
+        direccion=direccion_persona.getText();
+        telefono=telefono_persona.getText();
+        id=id_persona.getText();
+        ingreso=ingreso_persona.getText();
+        if(m.isSelected()){
+            sexo="Masculino";
+        }
+        else{
+            sexo="Femenino";
+        }
+        f.setSelected(false);
+        m.setSelected(false);
+        rtn_persona.setText("");
+        nombre_persona.setText("");
+        direccion_persona.setText("");
+        telefono_persona.setText("");
+        id_persona.setText("");
+        ingreso_persona.setText("");
+        PersonaBO pbo=new PersonaBO();
+        String mensaje="";
+        Persona p=new Persona(rtn, nombre, direccion, telefono, id, sexo, ingreso);
+        try {
+            pbo.agregarPersona(p);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            pbo.listarPersona(tabla_personas);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(this,"Persona creada exitosamente");
+        C_Persona.dispose();
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        // TODO add your handling code here:
+        String rtn="", nombre="", direccion="", telefono="", id="",sexo="",ingreso="";
+        rtn=rtn_persona1.getText();
+        nombre=nombre_persona1.getText();
+        direccion=direccion_persona1.getText();
+        telefono=telefono_persona1.getText();
+        id=id_persona1.getText();
+        ingreso=ingreso_persona1.getText();
+        if(m1.isSelected()){
+            sexo="Masculino";
+        }
+        else{
+            sexo="Femenino";
+        }
+        f1.setSelected(false);
+        m1.setSelected(false);
+        rtn_persona1.setText("");
+        nombre_persona1.setText("");
+        direccion_persona1.setText("");
+        telefono_persona1.setText("");
+        id_persona1.setText("");
+        ingreso_persona1.setText("");
+        PersonaBO pbo=new PersonaBO();
+        String mensaje="";
+        Persona p=new Persona(rtn, nombre, direccion, telefono, id, sexo, ingreso);
+        try {
+            pbo.modificarPersona(p);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            pbo.listarPersona(tabla_personas);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(this,"Cambios guardados exitosamente");
+        M_Persona.dispose();
+    }//GEN-LAST:event_jButton11MouseClicked
+
+    private void Crear_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_clienteMouseClicked
+        // TODO add your handling code here:
+        V_Persona.setModal(true);
+        V_Persona.pack();
+        V_Persona.setLocationRelativeTo(this);
+        V_Persona.setVisible(true);
+    }//GEN-LAST:event_Crear_clienteMouseClicked
+
+    private void Listar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Listar1MouseClicked
+        // TODO add your handling code here:
+        PersonaBO pbo=new PersonaBO();
+        try {
+            pbo.listarPersona(tabla_personas);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Listar1MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        if(tabla_personas.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder eliminarlo");
+        }
+        else{
+            int i=JOptionPane.showConfirmDialog(null, "¿Desea eliminar esta persona?");
+            if(i==0){
+                DefaultTableModel modelo = (DefaultTableModel)tabla_personas.getModel();
+                String id=String.valueOf(modelo.getValueAt(tabla_personas.getSelectedRow(), 0));
+                String ID="'"+id+"'";
+                System.out.println("vin "+ID);
+                PersonaBO pbo= new PersonaBO();
+                try {
+                    pbo.eliminarPersona(ID);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    pbo.listarPersona(tabla_personas);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } 
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Se ha borrado la empresa exitosamente");
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        if(tabla_personas.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder modificarlo");
+        }
+        else{
+            DefaultTableModel modelo = (DefaultTableModel)tabla_personas.getModel();
+            String id=String.valueOf(modelo.getValueAt(tabla_personas.getSelectedRow(), 0));
+            String ID="'"+id+"'";
+            System.out.println("ID "+ID);
+            PersonaBO pbo=new PersonaBO();
+            ArrayList<String> data=new ArrayList();
+            try {
+                data=pbo.obtenerPersona(ID);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            rtn_persona1.setText(data.get(0));
+            nombre_persona1.setText(data.get(1));
+            direccion_persona1.setText(data.get(2));
+            telefono_persona1.setText(data.get(3));
+            id_persona1.setText(data.get(4));
+            System.out.println("5 "+data.get(5));
+            System.out.println("6 "+data.get(6));
+            if(data.get(5).equals("Masculino")){
+                m1.setSelected(true);
+            }
+            else{
+                f1.setSelected(true);
+            }
+            ingreso_persona1.setText(data.get(6));
+            
+        M_Persona.setModal(true);
+        M_Persona.pack();
+        M_Persona.setLocationRelativeTo(this);
+        M_Persona.setVisible(true);
+       }
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        C_Persona.setModal(true);
+        C_Persona.pack();
+        C_Persona.setLocationRelativeTo(this);
+        C_Persona.setVisible(true);
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -2319,6 +2787,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog C_Compania;
     private javax.swing.JDialog C_Conse;
     private javax.swing.JDialog C_Empresa;
+    private javax.swing.JDialog C_Persona;
     private javax.swing.JDialog C_Planta;
     private javax.swing.JDialog C_Proveedor;
     private javax.swing.JDialog C_vehiculo;
@@ -2339,6 +2808,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog M_Compania;
     private javax.swing.JDialog M_Conse;
     private javax.swing.JDialog M_Empresa;
+    private javax.swing.JDialog M_Persona;
     private javax.swing.JDialog M_Planta;
     private javax.swing.JDialog M_Proveedor;
     private javax.swing.JDialog M_Vehiculo;
@@ -2375,6 +2845,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton boton_modificar_proveedor;
     private javax.swing.JButton boton_modificar_vehi;
     private javax.swing.JButton boton_modificar_vehiculo;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField compa_nombre;
     private javax.swing.JTextField compa_nombre1;
     private javax.swing.JTextField conse_id;
@@ -2385,6 +2856,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField conse_ubicacion1;
     private javax.swing.JTextField direccion_empresa;
     private javax.swing.JTextField direccion_empresa1;
+    private javax.swing.JTextField direccion_persona;
+    private javax.swing.JTextField direccion_persona1;
+    private javax.swing.JRadioButton f;
+    private javax.swing.JRadioButton f1;
     private javax.swing.JLabel id_compa;
     private javax.swing.JLabel id_compa1;
     private javax.swing.JLabel id_compa10;
@@ -2419,7 +2894,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel id_compa7;
     private javax.swing.JLabel id_compa8;
     private javax.swing.JLabel id_compa9;
+    private javax.swing.JTextField id_persona;
+    private javax.swing.JTextField id_persona1;
+    private javax.swing.JTextField ingreso_persona;
+    private javax.swing.JTextField ingreso_persona1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -2427,6 +2907,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2437,9 +2918,25 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2462,8 +2959,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lb_Fondo_C_empre8;
     private javax.swing.JLabel lb_fondo1;
     private javax.swing.JLabel lb_fondocreacion;
+    private javax.swing.JRadioButton m;
+    private javax.swing.JRadioButton m1;
     private javax.swing.JTextField nombre_empresa;
     private javax.swing.JTextField nombre_empresa1;
+    private javax.swing.JTextField nombre_persona;
+    private javax.swing.JTextField nombre_persona1;
     private javax.swing.JTextField planta_id;
     private javax.swing.JTextField planta_id1;
     private javax.swing.JTextField planta_nombre;
@@ -2472,15 +2973,19 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField planta_tipo1;
     private javax.swing.JTextField rtn_empresa;
     private javax.swing.JTextField rtn_empresa1;
+    private javax.swing.JTextField rtn_persona;
+    private javax.swing.JTextField rtn_persona1;
     private javax.swing.JTable tabla_companias;
     private javax.swing.JTable tabla_concesionarios;
     private javax.swing.JTable tabla_empresas;
-    private javax.swing.JTable tabla_empresas1;
+    private javax.swing.JTable tabla_personas;
     private javax.swing.JTable tabla_plantas;
     private javax.swing.JTable tabla_proveedores;
     private javax.swing.JTable tabla_vehiculos;
     private javax.swing.JTextField telefono_empresa;
     private javax.swing.JTextField telefono_empresa1;
+    private javax.swing.JTextField telefono_persona;
+    private javax.swing.JTextField telefono_persona1;
     private javax.swing.JTextField tipo_empresa;
     private javax.swing.JTextField tipo_empresa1;
     private javax.swing.JComboBox<String> vehi_carro;

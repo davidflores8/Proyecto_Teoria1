@@ -19,7 +19,6 @@ import javax.swing.table.DefaultTableModel;
 import proyecto.bo.CompaniaBO;
 import proyecto.bo.ConcesionarioBO;
 import proyecto.bo.EmpresaBO;
-import proyecto.bo.MarcaBO;
 import proyecto.bo.PersonaBO;
 import proyecto.bo.Planta_fabricacionBO;
 import proyecto.bo.ProveedorBO;
@@ -27,7 +26,6 @@ import proyecto.bo.VehiculoBO;
 import proyecto.entidades.Compania;
 import proyecto.entidades.Concesionario;
 import proyecto.entidades.Empresa;
-import proyecto.entidades.Marca;
 import proyecto.entidades.Persona;
 import proyecto.entidades.Planta_fabricacion;
 import proyecto.entidades.Proveedor;
@@ -69,9 +67,6 @@ public class Principal extends javax.swing.JFrame {
         Crear_vehiculo = new javax.swing.JButton();
         lb_fondocreacion = new javax.swing.JLabel();
         Crear_empresa = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        Jd_Mmodificacion = new javax.swing.JDialog();
-        Jd_Meliminacion = new javax.swing.JDialog();
         V_Vehiculo = new javax.swing.JDialog();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_vehiculos = new javax.swing.JTable();
@@ -244,6 +239,7 @@ public class Principal extends javax.swing.JFrame {
         f = new javax.swing.JRadioButton();
         jLabel32 = new javax.swing.JLabel();
         ingreso_persona = new javax.swing.JTextField();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         M_Persona = new javax.swing.JDialog();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -295,39 +291,73 @@ public class Principal extends javax.swing.JFrame {
         telefono_empresa1 = new javax.swing.JTextField();
         nombre_empresa1 = new javax.swing.JTextField();
         tipo_empresa1 = new javax.swing.JTextField();
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        V_Marca = new javax.swing.JDialog();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        tabla_marcas = new javax.swing.JTable();
-        boton_agregar_concesionario1 = new javax.swing.JButton();
-        boton_modificar_concesionario1 = new javax.swing.JButton();
-        boton_eliminar_concesionario1 = new javax.swing.JButton();
-        boton_listar_concesionario1 = new javax.swing.JButton();
-        C_Marca = new javax.swing.JDialog();
-        marca_nombre = new javax.swing.JTextField();
-        conse_id2 = new javax.swing.JTextField();
-        Btn_crearconse2 = new javax.swing.JButton();
-        id_compa34 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        id_compa35 = new javax.swing.JLabel();
-        id_compa36 = new javax.swing.JLabel();
-        marca_nombre_compania = new javax.swing.JTextField();
-        cb_marca = new javax.swing.JComboBox<>();
-        M_Marca = new javax.swing.JDialog();
-        nombre_marca1 = new javax.swing.JTextField();
-        id_marca1 = new javax.swing.JTextField();
-        Btn_crearconse3 = new javax.swing.JButton();
-        id_compa37 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        id_compa38 = new javax.swing.JLabel();
-        id_compa39 = new javax.swing.JLabel();
-        idc_1 = new javax.swing.JTextField();
+        auth = new javax.swing.JDialog();
+        jButton14 = new javax.swing.JButton();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jTextField1 = new javax.swing.JTextField();
+        usted_es = new javax.swing.JDialog();
+        jLabel43 = new javax.swing.JLabel();
+        rtn = new javax.swing.JTextField();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jLabel44 = new javax.swing.JLabel();
+        rb_persona = new javax.swing.JRadioButton();
+        rb_empresa = new javax.swing.JRadioButton();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        Vista_Empresa = new javax.swing.JDialog();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tabla_empresas1 = new javax.swing.JTable();
+        jButton18 = new javax.swing.JButton();
+        Listar2 = new javax.swing.JButton();
+        jLabel57 = new javax.swing.JLabel();
+        pc_pais = new javax.swing.JComboBox<>();
+        jLabel58 = new javax.swing.JLabel();
+        nc_empresa = new javax.swing.JComboBox<>();
+        C_Empresa1 = new javax.swing.JDialog();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jButton20 = new javax.swing.JButton();
+        rtn_empresa2 = new javax.swing.JTextField();
+        direccion_empresa2 = new javax.swing.JTextField();
+        telefono_empresa2 = new javax.swing.JTextField();
+        nombre_empresa2 = new javax.swing.JTextField();
+        tipo_empresa2 = new javax.swing.JTextField();
+        M_Empresa1 = new javax.swing.JDialog();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jButton21 = new javax.swing.JButton();
+        rtn_empresa3 = new javax.swing.JTextField();
+        direccion_empresa3 = new javax.swing.JTextField();
+        telefono_empresa3 = new javax.swing.JTextField();
+        nombre_empresa3 = new javax.swing.JTextField();
+        tipo_empresa3 = new javax.swing.JTextField();
+        Vista_Persona = new javax.swing.JDialog();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tabla_empresas2 = new javax.swing.JTable();
+        jButton19 = new javax.swing.JButton();
+        Listar3 = new javax.swing.JButton();
+        jLabel59 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel60 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
         lb_fondo1 = new javax.swing.JLabel();
 
+        Jd_Mcreacion.setTitle("Ventana Principal");
         Jd_Mcreacion.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Crear_Planta.setText("Planta");
@@ -389,35 +419,7 @@ public class Principal extends javax.swing.JFrame {
         });
         Jd_Mcreacion.getContentPane().add(Crear_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 120, -1));
 
-        jButton12.setText("Marca");
-        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton12MouseClicked(evt);
-            }
-        });
-        Jd_Mcreacion.getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 120, -1));
-
-        javax.swing.GroupLayout Jd_MmodificacionLayout = new javax.swing.GroupLayout(Jd_Mmodificacion.getContentPane());
-        Jd_Mmodificacion.getContentPane().setLayout(Jd_MmodificacionLayout);
-        Jd_MmodificacionLayout.setHorizontalGroup(
-            Jd_MmodificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        Jd_MmodificacionLayout.setVerticalGroup(
-            Jd_MmodificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout Jd_MeliminacionLayout = new javax.swing.GroupLayout(Jd_Meliminacion.getContentPane());
-        Jd_Meliminacion.getContentPane().setLayout(Jd_MeliminacionLayout);
-        Jd_MeliminacionLayout.setHorizontalGroup(
-            Jd_MeliminacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        Jd_MeliminacionLayout.setVerticalGroup(
-            Jd_MeliminacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        V_Vehiculo.setTitle("Vehiculos");
 
         tabla_vehiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -497,6 +499,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        C_vehiculo.setTitle("Crear Vehiculo");
         C_vehiculo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         id_compa10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -562,6 +565,7 @@ public class Principal extends javax.swing.JFrame {
         lb_Fondo_C_empre4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         C_vehiculo.getContentPane().add(lb_Fondo_C_empre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 490, 560));
 
+        M_Vehiculo.setTitle("Modificar Vehiculo");
         M_Vehiculo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         id_compa15.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -624,6 +628,8 @@ public class Principal extends javax.swing.JFrame {
 
         lb_Fondo_C_empre5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         M_Vehiculo.getContentPane().add(lb_Fondo_C_empre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 490, 560));
+
+        V_Planta.setTitle("Plantas de Fabricación");
 
         tabla_plantas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -703,6 +709,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        C_Planta.setTitle("Crear Planta");
         C_Planta.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         C_Planta.getContentPane().add(planta_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 120, -1));
         C_Planta.getContentPane().add(planta_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 120, -1));
@@ -751,6 +758,7 @@ public class Principal extends javax.swing.JFrame {
         lb_Fondo_C_empre1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         C_Planta.getContentPane().add(lb_Fondo_C_empre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
 
+        M_Planta.setTitle("Modificar Planta");
         M_Planta.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         M_Planta.getContentPane().add(planta_tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 120, -1));
         M_Planta.getContentPane().add(planta_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 120, -1));
@@ -793,6 +801,8 @@ public class Principal extends javax.swing.JFrame {
 
         lb_Fondo_C_empre6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         M_Planta.getContentPane().add(lb_Fondo_C_empre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
+
+        V_Proveedor.setTitle("Proveedores");
 
         tabla_proveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -872,6 +882,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        C_Proveedor.setTitle("Crear Proveedores");
         C_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Proveedor_id.setEditable(false);
@@ -901,6 +912,7 @@ public class Principal extends javax.swing.JFrame {
         lb_Fondo_C_empre2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         C_Proveedor.getContentPane().add(lb_Fondo_C_empre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
 
+        M_Proveedor.setTitle("Modificar Proveedor");
         M_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Proveedor_id1.setEditable(false);
@@ -928,6 +940,8 @@ public class Principal extends javax.swing.JFrame {
 
         lb_Fondo_C_empre7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         M_Proveedor.getContentPane().add(lb_Fondo_C_empre7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
+
+        V_Compania.setTitle("Compañias");
 
         tabla_companias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1007,6 +1021,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        C_Compania.setTitle("Crear Compañias");
         C_Compania.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         id_compa.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -1033,6 +1048,7 @@ public class Principal extends javax.swing.JFrame {
         lb_Fondo_C_empre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         C_Compania.getContentPane().add(lb_Fondo_C_empre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
 
+        M_Compania.setTitle("Modificar Compañia");
         M_Compania.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         id_compa1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -1057,6 +1073,8 @@ public class Principal extends javax.swing.JFrame {
 
         lb_Fondo_C_empre8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         M_Compania.getContentPane().add(lb_Fondo_C_empre8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
+
+        V_Concesionario.setTitle("Concesionarios");
 
         tabla_concesionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1136,6 +1154,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        C_Conse.setTitle("Crear Concesionario");
         C_Conse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         C_Conse.getContentPane().add(conse_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 120, -1));
 
@@ -1167,6 +1186,7 @@ public class Principal extends javax.swing.JFrame {
         C_Conse.getContentPane().add(id_compa30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
         C_Conse.getContentPane().add(conse_ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 120, -1));
 
+        M_Conse.setTitle("Modificar Concesionario");
         M_Conse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         M_Conse.getContentPane().add(conse_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 120, -1));
 
@@ -1196,6 +1216,8 @@ public class Principal extends javax.swing.JFrame {
         id_compa33.setText("Ubicacion consecionario");
         M_Conse.getContentPane().add(id_compa33, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
         M_Conse.getContentPane().add(conse_ubicacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 120, -1));
+
+        V_Persona.setTitle("Personas");
 
         tabla_personas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1274,6 +1296,8 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jButton6))
                 .addContainerGap())
         );
+
+        C_Persona.setTitle("Crear Personas");
 
         jLabel19.setText("Crear Persona");
 
@@ -1390,6 +1414,8 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jButton9)
                 .addGap(26, 26, 26))
         );
+
+        M_Persona.setTitle("Modificar Persona");
 
         jLabel33.setText("Modificar Persona");
 
@@ -1509,6 +1535,8 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
         );
 
+        V_Empresa.setTitle("Empresas");
+
         tabla_empresas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1586,6 +1614,8 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jButton4))
                 .addContainerGap())
         );
+
+        C_Empresa.setTitle("Crear Empresa");
 
         jLabel7.setText("Crear Empresa");
 
@@ -1673,6 +1703,8 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jButton7)
                 .addGap(105, 105, 105))
         );
+
+        M_Empresa.setTitle("Modificar Empresa");
 
         jLabel13.setText("Modificar Empresa");
 
@@ -1763,12 +1795,135 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(105, 105, 105))
         );
 
-        tabla_marcas.setModel(new javax.swing.table.DefaultTableModel(
+        auth.setTitle("Autenticación de Administrador");
+
+        jButton14.setText("Ingresar");
+        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton14MouseClicked(evt);
+            }
+        });
+
+        jLabel41.setText("Nombre de Usuario: ");
+
+        jLabel42.setText("Password: ");
+
+        javax.swing.GroupLayout authLayout = new javax.swing.GroupLayout(auth.getContentPane());
+        auth.getContentPane().setLayout(authLayout);
+        authLayout.setHorizontalGroup(
+            authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(authLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel41)
+                    .addComponent(jLabel42))
+                .addGap(18, 18, 18)
+                .addGroup(authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPasswordField1)
+                    .addGroup(authLayout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 35, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, authLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton14)
+                .addGap(87, 87, 87))
+        );
+        authLayout.setVerticalGroup(
+            authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, authLayout.createSequentialGroup()
+                .addContainerGap(72, Short.MAX_VALUE)
+                .addGroup(authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel41)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel42)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addComponent(jButton14)
+                .addContainerGap())
+        );
+
+        usted_es.setTitle("LogIn");
+
+        jLabel43.setText("Ingrese su RTN: ");
+
+        jButton15.setText("Ingresar");
+        jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton15MouseClicked(evt);
+            }
+        });
+
+        jButton16.setText("Registrarse");
+
+        jLabel44.setText("¿Qué tipo de cliente es usted? ");
+
+        buttonGroup2.add(rb_persona);
+        rb_persona.setText("Persona");
+
+        buttonGroup2.add(rb_empresa);
+        rb_empresa.setText("Empresa");
+
+        javax.swing.GroupLayout usted_esLayout = new javax.swing.GroupLayout(usted_es.getContentPane());
+        usted_es.getContentPane().setLayout(usted_esLayout);
+        usted_esLayout.setHorizontalGroup(
+            usted_esLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(usted_esLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton16)
+                .addContainerGap())
+            .addGroup(usted_esLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(usted_esLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(usted_esLayout.createSequentialGroup()
+                        .addComponent(jLabel43)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rtn, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(usted_esLayout.createSequentialGroup()
+                        .addGroup(usted_esLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(usted_esLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(rb_persona)
+                                .addGap(18, 18, 18)
+                                .addComponent(rb_empresa))
+                            .addComponent(jLabel44))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, usted_esLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton15)
+                        .addGap(39, 39, 39)))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        usted_esLayout.setVerticalGroup(
+            usted_esLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(usted_esLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(usted_esLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rb_persona)
+                    .addComponent(rb_empresa))
+                .addGap(23, 23, 23)
+                .addGroup(usted_esLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel43)
+                    .addComponent(rtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(jButton15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addComponent(jButton16)
+                .addContainerGap())
+        );
+
+        Vista_Empresa.setTitle("Empresa - Concesionario");
+
+        tabla_empresas1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID_MARCA", "NOMBRE_MARCA", "ID_COMPANIA"
+                "VIN", "ID_COMPANIA", "PRECIO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1779,141 +1934,338 @@ public class Principal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane8.setViewportView(tabla_marcas);
+        jScrollPane9.setViewportView(tabla_empresas1);
 
-        boton_agregar_concesionario1.setText("Agregar");
-        boton_agregar_concesionario1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton18.setText("Modificar Datos Personales");
+        jButton18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                boton_agregar_concesionario1MouseClicked(evt);
+                jButton18MouseClicked(evt);
             }
         });
 
-        boton_modificar_concesionario1.setText("Modificar");
-        boton_modificar_concesionario1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Listar2.setText("Listar");
+        Listar2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                boton_modificar_concesionario1MouseClicked(evt);
+                Listar2MouseClicked(evt);
             }
         });
 
-        boton_eliminar_concesionario1.setText("Eliminar");
-        boton_eliminar_concesionario1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                boton_eliminar_concesionario1MouseClicked(evt);
-            }
-        });
+        jLabel57.setText("Pais del Concesionario:");
 
-        boton_listar_concesionario1.setText("Listar");
-        boton_listar_concesionario1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                boton_listar_concesionario1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout V_MarcaLayout = new javax.swing.GroupLayout(V_Marca.getContentPane());
-        V_Marca.getContentPane().setLayout(V_MarcaLayout);
-        V_MarcaLayout.setHorizontalGroup(
-            V_MarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(V_MarcaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(V_MarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
-                    .addGroup(V_MarcaLayout.createSequentialGroup()
-                        .addComponent(boton_agregar_concesionario1)
-                        .addGap(18, 18, 18)
-                        .addComponent(boton_modificar_concesionario1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boton_listar_concesionario1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(boton_eliminar_concesionario1)))
-                .addContainerGap())
-        );
-        V_MarcaLayout.setVerticalGroup(
-            V_MarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, V_MarcaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addGroup(V_MarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boton_agregar_concesionario1)
-                    .addComponent(boton_modificar_concesionario1)
-                    .addComponent(boton_eliminar_concesionario1)
-                    .addComponent(boton_listar_concesionario1))
-                .addContainerGap())
-        );
-
-        C_Marca.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        C_Marca.getContentPane().add(marca_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 120, -1));
-
-        conse_id2.setEditable(false);
-        conse_id2.setText("*Generado automaticamente*");
-        C_Marca.getContentPane().add(conse_id2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 150, -1));
-
-        Btn_crearconse2.setText("Crear");
-        Btn_crearconse2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_crearconse2MouseClicked(evt);
-            }
-        });
-        C_Marca.getContentPane().add(Btn_crearconse2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
-
-        id_compa34.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa34.setText("ID Marca");
-        C_Marca.getContentPane().add(id_compa34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
-
-        jLabel29.setText("CREACION DE MARCA");
-        C_Marca.getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
-
-        id_compa35.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa35.setText("Nombre Marca:");
-        C_Marca.getContentPane().add(id_compa35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
-
-        id_compa36.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa36.setText("ID Compañia");
-        C_Marca.getContentPane().add(id_compa36, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, -1));
-
-        marca_nombre_compania.setEditable(false);
-        C_Marca.getContentPane().add(marca_nombre_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 120, -1));
-
-        cb_marca.addItemListener(new java.awt.event.ItemListener() {
+        pc_pais.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cb_marcaItemStateChanged(evt);
+                pc_paisItemStateChanged(evt);
             }
         });
-        C_Marca.getContentPane().add(cb_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, -1));
 
-        M_Marca.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        M_Marca.getContentPane().add(nombre_marca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 120, -1));
+        jLabel58.setText("Nombre del Concesionario: ");
 
-        id_marca1.setEditable(false);
-        M_Marca.getContentPane().add(id_marca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 120, -1));
+        javax.swing.GroupLayout Vista_EmpresaLayout = new javax.swing.GroupLayout(Vista_Empresa.getContentPane());
+        Vista_Empresa.getContentPane().setLayout(Vista_EmpresaLayout);
+        Vista_EmpresaLayout.setHorizontalGroup(
+            Vista_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Vista_EmpresaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Vista_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(Vista_EmpresaLayout.createSequentialGroup()
+                        .addComponent(jLabel57)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pc_pais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(Vista_EmpresaLayout.createSequentialGroup()
+                        .addComponent(jLabel58)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nc_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Vista_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Listar2)
+                        .addComponent(jButton18)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+        );
+        Vista_EmpresaLayout.setVerticalGroup(
+            Vista_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Vista_EmpresaLayout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addGroup(Vista_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(Vista_EmpresaLayout.createSequentialGroup()
+                        .addGroup(Vista_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel57)
+                            .addComponent(pc_pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(Vista_EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel58)
+                            .addComponent(nc_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addComponent(Listar2)))
+                .addGap(44, 44, 44)
+                .addComponent(jButton18)
+                .addContainerGap())
+        );
 
-        Btn_crearconse3.setText("GUARDAR CAMBIOS");
-        Btn_crearconse3.addMouseListener(new java.awt.event.MouseAdapter() {
+        C_Empresa1.setTitle("Crear Empresa");
+
+        jLabel45.setText("Crear Empresa");
+
+        jLabel46.setText("RTN:");
+
+        jLabel47.setText("Nombre:");
+
+        jLabel48.setText("Direccion:");
+
+        jLabel49.setText("Telefono:");
+
+        jLabel50.setText("Tipo Empresa:");
+
+        jButton20.setText("Crear");
+        jButton20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_crearconse3MouseClicked(evt);
+                jButton20MouseClicked(evt);
             }
         });
-        M_Marca.getContentPane().add(Btn_crearconse3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
 
-        id_compa37.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa37.setText("ID MARCA");
-        M_Marca.getContentPane().add(id_compa37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        javax.swing.GroupLayout C_Empresa1Layout = new javax.swing.GroupLayout(C_Empresa1.getContentPane());
+        C_Empresa1.getContentPane().setLayout(C_Empresa1Layout);
+        C_Empresa1Layout.setHorizontalGroup(
+            C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(C_Empresa1Layout.createSequentialGroup()
+                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(C_Empresa1Layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel45))
+                    .addGroup(C_Empresa1Layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(C_Empresa1Layout.createSequentialGroup()
+                                .addComponent(jLabel48)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(direccion_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(C_Empresa1Layout.createSequentialGroup()
+                                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel47)
+                                    .addComponent(jLabel46))
+                                .addGap(18, 18, 18)
+                                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rtn_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombre_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(C_Empresa1Layout.createSequentialGroup()
+                                .addComponent(jLabel49)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(telefono_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(C_Empresa1Layout.createSequentialGroup()
+                                .addComponent(jLabel50)
+                                .addGap(18, 18, 18)
+                                .addComponent(tipo_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, C_Empresa1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton20)
+                .addGap(130, 130, 130))
+        );
+        C_Empresa1Layout.setVerticalGroup(
+            C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(C_Empresa1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel45)
+                .addGap(34, 34, 34)
+                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel46)
+                    .addComponent(rtn_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47)
+                    .addComponent(nombre_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel48)
+                    .addComponent(direccion_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel49)
+                    .addComponent(telefono_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel50)
+                    .addComponent(tipo_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jButton20)
+                .addGap(105, 105, 105))
+        );
 
-        jLabel30.setText("MODIFICACION DE MARCA");
-        M_Marca.getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+        M_Empresa1.setTitle("Modificar Empresa");
 
-        id_compa38.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa38.setText("Nombre Marca");
-        M_Marca.getContentPane().add(id_compa38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        jLabel51.setText("Modificar Empresa");
 
-        id_compa39.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa39.setText("ID Compañia");
-        M_Marca.getContentPane().add(id_compa39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+        jLabel52.setText("RTN:");
 
-        idc_1.setEditable(false);
-        M_Marca.getContentPane().add(idc_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 120, -1));
+        jLabel53.setText("Nombre:");
+
+        jLabel54.setText("Direccion:");
+
+        jLabel55.setText("Telefono:");
+
+        jLabel56.setText("Tipo Empresa:");
+
+        jButton21.setText("GUARDAR CAMBIOS");
+        jButton21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton21MouseClicked(evt);
+            }
+        });
+
+        rtn_empresa3.setEditable(false);
+
+        javax.swing.GroupLayout M_Empresa1Layout = new javax.swing.GroupLayout(M_Empresa1.getContentPane());
+        M_Empresa1.getContentPane().setLayout(M_Empresa1Layout);
+        M_Empresa1Layout.setHorizontalGroup(
+            M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(M_Empresa1Layout.createSequentialGroup()
+                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(M_Empresa1Layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel51))
+                    .addGroup(M_Empresa1Layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(M_Empresa1Layout.createSequentialGroup()
+                                .addComponent(jLabel54)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(direccion_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(M_Empresa1Layout.createSequentialGroup()
+                                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel53)
+                                    .addComponent(jLabel52))
+                                .addGap(18, 18, 18)
+                                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rtn_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombre_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(M_Empresa1Layout.createSequentialGroup()
+                                .addComponent(jLabel55)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(telefono_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(M_Empresa1Layout.createSequentialGroup()
+                                .addComponent(jLabel56)
+                                .addGap(18, 18, 18)
+                                .addComponent(tipo_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, M_Empresa1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton21)
+                .addGap(130, 130, 130))
+        );
+        M_Empresa1Layout.setVerticalGroup(
+            M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(M_Empresa1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel51)
+                .addGap(34, 34, 34)
+                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel52)
+                    .addComponent(rtn_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel53)
+                    .addComponent(nombre_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel54)
+                    .addComponent(direccion_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel55)
+                    .addComponent(telefono_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel56)
+                    .addComponent(tipo_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jButton21)
+                .addGap(105, 105, 105))
+        );
+
+        Vista_Persona.setTitle("Empresa - Concesionario");
+
+        tabla_empresas2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "VIN", "ID_COMPANIA", "PRECIO"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane10.setViewportView(tabla_empresas2);
+
+        jButton19.setText("Modificar Datos Personales");
+        jButton19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton19MouseClicked(evt);
+            }
+        });
+
+        Listar3.setText("Listar");
+        Listar3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Listar3MouseClicked(evt);
+            }
+        });
+
+        jLabel59.setText("Pais del Concesionario:");
+
+        jLabel60.setText("Nombre del Concesionario: ");
+
+        javax.swing.GroupLayout Vista_PersonaLayout = new javax.swing.GroupLayout(Vista_Persona.getContentPane());
+        Vista_Persona.getContentPane().setLayout(Vista_PersonaLayout);
+        Vista_PersonaLayout.setHorizontalGroup(
+            Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Vista_PersonaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(Vista_PersonaLayout.createSequentialGroup()
+                        .addComponent(jLabel59)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(Vista_PersonaLayout.createSequentialGroup()
+                        .addComponent(jLabel60)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Listar3)
+                        .addComponent(jButton19)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+        );
+        Vista_PersonaLayout.setVerticalGroup(
+            Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Vista_PersonaLayout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addGroup(Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(Vista_PersonaLayout.createSequentialGroup()
+                        .addGroup(Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel59)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel60)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addComponent(Listar3)))
+                .addGap(44, 44, 44)
+                .addComponent(jButton19)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ventana Principal");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Bt_Menu_Creacion.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
@@ -1929,13 +2281,21 @@ public class Principal extends javax.swing.JFrame {
         Bt_Menu_Modificar.setText("Marketing");
         getContentPane().add(Bt_Menu_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, 30));
 
-        Bt_Menu_Eliminacion.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        Bt_Menu_Eliminacion.setFont(new java.awt.Font("Leelawadee UI", 1, 13)); // NOI18N
         Bt_Menu_Eliminacion.setText("Localización");
-        getContentPane().add(Bt_Menu_Eliminacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 200, 120, 30));
+        getContentPane().add(Bt_Menu_Eliminacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 200, -1, 30));
 
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton10.setText("Clientes");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, -1, -1));
+
+        jButton13.setText("Reportes");
+        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, -1, -1));
 
         lb_fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WhatsApp Image 2020-03-05 at 6.43.00 PM.jpeg"))); // NOI18N
         getContentPane().add(lb_fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 700));
@@ -1945,10 +2305,15 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Bt_Menu_CreacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bt_Menu_CreacionMouseClicked
-        Jd_Mcreacion.setModal(true);
-        Jd_Mcreacion.pack();
-        Jd_Mcreacion.setLocationRelativeTo(this); 
-        Jd_Mcreacion.setVisible(true);
+        
+            auth.setModal(true);
+            auth.pack();
+            auth.setLocationRelativeTo(this); 
+            auth.setVisible(true);
+        
+        
+        
+        
     }//GEN-LAST:event_Bt_Menu_CreacionMouseClicked
 
     private void Crear_compaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_compaMouseClicked
@@ -3071,157 +3436,137 @@ public class Principal extends javax.swing.JFrame {
         tf_compania.setText(dato.get(0));
     }//GEN-LAST:event_cb_vehiculoItemStateChanged
 
-    private void boton_agregar_concesionario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_agregar_concesionario1MouseClicked
+    private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
         // TODO add your handling code here:
-        DefaultComboBoxModel modelo= (DefaultComboBoxModel)cb_marca.getModel();
-        CompaniaBO cbo=new CompaniaBO();
-        ArrayList<String>datos=new ArrayList();
-        try {
-            datos=cbo.obtenerCompanias();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        for (int i = 0; i <datos.size(); i++) {
-            modelo.addElement(datos.get(i));
-        }
-        cb_marca.setModel(modelo);
-        C_Marca.setModal(true);
-        C_Marca.pack();
-        C_Marca.setLocationRelativeTo(this);
-        C_Marca.setVisible(true);
-    }//GEN-LAST:event_boton_agregar_concesionario1MouseClicked
-
-    private void boton_modificar_concesionario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_modificar_concesionario1MouseClicked
-        // TODO add your handling code here:
-        if(tabla_marcas.getSelectedRow()==-1){
-            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder modificarlo");
+        String name="", password="";
+        name=jTextField1.getText();
+        password=jPasswordField1.getText();
+        jPasswordField1.setText("");
+        jTextField1.setText("");
+        if(name.equalsIgnoreCase("admin")==false || password.equals("admin")==false){
+            JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrecta");
         }
         else{
-            DefaultTableModel modelo = (DefaultTableModel)tabla_marcas.getModel();
-            String id=String.valueOf(modelo.getValueAt(tabla_marcas.getSelectedRow(), 0));
-            String ID="'"+id+"'";
-            System.out.println("ID "+ID);
-            MarcaBO mbo=new MarcaBO();
-            ArrayList<String> data=new ArrayList();
+            JOptionPane.showMessageDialog(this, "Bienvenido");
+            auth.dispose();
+            Jd_Mcreacion.setModal(true);
+            Jd_Mcreacion.pack();
+            Jd_Mcreacion.setLocationRelativeTo(this);
+            Jd_Mcreacion.setVisible(true);
+        }   
+    }//GEN-LAST:event_jButton14MouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        // TODO add your handling code here:
+        usted_es.setModal(true);
+        usted_es.pack();
+        usted_es.setLocationRelativeTo(this);
+        usted_es.setVisible(true);
+        
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
+        // TODO add your handling code here:
+        if(rb_empresa.isSelected()){
+            String rtn1="'"+rtn.getText()+"'";
+            EmpresaBO ebo=new EmpresaBO();
+            ArrayList <String>dato=new ArrayList();
             try {
-                data=mbo.obtenerMarca(ID);
+                dato=ebo.obtenerEmpresa(rtn1);
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-            id_marca1.setText(data.get(0));
-            nombre_marca1.setText(data.get(1));
-            idc_1.setText(data.get(2));
-            M_Marca.setModal(true);
-            M_Marca.pack();
-            M_Marca.setLocationRelativeTo(this);
-            M_Marca.setVisible(true);
-        
-        }
-    }//GEN-LAST:event_boton_modificar_concesionario1MouseClicked
-
-    private void boton_eliminar_concesionario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_eliminar_concesionario1MouseClicked
-        // TODO add your handling code here:
-        if(tabla_marcas.getSelectedRow()==-1){
-            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder eliminarlo");
-        }
-        else{
-            int i=JOptionPane.showConfirmDialog(null, "¿Desea eliminar esta marca?");
-            if(i==0){
-                DefaultTableModel modelo = (DefaultTableModel)tabla_marcas.getModel();
-                String id=String.valueOf(modelo.getValueAt(tabla_marcas.getSelectedRow(), 0));
-                String ID="'"+id+"'";
-                System.out.println("vin "+ID);
-                MarcaBO mbo= new MarcaBO();
+            if(dato.size()==0){
+                JOptionPane.showInputDialog(this, "El RTN de su empresa no existe.\nCompurebe su numero de RTN o Registrese");
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Bienvenido");
+                ConcesionarioBO cbo= new ConcesionarioBO();
+                ArrayList<String> datos=new ArrayList();
                 try {
-                    mbo.eliminarMarca(ID);
+                    datos=cbo.obtenerUbicacionConcesionario();
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
-                try {
-                    mbo.listarMarca(tabla_marcas);
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                } 
+                DefaultComboBoxModel modelo = (DefaultComboBoxModel) pc_pais.getModel();
+                for (int i = 0; i <datos.size(); i++) {
+                    modelo.addElement(datos.get(i));
+                }
+                pc_pais.setModel(modelo);
+                //
+                Vista_Empresa.setModal(true);
+                Vista_Empresa.pack();
+                Vista_Empresa.setLocationRelativeTo(this);
+                Vista_Empresa.setVisible(true);
+                usted_es.dispose();
             }
         }
-        JOptionPane.showMessageDialog(this, "Se ha borrado la empresa exitosamente");
-    }//GEN-LAST:event_boton_eliminar_concesionario1MouseClicked
+        else{
+            String rtn1="'"+rtn.getText()+"'";
+            PersonaBO ebo=new PersonaBO();
+            ArrayList <String>dato=new ArrayList();
+            try {
+                dato=ebo.obtenerPersona(rtn1);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            if(dato.size()==0){
+                JOptionPane.showInputDialog(this, "Su RTN no existe.\nCompurebe su numero de RTN o Registrese");
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Bienvenido");
+                Vista_Persona.setModal(true);
+                Vista_Persona.pack();
+                Vista_Persona.setLocationRelativeTo(this);
+                Vista_Persona.setVisible(true);
+                usted_es.dispose();
+        }
+     }
+        
+    }//GEN-LAST:event_jButton15MouseClicked
 
-    private void boton_listar_concesionario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_listar_concesionario1MouseClicked
+    private void jButton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseClicked
         // TODO add your handling code here:
-        MarcaBO mbo =new MarcaBO();
+    }//GEN-LAST:event_jButton18MouseClicked
+
+    private void Listar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Listar2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Listar2MouseClicked
+
+    private void jButton20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton20MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton20MouseClicked
+
+    private void jButton21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton21MouseClicked
+
+    private void jButton19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton19MouseClicked
+
+    private void Listar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Listar3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Listar3MouseClicked
+
+    private void pc_paisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_pc_paisItemStateChanged
+        // TODO add your handling code here:
+        String pais="'"+pc_pais.getSelectedItem().toString()+"'";
+        ConcesionarioBO cbo=new ConcesionarioBO();
+        ArrayList<String>data=new ArrayList();
         try {
-            mbo.listarMarca(tabla_marcas);
+            data=cbo.obtenerNombrePorUbicacionConcesionario(pais);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-    }//GEN-LAST:event_boton_listar_concesionario1MouseClicked
-
-    private void Btn_crearconse2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearconse2MouseClicked
-        // TODO add your handling code here:
-        String idm="", nombre="", idc="";
-        idm="1";
-        nombre=marca_nombre.getText();
-        idc=cb_marca.getSelectedItem().toString();
-        marca_nombre.setText("");
-        Marca m=new Marca(idm,nombre,idc);
-        MarcaBO mbo=new MarcaBO();     
-        try {
-            mbo.agregarMarca(m);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        DefaultComboBoxModel modelo= (DefaultComboBoxModel)nc_empresa.getModel();
+        modelo.removeAllElements();
+        for (int i = 0; i < data.size(); i++) {
+            System.out.println("data "+data.get(i));
+            modelo.addElement(data.get(i));
         }
-        try {
-            mbo.listarMarca(tabla_marcas);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        JOptionPane.showMessageDialog(this, "Marca agregada exitosamente");
-        C_Marca.dispose();
-    }//GEN-LAST:event_Btn_crearconse2MouseClicked
-
-    private void Btn_crearconse3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearconse3MouseClicked
-        // TODO add your handling code here:
-        String idm="", nombre="", idc="";
-        idm=id_marca1.getText();
-        nombre=nombre_marca1.getText();
-        idc=idc_1.getText();
-        nombre_marca1.setText("");
-        Marca m=new Marca(idm, nombre, idc);
-        MarcaBO mbo=new MarcaBO();
-        try {
-            mbo.modificarMarca(m);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        try {
-            mbo.listarMarca(tabla_marcas);
-        } catch (SQLException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        JOptionPane.showMessageDialog(this, "Cambios guardados exitosamente");
-        M_Marca.dispose();
-    }//GEN-LAST:event_Btn_crearconse3MouseClicked
-
-    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
-        // TODO add your handling code here:
-        V_Marca.setModal(true);
-        V_Marca.pack();
-        V_Marca.setLocationRelativeTo(this);
-        V_Marca.setVisible(true);
-    }//GEN-LAST:event_jButton12MouseClicked
-
-    private void cb_marcaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_marcaItemStateChanged
-        // TODO add your handling code here:
-        CompaniaBO cbo=new CompaniaBO();
-        ArrayList<String>dato=new ArrayList();
-        try {
-            dato=cbo.obtenerNombreCompania(cb_marca.getSelectedItem().toString());
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        marca_nombre_compania.setText(dato.get(0));
-    }//GEN-LAST:event_cb_marcaItemStateChanged
+        nc_empresa.setModel(modelo);
+    }//GEN-LAST:event_pc_paisItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -3267,8 +3612,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Btn_crearEmpre1;
     private javax.swing.JButton Btn_crearconse;
     private javax.swing.JButton Btn_crearconse1;
-    private javax.swing.JButton Btn_crearconse2;
-    private javax.swing.JButton Btn_crearconse3;
     private javax.swing.JButton Btn_crearplanta;
     private javax.swing.JButton Btn_crearplanta1;
     private javax.swing.JButton Btn_crearproveedor;
@@ -3276,7 +3619,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog C_Compania;
     private javax.swing.JDialog C_Conse;
     private javax.swing.JDialog C_Empresa;
-    private javax.swing.JDialog C_Marca;
+    private javax.swing.JDialog C_Empresa1;
     private javax.swing.JDialog C_Persona;
     private javax.swing.JDialog C_Planta;
     private javax.swing.JDialog C_Proveedor;
@@ -3291,14 +3634,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Crear_proveedor;
     private javax.swing.JButton Crear_vehiculo;
     private javax.swing.JDialog Jd_Mcreacion;
-    private javax.swing.JDialog Jd_Meliminacion;
-    private javax.swing.JDialog Jd_Mmodificacion;
     private javax.swing.JButton Listar;
     private javax.swing.JButton Listar1;
+    private javax.swing.JButton Listar2;
+    private javax.swing.JButton Listar3;
     private javax.swing.JDialog M_Compania;
     private javax.swing.JDialog M_Conse;
     private javax.swing.JDialog M_Empresa;
-    private javax.swing.JDialog M_Marca;
+    private javax.swing.JDialog M_Empresa1;
     private javax.swing.JDialog M_Persona;
     private javax.swing.JDialog M_Planta;
     private javax.swing.JDialog M_Proveedor;
@@ -3310,45 +3653,42 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog V_Compania;
     private javax.swing.JDialog V_Concesionario;
     private javax.swing.JDialog V_Empresa;
-    private javax.swing.JDialog V_Marca;
     private javax.swing.JDialog V_Persona;
     private javax.swing.JDialog V_Planta;
     private javax.swing.JDialog V_Proveedor;
     private javax.swing.JDialog V_Vehiculo;
     private javax.swing.JTextField Vehi_motor;
+    private javax.swing.JDialog Vista_Empresa;
+    private javax.swing.JDialog Vista_Persona;
+    private javax.swing.JDialog auth;
     private javax.swing.JButton boton_agregar_companias;
     private javax.swing.JButton boton_agregar_concesionario;
-    private javax.swing.JButton boton_agregar_concesionario1;
     private javax.swing.JButton boton_agregar_planta;
     private javax.swing.JButton boton_agregar_proveedor;
     private javax.swing.JButton boton_agregar_vehiculo;
     private javax.swing.JButton boton_eliminar_companias;
     private javax.swing.JButton boton_eliminar_concesionario;
-    private javax.swing.JButton boton_eliminar_concesionario1;
     private javax.swing.JButton boton_eliminar_planta;
     private javax.swing.JButton boton_eliminar_proveedor;
     private javax.swing.JButton boton_eliminar_vehiculo;
     private javax.swing.JButton boton_listar_companias;
     private javax.swing.JButton boton_listar_concesionario;
-    private javax.swing.JButton boton_listar_concesionario1;
     private javax.swing.JButton boton_listar_planta;
     private javax.swing.JButton boton_listar_proveedor;
     private javax.swing.JButton boton_listar_vehiculo;
     private javax.swing.JButton boton_modificar_companias;
     private javax.swing.JButton boton_modificar_concesionario;
-    private javax.swing.JButton boton_modificar_concesionario1;
     private javax.swing.JButton boton_modificar_planta;
     private javax.swing.JButton boton_modificar_proveedor;
     private javax.swing.JButton boton_modificar_vehi;
     private javax.swing.JButton boton_modificar_vehiculo;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cb_marca;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cb_vehiculo;
     private javax.swing.JTextField compa_nombre;
     private javax.swing.JTextField compa_nombre1;
     private javax.swing.JTextField conse_id;
     private javax.swing.JTextField conse_id1;
-    private javax.swing.JTextField conse_id2;
     private javax.swing.JTextField conse_nombre;
     private javax.swing.JTextField conse_nombre1;
     private javax.swing.JTextField conse_ubicacion;
@@ -3356,6 +3696,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> crear_planta_compania;
     private javax.swing.JTextField direccion_empresa;
     private javax.swing.JTextField direccion_empresa1;
+    private javax.swing.JTextField direccion_empresa2;
+    private javax.swing.JTextField direccion_empresa3;
     private javax.swing.JTextField direccion_persona;
     private javax.swing.JTextField direccion_persona1;
     private javax.swing.JRadioButton f;
@@ -3388,29 +3730,28 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel id_compa31;
     private javax.swing.JLabel id_compa32;
     private javax.swing.JLabel id_compa33;
-    private javax.swing.JLabel id_compa34;
-    private javax.swing.JLabel id_compa35;
-    private javax.swing.JLabel id_compa36;
-    private javax.swing.JLabel id_compa37;
-    private javax.swing.JLabel id_compa38;
-    private javax.swing.JLabel id_compa39;
     private javax.swing.JLabel id_compa4;
     private javax.swing.JLabel id_compa5;
     private javax.swing.JLabel id_compa6;
     private javax.swing.JLabel id_compa7;
     private javax.swing.JLabel id_compa8;
     private javax.swing.JLabel id_compa9;
-    private javax.swing.JTextField id_marca1;
     private javax.swing.JTextField id_persona;
     private javax.swing.JTextField id_persona1;
-    private javax.swing.JTextField idc_1;
     private javax.swing.JTextField ingreso_persona;
     private javax.swing.JTextField ingreso_persona1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -3418,6 +3759,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3439,9 +3782,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -3453,19 +3794,42 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lb_Fondo_C_empre;
     private javax.swing.JLabel lb_Fondo_C_empre1;
     private javax.swing.JLabel lb_Fondo_C_empre2;
@@ -3478,15 +3842,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lb_fondocreacion;
     private javax.swing.JRadioButton m;
     private javax.swing.JRadioButton m1;
-    private javax.swing.JTextField marca_nombre;
-    private javax.swing.JTextField marca_nombre_compania;
     private javax.swing.JTextField mod_id_compania;
     private javax.swing.JTextField mod_nombre_compania;
+    private javax.swing.JComboBox<String> nc_empresa;
     private javax.swing.JTextField nombre_empresa;
     private javax.swing.JTextField nombre_empresa1;
-    private javax.swing.JTextField nombre_marca1;
+    private javax.swing.JTextField nombre_empresa2;
+    private javax.swing.JTextField nombre_empresa3;
     private javax.swing.JTextField nombre_persona;
     private javax.swing.JTextField nombre_persona1;
+    private javax.swing.JComboBox<String> pc_pais;
     private javax.swing.JTextField planta_id;
     private javax.swing.JTextField planta_id1;
     private javax.swing.JTextField planta_id_compania_modificar;
@@ -3494,20 +3859,28 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField planta_nombre1;
     private javax.swing.JTextField planta_tipo;
     private javax.swing.JTextField planta_tipo1;
+    private javax.swing.JRadioButton rb_empresa;
+    private javax.swing.JRadioButton rb_persona;
+    private javax.swing.JTextField rtn;
     private javax.swing.JTextField rtn_empresa;
     private javax.swing.JTextField rtn_empresa1;
+    private javax.swing.JTextField rtn_empresa2;
+    private javax.swing.JTextField rtn_empresa3;
     private javax.swing.JTextField rtn_persona;
     private javax.swing.JTextField rtn_persona1;
     private javax.swing.JTable tabla_companias;
     private javax.swing.JTable tabla_concesionarios;
     private javax.swing.JTable tabla_empresas;
-    private javax.swing.JTable tabla_marcas;
+    private javax.swing.JTable tabla_empresas1;
+    private javax.swing.JTable tabla_empresas2;
     private javax.swing.JTable tabla_personas;
     private javax.swing.JTable tabla_plantas;
     private javax.swing.JTable tabla_proveedores;
     private javax.swing.JTable tabla_vehiculos;
     private javax.swing.JTextField telefono_empresa;
     private javax.swing.JTextField telefono_empresa1;
+    private javax.swing.JTextField telefono_empresa2;
+    private javax.swing.JTextField telefono_empresa3;
     private javax.swing.JTextField telefono_persona;
     private javax.swing.JTextField telefono_persona1;
     private javax.swing.JTextField tf_compania;
@@ -3515,6 +3888,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nombre_empresa;
     private javax.swing.JTextField tipo_empresa;
     private javax.swing.JTextField tipo_empresa1;
+    private javax.swing.JTextField tipo_empresa2;
+    private javax.swing.JTextField tipo_empresa3;
+    private javax.swing.JDialog usted_es;
     private javax.swing.JComboBox<String> vehi_carro;
     private javax.swing.JComboBox<String> vehi_carro1;
     private javax.swing.JTextField vehi_color;
@@ -3527,7 +3903,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField vehi_vin;
     private javax.swing.JTextField vehi_vin1;
     // End of variables declaration//GEN-END:variables
-
+String cliente;
     /*
     --compañia : id compañia, nombre, marca
     --proveedor: id proveedor nombre proveedor

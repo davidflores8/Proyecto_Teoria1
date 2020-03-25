@@ -101,6 +101,48 @@ public class ConcesionarioBO {
         
     }
     
+        public ArrayList obtenerNombrePorUbicacionConcesionario(String ID) throws SQLException{
+        ArrayList <String> datos=new ArrayList();
+        Connection con =Conexion.getConnection();
+        try {
+            datos=cdao.obtenerNombrePorUbicacionConcesionario(con, ID);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return datos;
+        
+    }
+        
+        public ArrayList obtenerUbicacionConcesionario() throws SQLException{
+        ArrayList <String> datos=new ArrayList();
+        Connection con =Conexion.getConnection();
+        try {
+            datos=cdao.obtenerUbicacionConcesionario(con);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return datos;
+        
+    }
+    
     public void listarConcesionario(JTable tabla) throws SQLException{
         Connection con =Conexion.getConnection();
         cdao.listarConcesionario(con, tabla);

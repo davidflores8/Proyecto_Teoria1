@@ -107,6 +107,46 @@ public class ConcesionarioDAO {
         return null;
     }
     
+    public ArrayList obtenerNombrePorUbicacionConcesionario(Connection con, String ID){
+        ArrayList <String> datos = new ArrayList();
+        String sql="SELECT NOMBRE_CONCESIONARIO FROM CONCESIONARIO WHERE UBICACION_CONCESIONARIO = "+ID;
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                    for(int i=0; i<1; i++){
+                        datos.add(rs.getString(i+1));
+                    }
+            }
+            System.out.println("Ya paso por obtener");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado"+e.getMessage());
+        }
+        return datos;  
+    }
+    
+       public ArrayList obtenerUbicacionConcesionario(Connection con){
+        ArrayList <String> datos = new ArrayList();
+        String sql="SELECT UBICACION_CONCESIONARIO FROM CONCESIONARIO GROUP BY UBICACION_CONCESIONARIO";
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                    for(int i=0; i<1; i++){
+                        datos.add(rs.getString(i+1));
+                    }
+            }
+            System.out.println("Ya paso por obtener");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado"+e.getMessage());
+        }
+        return datos;  
+    }
+    
     public ArrayList obtenerConcesionario(Connection con, String ID){
         ArrayList <String> datos = new ArrayList();
         String sql="SELECT * FROM CONCESIONARIO WHERE ID_CONCESIONARIO = "+ID;

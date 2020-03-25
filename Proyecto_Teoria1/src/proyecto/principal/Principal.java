@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import proyecto.bo.CompaniaBO;
 import proyecto.bo.ConcesionarioBO;
 import proyecto.bo.EmpresaBO;
+import proyecto.bo.MarcaBO;
 import proyecto.bo.PersonaBO;
 import proyecto.bo.Planta_fabricacionBO;
 import proyecto.bo.ProveedorBO;
@@ -26,6 +27,7 @@ import proyecto.bo.VehiculoBO;
 import proyecto.entidades.Compania;
 import proyecto.entidades.Concesionario;
 import proyecto.entidades.Empresa;
+import proyecto.entidades.Marca;
 import proyecto.entidades.Persona;
 import proyecto.entidades.Planta_fabricacion;
 import proyecto.entidades.Proveedor;
@@ -67,6 +69,7 @@ public class Principal extends javax.swing.JFrame {
         Crear_vehiculo = new javax.swing.JButton();
         lb_fondocreacion = new javax.swing.JLabel();
         Crear_empresa = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         Jd_Mmodificacion = new javax.swing.JDialog();
         Jd_Meliminacion = new javax.swing.JDialog();
         V_Vehiculo = new javax.swing.JDialog();
@@ -293,6 +296,32 @@ public class Principal extends javax.swing.JFrame {
         nombre_empresa1 = new javax.swing.JTextField();
         tipo_empresa1 = new javax.swing.JTextField();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        V_Marca = new javax.swing.JDialog();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tabla_marcas = new javax.swing.JTable();
+        boton_agregar_concesionario1 = new javax.swing.JButton();
+        boton_modificar_concesionario1 = new javax.swing.JButton();
+        boton_eliminar_concesionario1 = new javax.swing.JButton();
+        boton_listar_concesionario1 = new javax.swing.JButton();
+        C_Marca = new javax.swing.JDialog();
+        marca_nombre = new javax.swing.JTextField();
+        conse_id2 = new javax.swing.JTextField();
+        Btn_crearconse2 = new javax.swing.JButton();
+        id_compa34 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        id_compa35 = new javax.swing.JLabel();
+        id_compa36 = new javax.swing.JLabel();
+        marca_nombre_compania = new javax.swing.JTextField();
+        cb_marca = new javax.swing.JComboBox<>();
+        M_Marca = new javax.swing.JDialog();
+        nombre_marca1 = new javax.swing.JTextField();
+        id_marca1 = new javax.swing.JTextField();
+        Btn_crearconse3 = new javax.swing.JButton();
+        id_compa37 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        id_compa38 = new javax.swing.JLabel();
+        id_compa39 = new javax.swing.JLabel();
+        idc_1 = new javax.swing.JTextField();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
@@ -307,7 +336,7 @@ public class Principal extends javax.swing.JFrame {
                 Crear_PlantaMouseClicked(evt);
             }
         });
-        Jd_Mcreacion.getContentPane().add(Crear_Planta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 110, -1));
+        Jd_Mcreacion.getContentPane().add(Crear_Planta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 120, -1));
 
         Crear_proveedor.setText("Proveedor");
         Crear_proveedor.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -315,7 +344,7 @@ public class Principal extends javax.swing.JFrame {
                 Crear_proveedorMouseClicked(evt);
             }
         });
-        Jd_Mcreacion.getContentPane().add(Crear_proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 110, -1));
+        Jd_Mcreacion.getContentPane().add(Crear_proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 120, -1));
 
         Crear_conse.setText("Consecionario");
         Crear_conse.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -323,7 +352,7 @@ public class Principal extends javax.swing.JFrame {
                 Crear_conseMouseClicked(evt);
             }
         });
-        Jd_Mcreacion.getContentPane().add(Crear_conse, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, -1, -1));
+        Jd_Mcreacion.getContentPane().add(Crear_conse, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 120, -1));
 
         Crear_cliente.setText("Persona");
         Crear_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -331,7 +360,7 @@ public class Principal extends javax.swing.JFrame {
                 Crear_clienteMouseClicked(evt);
             }
         });
-        Jd_Mcreacion.getContentPane().add(Crear_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 110, -1));
+        Jd_Mcreacion.getContentPane().add(Crear_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 120, -1));
 
         Crear_compa.setText("Compañia");
         Crear_compa.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -339,7 +368,7 @@ public class Principal extends javax.swing.JFrame {
                 Crear_compaMouseClicked(evt);
             }
         });
-        Jd_Mcreacion.getContentPane().add(Crear_compa, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 110, -1));
+        Jd_Mcreacion.getContentPane().add(Crear_compa, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 120, -1));
 
         Crear_vehiculo.setText("Vehiculo");
         Crear_vehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -347,7 +376,7 @@ public class Principal extends javax.swing.JFrame {
                 Crear_vehiculoMouseClicked(evt);
             }
         });
-        Jd_Mcreacion.getContentPane().add(Crear_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 110, -1));
+        Jd_Mcreacion.getContentPane().add(Crear_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 120, -1));
 
         lb_fondocreacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/diseno-fondo-moderno-blanco-3d_53876-88246.jpg"))); // NOI18N
         Jd_Mcreacion.getContentPane().add(lb_fondocreacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, -1));
@@ -359,6 +388,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         Jd_Mcreacion.getContentPane().add(Crear_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 120, -1));
+
+        jButton12.setText("Marca");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton12MouseClicked(evt);
+            }
+        });
+        Jd_Mcreacion.getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 120, -1));
 
         javax.swing.GroupLayout Jd_MmodificacionLayout = new javax.swing.GroupLayout(Jd_Mmodificacion.getContentPane());
         Jd_Mmodificacion.getContentPane().setLayout(Jd_MmodificacionLayout);
@@ -979,7 +1016,10 @@ public class Principal extends javax.swing.JFrame {
         id_compa2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa2.setText("Nombre compañia");
         C_Compania.getContentPane().add(id_compa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
-        C_Compania.getContentPane().add(Compa_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 120, -1));
+
+        Compa_id.setEditable(false);
+        Compa_id.setText("*Generado Automaticamente*");
+        C_Compania.getContentPane().add(Compa_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 160, -1));
         C_Compania.getContentPane().add(compa_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 120, -1));
 
         Btn_crearEmpre.setText("Crear");
@@ -1722,6 +1762,156 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jButton8)
                 .addGap(105, 105, 105))
         );
+
+        tabla_marcas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID_MARCA", "NOMBRE_MARCA", "ID_COMPANIA"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane8.setViewportView(tabla_marcas);
+
+        boton_agregar_concesionario1.setText("Agregar");
+        boton_agregar_concesionario1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_agregar_concesionario1MouseClicked(evt);
+            }
+        });
+
+        boton_modificar_concesionario1.setText("Modificar");
+        boton_modificar_concesionario1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_modificar_concesionario1MouseClicked(evt);
+            }
+        });
+
+        boton_eliminar_concesionario1.setText("Eliminar");
+        boton_eliminar_concesionario1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_eliminar_concesionario1MouseClicked(evt);
+            }
+        });
+
+        boton_listar_concesionario1.setText("Listar");
+        boton_listar_concesionario1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_listar_concesionario1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout V_MarcaLayout = new javax.swing.GroupLayout(V_Marca.getContentPane());
+        V_Marca.getContentPane().setLayout(V_MarcaLayout);
+        V_MarcaLayout.setHorizontalGroup(
+            V_MarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(V_MarcaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(V_MarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+                    .addGroup(V_MarcaLayout.createSequentialGroup()
+                        .addComponent(boton_agregar_concesionario1)
+                        .addGap(18, 18, 18)
+                        .addComponent(boton_modificar_concesionario1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_listar_concesionario1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(boton_eliminar_concesionario1)))
+                .addContainerGap())
+        );
+        V_MarcaLayout.setVerticalGroup(
+            V_MarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, V_MarcaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(V_MarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton_agregar_concesionario1)
+                    .addComponent(boton_modificar_concesionario1)
+                    .addComponent(boton_eliminar_concesionario1)
+                    .addComponent(boton_listar_concesionario1))
+                .addContainerGap())
+        );
+
+        C_Marca.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        C_Marca.getContentPane().add(marca_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 120, -1));
+
+        conse_id2.setEditable(false);
+        conse_id2.setText("*Generado automaticamente*");
+        C_Marca.getContentPane().add(conse_id2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 150, -1));
+
+        Btn_crearconse2.setText("Crear");
+        Btn_crearconse2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_crearconse2MouseClicked(evt);
+            }
+        });
+        C_Marca.getContentPane().add(Btn_crearconse2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
+
+        id_compa34.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa34.setText("ID Marca");
+        C_Marca.getContentPane().add(id_compa34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        jLabel29.setText("CREACION DE MARCA");
+        C_Marca.getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+
+        id_compa35.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa35.setText("Nombre Marca:");
+        C_Marca.getContentPane().add(id_compa35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        id_compa36.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa36.setText("ID Compañia");
+        C_Marca.getContentPane().add(id_compa36, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, -1));
+
+        marca_nombre_compania.setEditable(false);
+        C_Marca.getContentPane().add(marca_nombre_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 120, -1));
+
+        cb_marca.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_marcaItemStateChanged(evt);
+            }
+        });
+        C_Marca.getContentPane().add(cb_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, -1));
+
+        M_Marca.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        M_Marca.getContentPane().add(nombre_marca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 120, -1));
+
+        id_marca1.setEditable(false);
+        M_Marca.getContentPane().add(id_marca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 120, -1));
+
+        Btn_crearconse3.setText("GUARDAR CAMBIOS");
+        Btn_crearconse3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_crearconse3MouseClicked(evt);
+            }
+        });
+        M_Marca.getContentPane().add(Btn_crearconse3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
+
+        id_compa37.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa37.setText("ID MARCA");
+        M_Marca.getContentPane().add(id_compa37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+
+        jLabel30.setText("MODIFICACION DE MARCA");
+        M_Marca.getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+
+        id_compa38.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa38.setText("Nombre Marca");
+        M_Marca.getContentPane().add(id_compa38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        id_compa39.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa39.setText("ID Compañia");
+        M_Marca.getContentPane().add(id_compa39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+
+        idc_1.setEditable(false);
+        M_Marca.getContentPane().add(idc_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 120, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2881,6 +3071,158 @@ public class Principal extends javax.swing.JFrame {
         tf_compania.setText(dato.get(0));
     }//GEN-LAST:event_cb_vehiculoItemStateChanged
 
+    private void boton_agregar_concesionario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_agregar_concesionario1MouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo= (DefaultComboBoxModel)cb_marca.getModel();
+        CompaniaBO cbo=new CompaniaBO();
+        ArrayList<String>datos=new ArrayList();
+        try {
+            datos=cbo.obtenerCompanias();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        for (int i = 0; i <datos.size(); i++) {
+            modelo.addElement(datos.get(i));
+        }
+        cb_marca.setModel(modelo);
+        C_Marca.setModal(true);
+        C_Marca.pack();
+        C_Marca.setLocationRelativeTo(this);
+        C_Marca.setVisible(true);
+    }//GEN-LAST:event_boton_agregar_concesionario1MouseClicked
+
+    private void boton_modificar_concesionario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_modificar_concesionario1MouseClicked
+        // TODO add your handling code here:
+        if(tabla_marcas.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder modificarlo");
+        }
+        else{
+            DefaultTableModel modelo = (DefaultTableModel)tabla_marcas.getModel();
+            String id=String.valueOf(modelo.getValueAt(tabla_marcas.getSelectedRow(), 0));
+            String ID="'"+id+"'";
+            System.out.println("ID "+ID);
+            MarcaBO mbo=new MarcaBO();
+            ArrayList<String> data=new ArrayList();
+            try {
+                data=mbo.obtenerMarca(ID);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            id_marca1.setText(data.get(0));
+            nombre_marca1.setText(data.get(1));
+            idc_1.setText(data.get(2));
+            M_Marca.setModal(true);
+            M_Marca.pack();
+            M_Marca.setLocationRelativeTo(this);
+            M_Marca.setVisible(true);
+        
+        }
+    }//GEN-LAST:event_boton_modificar_concesionario1MouseClicked
+
+    private void boton_eliminar_concesionario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_eliminar_concesionario1MouseClicked
+        // TODO add your handling code here:
+        if(tabla_marcas.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento en la tabla para poder eliminarlo");
+        }
+        else{
+            int i=JOptionPane.showConfirmDialog(null, "¿Desea eliminar esta marca?");
+            if(i==0){
+                DefaultTableModel modelo = (DefaultTableModel)tabla_marcas.getModel();
+                String id=String.valueOf(modelo.getValueAt(tabla_marcas.getSelectedRow(), 0));
+                String ID="'"+id+"'";
+                System.out.println("vin "+ID);
+                MarcaBO mbo= new MarcaBO();
+                try {
+                    mbo.eliminarMarca(ID);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    mbo.listarMarca(tabla_marcas);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } 
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Se ha borrado la empresa exitosamente");
+    }//GEN-LAST:event_boton_eliminar_concesionario1MouseClicked
+
+    private void boton_listar_concesionario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_listar_concesionario1MouseClicked
+        // TODO add your handling code here:
+        MarcaBO mbo =new MarcaBO();
+        try {
+            mbo.listarMarca(tabla_marcas);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_boton_listar_concesionario1MouseClicked
+
+    private void Btn_crearconse2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearconse2MouseClicked
+        // TODO add your handling code here:
+        String idm="", nombre="", idc="";
+        idm="1";
+        nombre=marca_nombre.getText();
+        idc=cb_marca.getSelectedItem().toString();
+        marca_nombre.setText("");
+        Marca m=new Marca(idm,nombre,idc);
+        MarcaBO mbo=new MarcaBO();     
+        try {
+            mbo.agregarMarca(m);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            mbo.listarMarca(tabla_marcas);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(this, "Marca agregada exitosamente");
+        C_Marca.dispose();
+    }//GEN-LAST:event_Btn_crearconse2MouseClicked
+
+    private void Btn_crearconse3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearconse3MouseClicked
+        // TODO add your handling code here:
+        String idm="", nombre="", idc="";
+        idm=id_marca1.getText();
+        nombre=nombre_marca1.getText();
+        idc=idc_1.getText();
+        nombre_marca1.setText("");
+        Marca m=new Marca(idm, nombre, idc);
+        MarcaBO mbo=new MarcaBO();
+        try {
+            mbo.modificarMarca(m);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            mbo.listarMarca(tabla_marcas);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showMessageDialog(this, "Cambios guardados exitosamente");
+        M_Marca.dispose();
+    }//GEN-LAST:event_Btn_crearconse3MouseClicked
+
+    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        // TODO add your handling code here:
+        V_Marca.setModal(true);
+        V_Marca.pack();
+        V_Marca.setLocationRelativeTo(this);
+        V_Marca.setVisible(true);
+    }//GEN-LAST:event_jButton12MouseClicked
+
+    private void cb_marcaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_marcaItemStateChanged
+        // TODO add your handling code here:
+        CompaniaBO cbo=new CompaniaBO();
+        ArrayList<String>dato=new ArrayList();
+        try {
+            dato=cbo.obtenerNombreCompania(cb_marca.getSelectedItem().toString());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        marca_nombre_compania.setText(dato.get(0));
+    }//GEN-LAST:event_cb_marcaItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -2925,6 +3267,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Btn_crearEmpre1;
     private javax.swing.JButton Btn_crearconse;
     private javax.swing.JButton Btn_crearconse1;
+    private javax.swing.JButton Btn_crearconse2;
+    private javax.swing.JButton Btn_crearconse3;
     private javax.swing.JButton Btn_crearplanta;
     private javax.swing.JButton Btn_crearplanta1;
     private javax.swing.JButton Btn_crearproveedor;
@@ -2932,6 +3276,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog C_Compania;
     private javax.swing.JDialog C_Conse;
     private javax.swing.JDialog C_Empresa;
+    private javax.swing.JDialog C_Marca;
     private javax.swing.JDialog C_Persona;
     private javax.swing.JDialog C_Planta;
     private javax.swing.JDialog C_Proveedor;
@@ -2953,6 +3298,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog M_Compania;
     private javax.swing.JDialog M_Conse;
     private javax.swing.JDialog M_Empresa;
+    private javax.swing.JDialog M_Marca;
     private javax.swing.JDialog M_Persona;
     private javax.swing.JDialog M_Planta;
     private javax.swing.JDialog M_Proveedor;
@@ -2964,6 +3310,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog V_Compania;
     private javax.swing.JDialog V_Concesionario;
     private javax.swing.JDialog V_Empresa;
+    private javax.swing.JDialog V_Marca;
     private javax.swing.JDialog V_Persona;
     private javax.swing.JDialog V_Planta;
     private javax.swing.JDialog V_Proveedor;
@@ -2971,31 +3318,37 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField Vehi_motor;
     private javax.swing.JButton boton_agregar_companias;
     private javax.swing.JButton boton_agregar_concesionario;
+    private javax.swing.JButton boton_agregar_concesionario1;
     private javax.swing.JButton boton_agregar_planta;
     private javax.swing.JButton boton_agregar_proveedor;
     private javax.swing.JButton boton_agregar_vehiculo;
     private javax.swing.JButton boton_eliminar_companias;
     private javax.swing.JButton boton_eliminar_concesionario;
+    private javax.swing.JButton boton_eliminar_concesionario1;
     private javax.swing.JButton boton_eliminar_planta;
     private javax.swing.JButton boton_eliminar_proveedor;
     private javax.swing.JButton boton_eliminar_vehiculo;
     private javax.swing.JButton boton_listar_companias;
     private javax.swing.JButton boton_listar_concesionario;
+    private javax.swing.JButton boton_listar_concesionario1;
     private javax.swing.JButton boton_listar_planta;
     private javax.swing.JButton boton_listar_proveedor;
     private javax.swing.JButton boton_listar_vehiculo;
     private javax.swing.JButton boton_modificar_companias;
     private javax.swing.JButton boton_modificar_concesionario;
+    private javax.swing.JButton boton_modificar_concesionario1;
     private javax.swing.JButton boton_modificar_planta;
     private javax.swing.JButton boton_modificar_proveedor;
     private javax.swing.JButton boton_modificar_vehi;
     private javax.swing.JButton boton_modificar_vehiculo;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cb_marca;
     private javax.swing.JComboBox<String> cb_vehiculo;
     private javax.swing.JTextField compa_nombre;
     private javax.swing.JTextField compa_nombre1;
     private javax.swing.JTextField conse_id;
     private javax.swing.JTextField conse_id1;
+    private javax.swing.JTextField conse_id2;
     private javax.swing.JTextField conse_nombre;
     private javax.swing.JTextField conse_nombre1;
     private javax.swing.JTextField conse_ubicacion;
@@ -3035,19 +3388,28 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel id_compa31;
     private javax.swing.JLabel id_compa32;
     private javax.swing.JLabel id_compa33;
+    private javax.swing.JLabel id_compa34;
+    private javax.swing.JLabel id_compa35;
+    private javax.swing.JLabel id_compa36;
+    private javax.swing.JLabel id_compa37;
+    private javax.swing.JLabel id_compa38;
+    private javax.swing.JLabel id_compa39;
     private javax.swing.JLabel id_compa4;
     private javax.swing.JLabel id_compa5;
     private javax.swing.JLabel id_compa6;
     private javax.swing.JLabel id_compa7;
     private javax.swing.JLabel id_compa8;
     private javax.swing.JLabel id_compa9;
+    private javax.swing.JTextField id_marca1;
     private javax.swing.JTextField id_persona;
     private javax.swing.JTextField id_persona1;
+    private javax.swing.JTextField idc_1;
     private javax.swing.JTextField ingreso_persona;
     private javax.swing.JTextField ingreso_persona1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -3077,7 +3439,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -3101,6 +3465,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JLabel lb_Fondo_C_empre;
     private javax.swing.JLabel lb_Fondo_C_empre1;
     private javax.swing.JLabel lb_Fondo_C_empre2;
@@ -3113,10 +3478,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lb_fondocreacion;
     private javax.swing.JRadioButton m;
     private javax.swing.JRadioButton m1;
+    private javax.swing.JTextField marca_nombre;
+    private javax.swing.JTextField marca_nombre_compania;
     private javax.swing.JTextField mod_id_compania;
     private javax.swing.JTextField mod_nombre_compania;
     private javax.swing.JTextField nombre_empresa;
     private javax.swing.JTextField nombre_empresa1;
+    private javax.swing.JTextField nombre_marca1;
     private javax.swing.JTextField nombre_persona;
     private javax.swing.JTextField nombre_persona1;
     private javax.swing.JTextField planta_id;
@@ -3133,6 +3501,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable tabla_companias;
     private javax.swing.JTable tabla_concesionarios;
     private javax.swing.JTable tabla_empresas;
+    private javax.swing.JTable tabla_marcas;
     private javax.swing.JTable tabla_personas;
     private javax.swing.JTable tabla_plantas;
     private javax.swing.JTable tabla_proveedores;

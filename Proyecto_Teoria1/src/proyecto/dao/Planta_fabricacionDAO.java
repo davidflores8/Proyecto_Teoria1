@@ -26,13 +26,13 @@ public class Planta_fabricacionDAO {
     
      public String agregarPlanta (Connection con, Planta_fabricacion pf){
         PreparedStatement pst = null;
-        String sql = "begin crear_Planta(?,?,?);end;";
+        String sql = "begin crear_Planta(PLANTA_SEQ.NEXTVAL,?,?,?);end;";
         
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, pf.getID_Planta());
-            pst.setString(2, pf.getTipo_planta());
-            pst.setString(3, pf.getNombre_planta());
+            pst.setString(1, pf.getTipo_planta());
+            pst.setString(2, pf.getNombre_planta());
+            pst.setString(3, pf.getID_Compania());
             mensaje="GUARDADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -46,14 +46,14 @@ public class Planta_fabricacionDAO {
     
     public String modificarPlanta (Connection con, Planta_fabricacion pf){
         PreparedStatement pst = null;
-        String sql = "UPDATE PLANTA_FABRICACION SET TIPO_PLANTA = ?, NOMBRE_PLANTA = ? "
-                 + "WHERE ID_PLANTA = ?";
+        String sql = "begin Modificar_Planta(?,?,?);end;";
         
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, pf.getTipo_planta());
-            pst.setString(2, pf.getNombre_planta());
-            pst.setString(3, pf.getID_Planta());
+            pst.setString(1, pf.getID_Planta());
+            pst.setString(2, pf.getTipo_planta());
+            pst.setString(3, pf.getNombre_planta());
+            pst.setString(4, pf.getID_Compania());
             mensaje="MODIFICADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -68,7 +68,7 @@ public class Planta_fabricacionDAO {
     
     public String eliminarPlanta (Connection con, String ID){
         PreparedStatement pst = null;
-        String sql = "DELETE FROM PLANTA_FABRICACION WHERE ID_PLANTA = "+ID;
+        String sql = "begin Eliminar_planta("+ID+");end;";
         try {
             pst =con.prepareStatement(sql);
             System.out.println("Borro");
@@ -85,11 +85,11 @@ public class Planta_fabricacionDAO {
         return mensaje;
     }
     
-    public String listarPlanta (Connection con, JTable tabla){
+    public String listarPlanta(Connection con, JTable tabla){
        
         DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
         String sql="SELECT * FROM PLANTA_FABRICACION ORDER BY ID_PLANTA";
-        String [] fila = new String [3];
+        String [] fila = new String [4];
         Statement st=null;
         ResultSet rs=null;
         modelo.setRowCount(0);
@@ -97,15 +97,16 @@ public class Planta_fabricacionDAO {
             st=con.createStatement();
             rs=st.executeQuery(sql);
             while (rs.next()){
-                for (int i = 0; i <3; i++) {
+                for (int i = 0; i <4; i++) {
                     fila[i]=rs.getString(i+1);
+                    System.out.println("fila "+fila[i]);
                 }
                 modelo.addRow(fila);
             }
             tabla.setModel(modelo);
             System.out.println("Ya paso por listar");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se puede mostrar la tabla :("+e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se puede mostrar la tabla:("+e.getMessage());
         }
         return null;
     }
@@ -119,7 +120,7 @@ public class Planta_fabricacionDAO {
             st=con.createStatement();
             rs=st.executeQuery(sql);
             while (rs.next()){
-                    for(int i=0; i<3; i++){
+                    for(int i=0; i<4; i++){
                         datos.add(rs.getString(i+1));
                     }
             }

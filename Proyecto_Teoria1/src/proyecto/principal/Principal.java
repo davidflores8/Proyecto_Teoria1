@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -68,40 +69,13 @@ public class Principal extends javax.swing.JFrame {
         Crear_empresa = new javax.swing.JButton();
         Jd_Mmodificacion = new javax.swing.JDialog();
         Jd_Meliminacion = new javax.swing.JDialog();
-        C_Compania = new javax.swing.JDialog();
-        id_compa = new javax.swing.JLabel();
-        id_compa2 = new javax.swing.JLabel();
-        Compa_id = new javax.swing.JTextField();
-        compa_nombre = new javax.swing.JTextField();
-        Btn_crearEmpre = new javax.swing.JButton();
-        lb_Fondo_C_empre = new javax.swing.JLabel();
-        C_Planta = new javax.swing.JDialog();
-        planta_tipo = new javax.swing.JTextField();
-        planta_nombre = new javax.swing.JTextField();
-        planta_id = new javax.swing.JTextField();
-        Btn_crearplanta = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        id_compa3 = new javax.swing.JLabel();
-        id_compa4 = new javax.swing.JLabel();
-        id_compa5 = new javax.swing.JLabel();
-        lb_Fondo_C_empre1 = new javax.swing.JLabel();
-        C_Proveedor = new javax.swing.JDialog();
-        Proveedor_id = new javax.swing.JTextField();
-        Proveedor_nombre = new javax.swing.JTextField();
-        Btn_crearproveedor = new javax.swing.JButton();
-        id_compa6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        id_compa7 = new javax.swing.JLabel();
-        lb_Fondo_C_empre2 = new javax.swing.JLabel();
-        C_Conse = new javax.swing.JDialog();
-        conse_nombre = new javax.swing.JTextField();
-        conse_id = new javax.swing.JTextField();
-        Btn_crearconse = new javax.swing.JButton();
-        id_compa8 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        id_compa9 = new javax.swing.JLabel();
-        id_compa30 = new javax.swing.JLabel();
-        conse_ubicacion = new javax.swing.JTextField();
+        V_Vehiculo = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla_vehiculos = new javax.swing.JTable();
+        boton_agregar_vehiculo = new javax.swing.JButton();
+        boton_modificar_vehiculo = new javax.swing.JButton();
+        boton_eliminar_vehiculo = new javax.swing.JButton();
+        boton_listar_vehiculo = new javax.swing.JButton();
         C_vehiculo = new javax.swing.JDialog();
         id_compa10 = new javax.swing.JLabel();
         id_compa11 = new javax.swing.JLabel();
@@ -117,14 +91,10 @@ public class Principal extends javax.swing.JFrame {
         id_compa17 = new javax.swing.JLabel();
         vehi_trans = new javax.swing.JComboBox<>();
         vehi_carro = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        cb_vehiculo = new javax.swing.JComboBox<>();
+        tf_compania = new javax.swing.JTextField();
         lb_Fondo_C_empre4 = new javax.swing.JLabel();
-        V_Vehiculo = new javax.swing.JDialog();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabla_vehiculos = new javax.swing.JTable();
-        boton_agregar_vehiculo = new javax.swing.JButton();
-        boton_modificar_vehiculo = new javax.swing.JButton();
-        boton_eliminar_vehiculo = new javax.swing.JButton();
-        boton_listar_vehiculo = new javax.swing.JButton();
         M_Vehiculo = new javax.swing.JDialog();
         id_compa15 = new javax.swing.JLabel();
         id_compa18 = new javax.swing.JLabel();
@@ -140,6 +110,9 @@ public class Principal extends javax.swing.JFrame {
         id_compa23 = new javax.swing.JLabel();
         vehi_trans1 = new javax.swing.JComboBox<>();
         vehi_carro1 = new javax.swing.JComboBox<>();
+        jLabel28 = new javax.swing.JLabel();
+        mod_id_compania = new javax.swing.JTextField();
+        mod_nombre_compania = new javax.swing.JTextField();
         lb_Fondo_C_empre5 = new javax.swing.JLabel();
         V_Planta = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -148,6 +121,19 @@ public class Principal extends javax.swing.JFrame {
         boton_modificar_planta = new javax.swing.JButton();
         boton_eliminar_planta = new javax.swing.JButton();
         boton_listar_planta = new javax.swing.JButton();
+        C_Planta = new javax.swing.JDialog();
+        planta_tipo = new javax.swing.JTextField();
+        planta_nombre = new javax.swing.JTextField();
+        planta_id = new javax.swing.JTextField();
+        Btn_crearplanta = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        id_compa3 = new javax.swing.JLabel();
+        id_compa4 = new javax.swing.JLabel();
+        id_compa5 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        crear_planta_compania = new javax.swing.JComboBox<>();
+        tf_nombre_empresa = new javax.swing.JTextField();
+        lb_Fondo_C_empre1 = new javax.swing.JLabel();
         M_Planta = new javax.swing.JDialog();
         planta_tipo1 = new javax.swing.JTextField();
         planta_nombre1 = new javax.swing.JTextField();
@@ -157,6 +143,9 @@ public class Principal extends javax.swing.JFrame {
         id_compa24 = new javax.swing.JLabel();
         id_compa25 = new javax.swing.JLabel();
         id_compa26 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        planta_id_compania_modificar = new javax.swing.JTextField();
+        tf_nombre_compania = new javax.swing.JTextField();
         lb_Fondo_C_empre6 = new javax.swing.JLabel();
         V_Proveedor = new javax.swing.JDialog();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -165,6 +154,14 @@ public class Principal extends javax.swing.JFrame {
         boton_modificar_proveedor = new javax.swing.JButton();
         boton_eliminar_proveedor = new javax.swing.JButton();
         boton_listar_proveedor = new javax.swing.JButton();
+        C_Proveedor = new javax.swing.JDialog();
+        Proveedor_id = new javax.swing.JTextField();
+        Proveedor_nombre = new javax.swing.JTextField();
+        Btn_crearproveedor = new javax.swing.JButton();
+        id_compa6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        id_compa7 = new javax.swing.JLabel();
+        lb_Fondo_C_empre2 = new javax.swing.JLabel();
         M_Proveedor = new javax.swing.JDialog();
         Proveedor_id1 = new javax.swing.JTextField();
         Proveedor_nombre1 = new javax.swing.JTextField();
@@ -180,6 +177,13 @@ public class Principal extends javax.swing.JFrame {
         boton_modificar_companias = new javax.swing.JButton();
         boton_eliminar_companias = new javax.swing.JButton();
         boton_listar_companias = new javax.swing.JButton();
+        C_Compania = new javax.swing.JDialog();
+        id_compa = new javax.swing.JLabel();
+        id_compa2 = new javax.swing.JLabel();
+        Compa_id = new javax.swing.JTextField();
+        compa_nombre = new javax.swing.JTextField();
+        Btn_crearEmpre = new javax.swing.JButton();
+        lb_Fondo_C_empre = new javax.swing.JLabel();
         M_Compania = new javax.swing.JDialog();
         id_compa1 = new javax.swing.JLabel();
         id_compa29 = new javax.swing.JLabel();
@@ -194,6 +198,15 @@ public class Principal extends javax.swing.JFrame {
         boton_modificar_concesionario = new javax.swing.JButton();
         boton_eliminar_concesionario = new javax.swing.JButton();
         boton_listar_concesionario = new javax.swing.JButton();
+        C_Conse = new javax.swing.JDialog();
+        conse_nombre = new javax.swing.JTextField();
+        conse_id = new javax.swing.JTextField();
+        Btn_crearconse = new javax.swing.JButton();
+        id_compa8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        id_compa9 = new javax.swing.JLabel();
+        id_compa30 = new javax.swing.JLabel();
+        conse_ubicacion = new javax.swing.JTextField();
         M_Conse = new javax.swing.JDialog();
         conse_nombre1 = new javax.swing.JTextField();
         conse_id1 = new javax.swing.JTextField();
@@ -283,6 +296,7 @@ public class Principal extends javax.swing.JFrame {
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         lb_fondo1 = new javax.swing.JLabel();
 
         Jd_Mcreacion.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -368,175 +382,16 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        C_Compania.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        id_compa.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa.setText("Id Compañia");
-        C_Compania.getContentPane().add(id_compa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
-
-        id_compa2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa2.setText("Nombre compañia");
-        C_Compania.getContentPane().add(id_compa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
-        C_Compania.getContentPane().add(Compa_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 120, -1));
-        C_Compania.getContentPane().add(compa_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 120, -1));
-
-        Btn_crearEmpre.setText("Crear");
-        Btn_crearEmpre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_crearEmpreMouseClicked(evt);
-            }
-        });
-        C_Compania.getContentPane().add(Btn_crearEmpre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, -1, -1));
-
-        lb_Fondo_C_empre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
-        C_Compania.getContentPane().add(lb_Fondo_C_empre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
-
-        C_Planta.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        C_Planta.getContentPane().add(planta_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 120, -1));
-        C_Planta.getContentPane().add(planta_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 120, -1));
-        C_Planta.getContentPane().add(planta_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 120, -1));
-
-        Btn_crearplanta.setText("CREAR");
-        Btn_crearplanta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_crearplantaMouseClicked(evt);
-            }
-        });
-        C_Planta.getContentPane().add(Btn_crearplanta, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, -1));
-
-        jLabel1.setText("CREAR PLANTA");
-        C_Planta.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
-
-        id_compa3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa3.setText("Id planta");
-        C_Planta.getContentPane().add(id_compa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
-
-        id_compa4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa4.setText("Nombre planta");
-        C_Planta.getContentPane().add(id_compa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
-
-        id_compa5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa5.setText("tipo planta");
-        C_Planta.getContentPane().add(id_compa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, -1));
-
-        lb_Fondo_C_empre1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
-        C_Planta.getContentPane().add(lb_Fondo_C_empre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
-
-        C_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        C_Proveedor.getContentPane().add(Proveedor_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 120, -1));
-        C_Proveedor.getContentPane().add(Proveedor_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 120, -1));
-
-        Btn_crearproveedor.setText("Crear");
-        Btn_crearproveedor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_crearproveedorMouseClicked(evt);
-            }
-        });
-        C_Proveedor.getContentPane().add(Btn_crearproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
-
-        id_compa6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa6.setText("Id proveedor");
-        C_Proveedor.getContentPane().add(id_compa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
-
-        jLabel2.setText("CREACION DE PROVEEDOR");
-        C_Proveedor.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
-
-        id_compa7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa7.setText("Nombre proveedor");
-        C_Proveedor.getContentPane().add(id_compa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
-
-        lb_Fondo_C_empre2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
-        C_Proveedor.getContentPane().add(lb_Fondo_C_empre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
-
-        C_Conse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        C_Conse.getContentPane().add(conse_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 120, -1));
-        C_Conse.getContentPane().add(conse_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 120, -1));
-
-        Btn_crearconse.setText("Crear");
-        Btn_crearconse.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_crearconseMouseClicked(evt);
-            }
-        });
-        C_Conse.getContentPane().add(Btn_crearconse, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, -1, -1));
-
-        id_compa8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa8.setText("ID Concesionario");
-        C_Conse.getContentPane().add(id_compa8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
-
-        jLabel3.setText("CREACION DE CONCESIONARIO");
-        C_Conse.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
-
-        id_compa9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa9.setText("Nombre consecionario");
-        C_Conse.getContentPane().add(id_compa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
-
-        id_compa30.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa30.setText("Ubicacion consecionario");
-        C_Conse.getContentPane().add(id_compa30, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
-        C_Conse.getContentPane().add(conse_ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 120, -1));
-
-        C_vehiculo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        id_compa10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa10.setText("TIPO CARROCERIA");
-        C_vehiculo.getContentPane().add(id_compa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
-
-        id_compa11.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa11.setText("VIN");
-        C_vehiculo.getContentPane().add(id_compa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
-
-        Btn_creaVehi.setText("Crear");
-        Btn_creaVehi.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_creaVehiMouseClicked(evt);
-            }
-        });
-        C_vehiculo.getContentPane().add(Btn_creaVehi, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, -1, -1));
-
-        id_compa12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa12.setText("COLOR");
-        C_vehiculo.getContentPane().add(id_compa12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
-        C_vehiculo.getContentPane().add(vehi_modelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 120, -1));
-        C_vehiculo.getContentPane().add(vehi_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 120, -1));
-        C_vehiculo.getContentPane().add(vehi_vin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 120, -1));
-        C_vehiculo.getContentPane().add(Vehi_motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 120, -1));
-
-        id_compa13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa13.setText("TRANSMISION");
-        C_vehiculo.getContentPane().add(id_compa13, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
-
-        id_compa14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa14.setText("MODELO");
-        C_vehiculo.getContentPane().add(id_compa14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
-
-        id_compa16.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa16.setText("CREAR VEHICULO");
-        C_vehiculo.getContentPane().add(id_compa16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
-
-        id_compa17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        id_compa17.setText("Tipo Motor");
-        C_vehiculo.getContentPane().add(id_compa17, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, -1, -1));
-
-        vehi_trans.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mecanico", "Automatico" }));
-        C_vehiculo.getContentPane().add(vehi_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 200, 110, -1));
-
-        vehi_carro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urbano", "Sedan (Turismo)", "Familiar", "Deportivo", "SUV (Camioneta)", "Pick-Up media cabina", "Pick-Up 1 cabina", "Pick -Up 2 cabinas", "Camion de trabajo" }));
-        C_vehiculo.getContentPane().add(vehi_carro, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 250, 110, -1));
-
-        lb_Fondo_C_empre4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
-        C_vehiculo.getContentPane().add(lb_Fondo_C_empre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 490, 560));
-
         tabla_vehiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "VIN", "TIPO_MOTOR", "COLOR", "TRANSMISION", "TIPO_CARROCERIA", "MODELO"
+                "VIN", "TIPO_MOTOR", "COLOR", "TRANSMISION", "TIPO_CARROCERIA", "MODELO", "ID COMPANIA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -605,6 +460,71 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        C_vehiculo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        id_compa10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa10.setText("TIPO CARROCERIA");
+        C_vehiculo.getContentPane().add(id_compa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
+
+        id_compa11.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa11.setText("VIN");
+        C_vehiculo.getContentPane().add(id_compa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
+
+        Btn_creaVehi.setText("Crear");
+        Btn_creaVehi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_creaVehiMouseClicked(evt);
+            }
+        });
+        C_vehiculo.getContentPane().add(Btn_creaVehi, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
+
+        id_compa12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa12.setText("COLOR");
+        C_vehiculo.getContentPane().add(id_compa12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+        C_vehiculo.getContentPane().add(vehi_modelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 120, -1));
+        C_vehiculo.getContentPane().add(vehi_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 120, -1));
+        C_vehiculo.getContentPane().add(vehi_vin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 120, -1));
+        C_vehiculo.getContentPane().add(Vehi_motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 120, -1));
+
+        id_compa13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa13.setText("TRANSMISION");
+        C_vehiculo.getContentPane().add(id_compa13, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+
+        id_compa14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa14.setText("MODELO");
+        C_vehiculo.getContentPane().add(id_compa14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
+
+        id_compa16.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa16.setText("CREAR VEHICULO");
+        C_vehiculo.getContentPane().add(id_compa16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+
+        id_compa17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa17.setText("Tipo Motor");
+        C_vehiculo.getContentPane().add(id_compa17, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, -1, -1));
+
+        vehi_trans.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mecanico", "Automatico" }));
+        C_vehiculo.getContentPane().add(vehi_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 200, 110, -1));
+
+        vehi_carro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urbano", "Sedan (Turismo)", "Familiar", "Deportivo", "SUV (Camioneta)", "Pick-Up media cabina", "Pick-Up 1 cabina", "Pick -Up 2 cabinas", "Camion de trabajo" }));
+        C_vehiculo.getContentPane().add(vehi_carro, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 250, 110, -1));
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel27.setText("ID COMPANIA A LA QUE PERTENECE");
+        C_vehiculo.getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
+
+        cb_vehiculo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_vehiculoItemStateChanged(evt);
+            }
+        });
+        C_vehiculo.getContentPane().add(cb_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 110, -1));
+
+        tf_compania.setEditable(false);
+        C_vehiculo.getContentPane().add(tf_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 100, -1));
+
+        lb_Fondo_C_empre4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
+        C_vehiculo.getContentPane().add(lb_Fondo_C_empre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 490, 560));
+
         M_Vehiculo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         id_compa15.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -621,12 +541,12 @@ public class Principal extends javax.swing.JFrame {
                 boton_modificar_vehiMouseClicked(evt);
             }
         });
-        M_Vehiculo.getContentPane().add(boton_modificar_vehi, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, -1, -1));
+        M_Vehiculo.getContentPane().add(boton_modificar_vehi, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, -1, -1));
 
         id_compa19.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa19.setText("COLOR");
         M_Vehiculo.getContentPane().add(id_compa19, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
-        M_Vehiculo.getContentPane().add(vehi_modelo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 120, -1));
+        M_Vehiculo.getContentPane().add(vehi_modelo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 120, -1));
         M_Vehiculo.getContentPane().add(vehi_color1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 120, -1));
 
         vehi_vin1.setEditable(false);
@@ -639,7 +559,7 @@ public class Principal extends javax.swing.JFrame {
 
         id_compa21.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa21.setText("MODELO");
-        M_Vehiculo.getContentPane().add(id_compa21, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
+        M_Vehiculo.getContentPane().add(id_compa21, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
 
         id_compa22.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa22.setText("MODIFICAR VEHICULOS");
@@ -655,6 +575,16 @@ public class Principal extends javax.swing.JFrame {
         vehi_carro1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urbano", "Sedan (Turismo)", "Familiar", "Deportivo", "SUV (Camioneta)", "Pick-Up media cabina", "Pick-Up 1 cabina", "Pick -Up 2 cabinas", "Camion de trabajo" }));
         M_Vehiculo.getContentPane().add(vehi_carro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 110, -1));
 
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel28.setText("ID COMPANIA A LA QUE PERTENECE");
+        M_Vehiculo.getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, -1, -1));
+
+        mod_id_compania.setEditable(false);
+        M_Vehiculo.getContentPane().add(mod_id_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 70, -1));
+
+        mod_nombre_compania.setEditable(false);
+        M_Vehiculo.getContentPane().add(mod_nombre_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 80, -1));
+
         lb_Fondo_C_empre5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         M_Vehiculo.getContentPane().add(lb_Fondo_C_empre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 490, 560));
 
@@ -663,11 +593,11 @@ public class Principal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID_PLANTA", "TIPO_PLANTA", "NOMBRE"
+                "ID_PLANTA", "TIPO_PLANTA", "NOMBRE", "ID_COMPANIA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -736,12 +666,60 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        C_Planta.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        C_Planta.getContentPane().add(planta_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 120, -1));
+        C_Planta.getContentPane().add(planta_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 120, -1));
+
+        planta_id.setEditable(false);
+        planta_id.setText("*Generado automaticamente*");
+        C_Planta.getContentPane().add(planta_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 160, -1));
+
+        Btn_crearplanta.setText("CREAR");
+        Btn_crearplanta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_crearplantaMouseClicked(evt);
+            }
+        });
+        C_Planta.getContentPane().add(Btn_crearplanta, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, -1, -1));
+
+        jLabel1.setText("CREAR PLANTA");
+        C_Planta.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        id_compa3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa3.setText("Id planta");
+        C_Planta.getContentPane().add(id_compa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
+
+        id_compa4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa4.setText("Nombre planta");
+        C_Planta.getContentPane().add(id_compa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
+
+        id_compa5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa5.setText("tipo planta");
+        C_Planta.getContentPane().add(id_compa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel25.setText("ID de la Compania a la que pertenece");
+        C_Planta.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, -1, -1));
+
+        crear_planta_compania.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                crear_planta_companiaItemStateChanged(evt);
+            }
+        });
+        C_Planta.getContentPane().add(crear_planta_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 90, -1));
+
+        tf_nombre_empresa.setEditable(false);
+        C_Planta.getContentPane().add(tf_nombre_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 70, -1));
+
+        lb_Fondo_C_empre1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
+        C_Planta.getContentPane().add(lb_Fondo_C_empre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
+
         M_Planta.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        M_Planta.getContentPane().add(planta_tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 120, -1));
-        M_Planta.getContentPane().add(planta_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 120, -1));
+        M_Planta.getContentPane().add(planta_tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 120, -1));
+        M_Planta.getContentPane().add(planta_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 120, -1));
 
         planta_id1.setEditable(false);
-        M_Planta.getContentPane().add(planta_id1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 120, -1));
+        M_Planta.getContentPane().add(planta_id1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 120, -1));
 
         Btn_crearplanta1.setText("GUARDAR CAMBIOS");
         Btn_crearplanta1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -749,22 +727,32 @@ public class Principal extends javax.swing.JFrame {
                 Btn_crearplanta1MouseClicked(evt);
             }
         });
-        M_Planta.getContentPane().add(Btn_crearplanta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, -1));
+        M_Planta.getContentPane().add(Btn_crearplanta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, -1, -1));
 
         jLabel4.setText("MODIFICAR PLANTA");
         M_Planta.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
 
         id_compa24.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa24.setText("Id planta");
-        M_Planta.getContentPane().add(id_compa24, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
+        M_Planta.getContentPane().add(id_compa24, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, -1));
 
         id_compa25.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa25.setText("Nombre planta");
-        M_Planta.getContentPane().add(id_compa25, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
+        M_Planta.getContentPane().add(id_compa25, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
 
         id_compa26.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa26.setText("tipo planta");
-        M_Planta.getContentPane().add(id_compa26, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+        M_Planta.getContentPane().add(id_compa26, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel26.setText("ID de la compania a la que pertenece");
+        M_Planta.getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, -1, -1));
+
+        planta_id_compania_modificar.setEditable(false);
+        M_Planta.getContentPane().add(planta_id_compania_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 60, -1));
+
+        tf_nombre_compania.setEditable(false);
+        M_Planta.getContentPane().add(tf_nombre_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 90, -1));
 
         lb_Fondo_C_empre6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         M_Planta.getContentPane().add(lb_Fondo_C_empre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
@@ -846,6 +834,35 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(boton_listar_proveedor))
                 .addContainerGap())
         );
+
+        C_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Proveedor_id.setEditable(false);
+        Proveedor_id.setText("*Generado automaticamente*");
+        C_Proveedor.getContentPane().add(Proveedor_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 150, -1));
+        C_Proveedor.getContentPane().add(Proveedor_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 120, -1));
+
+        Btn_crearproveedor.setText("Crear");
+        Btn_crearproveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_crearproveedorMouseClicked(evt);
+            }
+        });
+        C_Proveedor.getContentPane().add(Btn_crearproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
+
+        id_compa6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa6.setText("Id proveedor");
+        C_Proveedor.getContentPane().add(id_compa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
+
+        jLabel2.setText("CREACION DE PROVEEDOR");
+        C_Proveedor.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
+
+        id_compa7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa7.setText("Nombre proveedor");
+        C_Proveedor.getContentPane().add(id_compa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
+
+        lb_Fondo_C_empre2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
+        C_Proveedor.getContentPane().add(lb_Fondo_C_empre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
 
         M_Proveedor.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -953,6 +970,29 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        C_Compania.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        id_compa.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa.setText("Id Compañia");
+        C_Compania.getContentPane().add(id_compa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
+
+        id_compa2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa2.setText("Nombre compañia");
+        C_Compania.getContentPane().add(id_compa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
+        C_Compania.getContentPane().add(Compa_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 120, -1));
+        C_Compania.getContentPane().add(compa_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 120, -1));
+
+        Btn_crearEmpre.setText("Crear");
+        Btn_crearEmpre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_crearEmpreMouseClicked(evt);
+            }
+        });
+        C_Compania.getContentPane().add(Btn_crearEmpre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, -1, -1));
+
+        lb_Fondo_C_empre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
+        C_Compania.getContentPane().add(lb_Fondo_C_empre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 442, 450));
+
         M_Compania.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         id_compa1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -1055,6 +1095,37 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(boton_listar_concesionario))
                 .addContainerGap())
         );
+
+        C_Conse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        C_Conse.getContentPane().add(conse_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 120, -1));
+
+        conse_id.setEditable(false);
+        conse_id.setText("*Generado automaticamente*");
+        C_Conse.getContentPane().add(conse_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 150, -1));
+
+        Btn_crearconse.setText("Crear");
+        Btn_crearconse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_crearconseMouseClicked(evt);
+            }
+        });
+        C_Conse.getContentPane().add(Btn_crearconse, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
+
+        id_compa8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa8.setText("ID Concesionario");
+        C_Conse.getContentPane().add(id_compa8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        jLabel3.setText("CREACION DE CONCESIONARIO");
+        C_Conse.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+
+        id_compa9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa9.setText("Nombre consecionario");
+        C_Conse.getContentPane().add(id_compa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        id_compa30.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        id_compa30.setText("Ubicacion consecionario");
+        C_Conse.getContentPane().add(id_compa30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+        C_Conse.getContentPane().add(conse_ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 120, -1));
 
         M_Conse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         M_Conse.getContentPane().add(conse_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 120, -1));
@@ -1656,7 +1727,7 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Bt_Menu_Creacion.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
-        Bt_Menu_Creacion.setText("Creacion");
+        Bt_Menu_Creacion.setText("Administrador");
         Bt_Menu_Creacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Bt_Menu_CreacionMouseClicked(evt);
@@ -1665,12 +1736,16 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(Bt_Menu_Creacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 550, 230, 50));
 
         Bt_Menu_Modificar.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
-        Bt_Menu_Modificar.setText("Modificar");
+        Bt_Menu_Modificar.setText("Marketing");
         getContentPane().add(Bt_Menu_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, 30));
 
         Bt_Menu_Eliminacion.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
-        Bt_Menu_Eliminacion.setText("Eliminar");
-        getContentPane().add(Bt_Menu_Eliminacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 210, -1, -1));
+        Bt_Menu_Eliminacion.setText("Localización");
+        getContentPane().add(Bt_Menu_Eliminacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 200, 120, 30));
+
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton10.setText("Clientes");
+        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, -1, -1));
 
         lb_fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WhatsApp Image 2020-03-05 at 6.43.00 PM.jpeg"))); // NOI18N
         getContentPane().add(lb_fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 700));
@@ -1723,18 +1798,20 @@ public class Principal extends javax.swing.JFrame {
     private void Btn_crearplantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_crearplantaMouseClicked
         // creacion de plantas
         String id="";
-        String nombre = "", tipo = "";
+        String nombre = "", tipo = "", compania="";
         nombre=planta_nombre.getText();
         planta_nombre.setText("");
         tipo=planta_tipo.getText();
         planta_tipo.setText("");
         id=planta_id.getText();
         planta_id.setText("");
+        compania=crear_planta_compania.getSelectedItem().toString();
         Planta_fabricacionBO pfbo= new Planta_fabricacionBO();
         Planta_fabricacion pf=new Planta_fabricacion();
         pf.setID_Planta(id);
         pf.setNombre_planta(nombre);
         pf.setTipo_planta(tipo);
+        pf.setID_Compania(compania);
         try {
             pfbo.agregarPlanta(pf);
         } catch (SQLException ex) {
@@ -1751,6 +1828,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_crearplantaMouseClicked
 
     private void Crear_PlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Crear_PlantaMouseClicked
+       
         V_Planta.setModal(true);
         V_Planta.pack();
         V_Planta.setLocationRelativeTo(this);
@@ -1829,6 +1907,7 @@ public class Principal extends javax.swing.JFrame {
     private void Btn_creaVehiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_creaVehiMouseClicked
         //creacion vehiculos
         String motor = "", transmision = "", modelo = "", carroceria = "", color = "", vin = "";
+        String compania="";
         motor = Vehi_motor.getText();
         Vehi_motor.setText("");
         transmision = vehi_trans.getSelectedItem().toString();
@@ -1843,6 +1922,7 @@ public class Principal extends javax.swing.JFrame {
         System.out.println(carroceria);
         color = vehi_color.getText();
         vehi_color.setText("");
+        compania=cb_vehiculo.getSelectedItem().toString();
         JOptionPane.showMessageDialog(C_Planta, "Se creó el vehiculo");
         C_vehiculo.dispose();
         String mensaje="";
@@ -1854,6 +1934,7 @@ public class Principal extends javax.swing.JFrame {
         v.setTipo_carroceria(carroceria);
         v.setModelo(modelo);
         v.setTransmision(transmision);
+        v.setID_Compania(compania);
         try {
             mensaje=vbo.agregarVehiculo(v);
             System.out.println("Mensaje\n "+mensaje);
@@ -1884,6 +1965,18 @@ public class Principal extends javax.swing.JFrame {
 
     private void boton_agregar_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_agregar_vehiculoMouseClicked
         // TODO add your handling code here:
+        CompaniaBO cbo=new CompaniaBO();
+        ArrayList<String>data=new ArrayList();
+        try {
+            data=cbo.obtenerCompanias();
+        } catch (SQLException ex) {
+            
+        }
+        DefaultComboBoxModel modelo=(DefaultComboBoxModel)cb_vehiculo.getModel();
+        for (int i = 0; i <data.size(); i++) {
+            modelo.addElement(data.get(i));
+        }
+        cb_vehiculo.setModel(modelo);
         C_vehiculo.setModal(true);
         C_vehiculo.pack();
         C_vehiculo.setLocationRelativeTo(this);
@@ -1916,7 +2009,6 @@ public class Principal extends javax.swing.JFrame {
             //vehi_carro1.setName(data.get(3));
             for (int i = 0; i <vehi_carro1.getItemCount(); i++) {
                 if(vehi_carro1.getItemAt(i).equals(data.get(4))){
-                    System.out.println("entro1");
                     vehi_carro1.setSelectedIndex(i);
                     i=1000;
                 }
@@ -1931,7 +2023,15 @@ public class Principal extends javax.swing.JFrame {
                     i=1000;
                 }
             }
-            
+           mod_id_compania.setText(data.get(6));
+           CompaniaBO cbo=new CompaniaBO();
+           ArrayList<String>d=new ArrayList();
+            try {
+                d=cbo.obtenerNombreCompania(data.get(6));
+            } catch (SQLException ex) {
+                
+            }
+            mod_nombre_compania.setText(d.get(0));
            M_Vehiculo.setModal(true);
            M_Vehiculo.pack();
            M_Vehiculo.setLocationRelativeTo(this);
@@ -2020,6 +2120,18 @@ public class Principal extends javax.swing.JFrame {
 
     private void boton_agregar_plantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_agregar_plantaMouseClicked
         // TODO add your handling code here:
+        CompaniaBO cbo=new CompaniaBO();
+       ArrayList<String> companias=new ArrayList();
+        try {
+            companias=cbo.obtenerCompanias();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        DefaultComboBoxModel modelo=(DefaultComboBoxModel)crear_planta_compania.getModel();
+        for (int i = 0; i <companias.size(); i++) {
+            modelo.addElement(companias.get(i));
+        }
+        crear_planta_compania.setModel(modelo);
         C_Planta.setModal(true);
         C_Planta.pack();
         C_Planta.setLocationRelativeTo(this);
@@ -2046,6 +2158,15 @@ public class Principal extends javax.swing.JFrame {
             planta_id1.setText(data.get(0));
             planta_tipo1.setText(data.get(1));
             planta_nombre1.setText(data.get(2));
+            planta_id_compania_modificar.setText(data.get(3));
+            CompaniaBO cbo=new CompaniaBO();
+            ArrayList<String>dato=new ArrayList();
+            try {
+                dato=cbo.obtenerNombreCompania(data.get(3));
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            tf_nombre_compania.setText(dato.get(0));
             M_Planta.setModal(true);
             M_Planta.pack();
             M_Planta.setLocationRelativeTo(this);
@@ -2736,6 +2857,30 @@ public class Principal extends javax.swing.JFrame {
         C_Persona.setVisible(true);
     }//GEN-LAST:event_jButton3MouseClicked
 
+    private void crear_planta_companiaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_crear_planta_companiaItemStateChanged
+        // TODO add your handling code here:
+        CompaniaBO cbo=new CompaniaBO();
+        ArrayList<String>dato=new ArrayList();
+        try {
+            dato=cbo.obtenerNombreCompania(crear_planta_compania.getSelectedItem().toString());
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tf_nombre_empresa.setText(dato.get(0));
+    }//GEN-LAST:event_crear_planta_companiaItemStateChanged
+
+    private void cb_vehiculoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_vehiculoItemStateChanged
+        // TODO add your handling code here:
+        CompaniaBO cbo=new CompaniaBO();
+        ArrayList<String>dato=new ArrayList();
+        try {
+            dato=cbo.obtenerNombreCompania(cb_vehiculo.getSelectedItem().toString());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        tf_compania.setText(dato.get(0));
+    }//GEN-LAST:event_cb_vehiculoItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -2846,6 +2991,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton boton_modificar_vehi;
     private javax.swing.JButton boton_modificar_vehiculo;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cb_vehiculo;
     private javax.swing.JTextField compa_nombre;
     private javax.swing.JTextField compa_nombre1;
     private javax.swing.JTextField conse_id;
@@ -2854,6 +3000,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField conse_nombre1;
     private javax.swing.JTextField conse_ubicacion;
     private javax.swing.JTextField conse_ubicacion1;
+    private javax.swing.JComboBox<String> crear_planta_compania;
     private javax.swing.JTextField direccion_empresa;
     private javax.swing.JTextField direccion_empresa1;
     private javax.swing.JTextField direccion_persona;
@@ -2899,6 +3046,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField ingreso_persona;
     private javax.swing.JTextField ingreso_persona1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -2925,6 +3073,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -2961,12 +3113,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lb_fondocreacion;
     private javax.swing.JRadioButton m;
     private javax.swing.JRadioButton m1;
+    private javax.swing.JTextField mod_id_compania;
+    private javax.swing.JTextField mod_nombre_compania;
     private javax.swing.JTextField nombre_empresa;
     private javax.swing.JTextField nombre_empresa1;
     private javax.swing.JTextField nombre_persona;
     private javax.swing.JTextField nombre_persona1;
     private javax.swing.JTextField planta_id;
     private javax.swing.JTextField planta_id1;
+    private javax.swing.JTextField planta_id_compania_modificar;
     private javax.swing.JTextField planta_nombre;
     private javax.swing.JTextField planta_nombre1;
     private javax.swing.JTextField planta_tipo;
@@ -2986,6 +3141,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField telefono_empresa1;
     private javax.swing.JTextField telefono_persona;
     private javax.swing.JTextField telefono_persona1;
+    private javax.swing.JTextField tf_compania;
+    private javax.swing.JTextField tf_nombre_compania;
+    private javax.swing.JTextField tf_nombre_empresa;
     private javax.swing.JTextField tipo_empresa;
     private javax.swing.JTextField tipo_empresa1;
     private javax.swing.JComboBox<String> vehi_carro;

@@ -25,13 +25,12 @@ public class ConcesionarioDAO {
     
     public String agregarConcesionario(Connection con, Concesionario c){
         PreparedStatement pst = null;
-        String sql = "begin crear_Concesionario(?,?,?); end;";
+        String sql = "begin crear_Concesionario(CONCESIONARIO_SEQ.NEXTVAL,?,?); end;";
         
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, c.getID_Concesionario());
-            pst.setString(2, c.getNombre_Concesionario());
-            pst.setString(3, c.getUbicacion_Concesionario());
+            pst.setString(1, c.getNombre_Concesionario());
+            pst.setString(2, c.getUbicacion_Concesionario());
             mensaje="GUARDADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -45,14 +44,13 @@ public class ConcesionarioDAO {
     
     public String modificarConcesionario(Connection con, Concesionario c){
         PreparedStatement pst = null;
-        String sql = "UPDATE CONCESIONARIO SET NOMBRE_CONCESIONARIO = ?, UBICACION_CONCESIONARIO = ? "
-                 + "WHERE ID_CONCESIONARIO = ?";
+        String sql = "begin Modificar_Concesionario(?,?,?);end;";
         
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, c.getNombre_Concesionario());
-            pst.setString(2, c.getUbicacion_Concesionario());
-            pst.setString(3, c.getID_Concesionario());
+            pst.setString(1, c.getID_Concesionario());
+            pst.setString(2, c.getNombre_Concesionario());
+            pst.setString(3, c.getUbicacion_Concesionario());
             mensaje="MODIFICADO CORRECTAMENTE";
             pst.execute();
             pst.close();

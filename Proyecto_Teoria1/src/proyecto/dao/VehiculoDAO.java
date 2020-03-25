@@ -27,14 +27,16 @@ public class VehiculoDAO {
     
     public String agregarVehiculo (Connection con, Vehiculo v){
         PreparedStatement pst = null;
-        String sql = "begin crear_Vehiculo(VEHICULO_SEQ.NEXTVAL,?,?,?,?,?); end;";
+        String sql = "begin crear_Vehiculo(?,?,?,?,?,?,?); end;";
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, v.getTipo_motor());
-            pst.setString(2, v.getColor());
-            pst.setString(3, v.getTransmision());
-            pst.setString(4, v.getTipo_carroceria());
-            pst.setString(5, v.getModelo());
+            pst.setString(1, v.getVIN());
+            pst.setString(2, v.getTipo_motor());
+            pst.setString(3, v.getColor());
+            pst.setString(4, v.getTransmision());
+            pst.setString(5, v.getTipo_carroceria());
+            pst.setString(6, v.getModelo());
+            pst.setString(7, v.getID_Compania());
             mensaje="GUARDADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -48,21 +50,19 @@ public class VehiculoDAO {
     
     public String modificarVehiculo (Connection con, Vehiculo v){
         PreparedStatement pst = null;
-        String sql = "UPDATE VEHICULO SET TIPO_MOTOR = ?, COLOR = ?, TRANSMISION = ?, TIPO_CARROCERIA = ?, MODELO = ?  "
-                 + "WHERE VIN = ?";
+        String sql = "begin Modificar_Vehiculo(?,?,?,?,?,?);end;";
         
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, v.getTipo_motor());
-            pst.setString(2, v.getColor());
-            pst.setString(3, v.getTransmision());
-            pst.setString(4, v.getTipo_carroceria());
-            pst.setString(5, v.getModelo());
-            pst.setString(6, v.getVIN());
+            pst.setString(1, v.getVIN());
+            pst.setString(2, v.getTipo_motor());
+            pst.setString(3, v.getColor());
+            pst.setString(4, v.getTransmision());
+            pst.setString(5, v.getTipo_carroceria());
+            pst.setString(6, v.getModelo());
             mensaje="MODIFICADO CORRECTAMENTE";
             pst.execute();
             pst.close();
-            
             
         } catch (SQLException e) {
             mensaje="NO SE PUDO MODIFICAR CORRECTAMENTE\n"+e.getMessage();
@@ -73,11 +73,11 @@ public class VehiculoDAO {
     
     public String eliminarVehiculo (Connection con, String vin){
         PreparedStatement pst = null;
-        String sql = "DELETE FROM VEHICULO WHERE VIN=?";
+        String sql = "begin Eliminar_vehiculo("+vin+");end;";
         
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, vin);
+         //   pst.setString(1, vin);
             mensaje="ELIMINO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -95,7 +95,7 @@ public class VehiculoDAO {
        
         DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
         String sql="SELECT * FROM VEHICULO ORDER BY VIN";
-        String [] fila = new String [6];
+        String [] fila = new String [7];
         Statement st=null;
         ResultSet rs=null;
         modelo.setRowCount(0);
@@ -103,7 +103,7 @@ public class VehiculoDAO {
             st=con.createStatement();
             rs=st.executeQuery(sql);
             while (rs.next()){
-                for (int i = 0; i <6; i++) {
+                for (int i = 0; i <7; i++) {
                     fila[i]=rs.getString(i+1);
                 }
                 modelo.addRow(fila);
@@ -125,7 +125,7 @@ public class VehiculoDAO {
             st=con.createStatement();
             rs=st.executeQuery(sql);
             while (rs.next()){
-                    for(int i=0; i<6; i++){
+                    for(int i=0; i<7; i++){
                         datos.add(rs.getString(i+1));
                     }
             }

@@ -26,12 +26,11 @@ public class CompaniaDAO {
     
     public String agregarCompania(Connection con, Compania c){
         PreparedStatement pst = null;
-        String sql = "begin crear_Compania(?,?); end;";
+        String sql = "begin crear_Compania(COMPANIA_SEQ.NEXTVAL,?); end;";
         
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, c.getID_Compania());
-            pst.setString(2, c.getNombre_compania());
+            pst.setString(1, c.getNombre_compania());
             mensaje="GUARDADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -45,13 +44,12 @@ public class CompaniaDAO {
     
     public String modificarCompania(Connection con, Compania c){
         PreparedStatement pst = null;
-        String sql = "UPDATE COMPANIA SET NOMBRE_COMPANIA = ? "
-                 + "WHERE ID_COMPANIA = ?";
+        String sql = "begin  Modificar_compania(?,?);end;";
         
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, c.getNombre_compania());
-            pst.setString(2, c.getID_Compania());
+            pst.setString(1, c.getID_Compania());
+            pst.setString(2, c.getNombre_compania());
             mensaje="MODIFICADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -73,8 +71,6 @@ public class CompaniaDAO {
             mensaje="ELIMINO CORRECTAMENTE";
             pst.execute();
             pst.close();
-            
-            
         } catch (SQLException e) {
             mensaje="NO SE PUDO ELIMINAR CORRECTAMENTE\n"+e.getMessage();
         }
@@ -108,6 +104,48 @@ public class CompaniaDAO {
         return null;
     }
     
+    public ArrayList obtenerCompanias(Connection con){
+        ArrayList <String> datos = new ArrayList();
+        String sql="SELECT ID_COMPANIA FROM COMPANIA";
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                    for(int i=0; i<1; i++){
+                        datos.add(rs.getString(i+1));
+                    }
+            }
+            System.out.println("Ya paso por obtener");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado"+e.getMessage());
+        }
+        return datos;  
+    }
+    
+    public ArrayList obtenerNombreCompania(Connection con, String ID){
+        ArrayList <String> datos = new ArrayList();
+        String sql="SELECT NOMBRE_COMPANIA FROM COMPANIA WHERE ID_COMPANIA = "+ID;
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                    for(int i=0; i<1; i++){
+                        datos.add(rs.getString(i+1));
+                    }
+            }
+            System.out.println("Ya paso por obtener");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado"+e.getMessage());
+        }
+        return datos;  
+    }
+    
+    
+    
     public ArrayList obtenerCompania(Connection con, String ID){
         ArrayList <String> datos = new ArrayList();
         String sql="SELECT * FROM COMPANIA WHERE ID_COMPANIA = "+ID;
@@ -125,8 +163,7 @@ public class CompaniaDAO {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado "+e.getMessage());
         }
-        return datos;
-        
+        return datos;  
     }
     
 }

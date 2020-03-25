@@ -25,12 +25,11 @@ public class ProveedorDAO {
     
     public String agregarProveedor(Connection con, Proveedor p){
         PreparedStatement pst = null;
-        String sql = "begin crear_Proveedor(?,?); end;";
+        String sql = "begin crear_Proveedor(PROVEEDOR_SEQ_NEXTVAL,?); end;";
         
         try {
             pst =con.prepareStatement(sql);
-            pst.setString(1, p.getID_proveedor());
-            pst.setString(2, p.getNombre_proveedor());
+            pst.setString(1, p.getNombre_proveedor());
             mensaje="GUARDADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -44,14 +43,11 @@ public class ProveedorDAO {
     
     public String modificarProveedor(Connection con, Proveedor p){
         PreparedStatement pst = null;
-        String sql = "UPDATE PROVEEDOR SET NOMBRE_PROVEEDOR = ? "
-                 + "WHERE ID_PROVEEDOR= ?";
-        
+        String sql = "begin Modificar_Proveedor(?,?);end;";
         try {
             pst =con.prepareStatement(sql);
-            
-            pst.setString(2, p.getID_proveedor());
-            pst.setString(1, p.getNombre_proveedor());
+            pst.setString(1, p.getID_proveedor());
+            pst.setString(2, p.getNombre_proveedor());
             mensaje="MODIFICADO CORRECTAMENTE";
             pst.execute();
             pst.close();

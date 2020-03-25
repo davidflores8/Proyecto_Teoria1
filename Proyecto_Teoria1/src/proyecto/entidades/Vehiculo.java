@@ -16,18 +16,30 @@ public class Vehiculo {
      String color;
      String VIN;
      String tipo_motor;
+     String ID_Compania;
 
     public Vehiculo() {
     }
 
-    public Vehiculo(String tipo_carroceria, String modelo, String transmision, String color, String VIN, String tipo_motor) {
+    public Vehiculo(String tipo_carroceria, String modelo, String transmision, String color, String VIN, String tipo_motor, String ID_Compania) {
         this.tipo_carroceria = tipo_carroceria;
         this.modelo = modelo;
         this.transmision = transmision;
         this.color = color;
         this.VIN = VIN;
         this.tipo_motor = tipo_motor;
+        this.ID_Compania=ID_Compania;
     }
+
+    public String getID_Compania() {
+        return ID_Compania;
+    }
+
+    public void setID_Compania(String ID_Compania) {
+        this.ID_Compania = ID_Compania;
+    }
+    
+ 
 
     public String getTipo_carroceria() {
         return tipo_carroceria;

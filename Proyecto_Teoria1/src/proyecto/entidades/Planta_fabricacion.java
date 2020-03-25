@@ -13,15 +13,27 @@ public class Planta_fabricacion {
     String ID_Planta;
     String Tipo_planta;
     String Nombre_planta;
+    String ID_Compania;
 
     public Planta_fabricacion() {
     }
 
-    public Planta_fabricacion(String ID_Planta, String Tipo_planta, String Nombre_planta) {
+    public Planta_fabricacion(String ID_Planta, String Tipo_planta, String Nombre_planta, String ID_Compania) {
         this.ID_Planta = ID_Planta;
         this.Tipo_planta = Tipo_planta;
         this.Nombre_planta = Nombre_planta;
+        this.ID_Compania=ID_Compania;
     }
+
+    public String getID_Compania() {
+        return ID_Compania;
+    }
+
+    public void setID_Compania(String ID_Compania) {
+        this.ID_Compania = ID_Compania;
+    }
+    
+    
 
     public String getID_Planta() {
         return ID_Planta;

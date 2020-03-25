@@ -79,11 +79,52 @@ public class CompaniaBO {
         return mensaje;
     }
     
+    public ArrayList obtenerCompanias() throws SQLException{
+        ArrayList <String> datos=new ArrayList();
+        Connection con =Conexion.getConnection();
+        try {
+            datos=cdao.obtenerCompanias(con);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return datos;
+    }
+    
     public ArrayList obtenerCompania(String ID) throws SQLException{
         ArrayList <String> datos=new ArrayList();
         Connection con =Conexion.getConnection();
         try {
             datos=cdao.obtenerCompania(con, ID);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return datos;
+        
+    }
+    
+    public ArrayList obtenerNombreCompania(String ID) throws SQLException{
+        ArrayList <String> datos=new ArrayList();
+        Connection con =Conexion.getConnection();
+        try {
+            datos=cdao.obtenerNombreCompania(con, ID);
         } catch (Exception e) {
             e.printStackTrace();
         }

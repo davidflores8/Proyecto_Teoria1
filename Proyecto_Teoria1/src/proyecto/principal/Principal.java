@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import proyecto.bo.CompaniaBO;
+import proyecto.bo.CompraBO;
 import proyecto.bo.ConcesionarioBO;
 import proyecto.bo.EmpresaBO;
 import proyecto.bo.PersonaBO;
@@ -24,6 +25,7 @@ import proyecto.bo.Planta_fabricacionBO;
 import proyecto.bo.ProveedorBO;
 import proyecto.bo.VehiculoBO;
 import proyecto.entidades.Compania;
+import proyecto.entidades.Compra;
 import proyecto.entidades.Concesionario;
 import proyecto.entidades.Empresa;
 import proyecto.entidades.Persona;
@@ -92,6 +94,10 @@ public class Principal extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         cb_vehiculo = new javax.swing.JComboBox<>();
         tf_compania = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        tf_precio = new javax.swing.JTextField();
+        jLabel49 = new javax.swing.JLabel();
+        tf_marca1 = new javax.swing.JTextField();
         lb_Fondo_C_empre4 = new javax.swing.JLabel();
         M_Vehiculo = new javax.swing.JDialog();
         id_compa15 = new javax.swing.JLabel();
@@ -111,6 +117,10 @@ public class Principal extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         mod_id_compania = new javax.swing.JTextField();
         mod_nombre_compania = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        marca_modificar = new javax.swing.JTextField();
+        precio_modificar = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
         lb_Fondo_C_empre5 = new javax.swing.JLabel();
         V_Planta = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -196,6 +206,8 @@ public class Principal extends javax.swing.JFrame {
         boton_modificar_concesionario = new javax.swing.JButton();
         boton_eliminar_concesionario = new javax.swing.JButton();
         boton_listar_concesionario = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
         C_Conse = new javax.swing.JDialog();
         conse_nombre = new javax.swing.JTextField();
         conse_id = new javax.swing.JTextField();
@@ -315,41 +327,22 @@ public class Principal extends javax.swing.JFrame {
         pc_pais = new javax.swing.JComboBox<>();
         jLabel58 = new javax.swing.JLabel();
         nc_empresa = new javax.swing.JComboBox<>();
-        C_Empresa1 = new javax.swing.JDialog();
+        Inventario_concesionario = new javax.swing.JDialog();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tabla_compra = new javax.swing.JTable();
         jLabel45 = new javax.swing.JLabel();
+        jButton19 = new javax.swing.JButton();
+        listar_compra_a = new javax.swing.JButton();
+        Ver_Vehiculos = new javax.swing.JDialog();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tabla_vehiculos1 = new javax.swing.JTable();
+        boton_agregar_vehiculo1 = new javax.swing.JButton();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
-        jButton20 = new javax.swing.JButton();
-        rtn_empresa2 = new javax.swing.JTextField();
-        direccion_empresa2 = new javax.swing.JTextField();
-        telefono_empresa2 = new javax.swing.JTextField();
-        nombre_empresa2 = new javax.swing.JTextField();
-        tipo_empresa2 = new javax.swing.JTextField();
-        M_Empresa1 = new javax.swing.JDialog();
-        jLabel51 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jButton21 = new javax.swing.JButton();
-        rtn_empresa3 = new javax.swing.JTextField();
-        direccion_empresa3 = new javax.swing.JTextField();
-        telefono_empresa3 = new javax.swing.JTextField();
-        nombre_empresa3 = new javax.swing.JTextField();
-        tipo_empresa3 = new javax.swing.JTextField();
-        Vista_Persona = new javax.swing.JDialog();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        tabla_empresas2 = new javax.swing.JTable();
-        jButton19 = new javax.swing.JButton();
-        Listar3 = new javax.swing.JButton();
-        jLabel59 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jLabel60 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        dia = new javax.swing.JComboBox<>();
+        mes = new javax.swing.JComboBox<>();
+        ano = new javax.swing.JComboBox<>();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
@@ -426,11 +419,11 @@ public class Principal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "VIN", "TIPO_MOTOR", "COLOR", "TRANSMISION", "TIPO_CARROCERIA", "MODELO", "ID COMPANIA"
+                "VIN", "TIPO_MOTOR", "COLOR", "TRANSMISION", "TIPO_CARROCERIA", "MODELO", "ID COMPANIA", "MARCA", "PRECIO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -504,11 +497,11 @@ public class Principal extends javax.swing.JFrame {
 
         id_compa10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa10.setText("TIPO CARROCERIA");
-        C_vehiculo.getContentPane().add(id_compa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
+        C_vehiculo.getContentPane().add(id_compa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, -1));
 
         id_compa11.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa11.setText("VIN");
-        C_vehiculo.getContentPane().add(id_compa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
+        C_vehiculo.getContentPane().add(id_compa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
 
         Btn_creaVehi.setText("Crear");
         Btn_creaVehi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -516,23 +509,23 @@ public class Principal extends javax.swing.JFrame {
                 Btn_creaVehiMouseClicked(evt);
             }
         });
-        C_vehiculo.getContentPane().add(Btn_creaVehi, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
+        C_vehiculo.getContentPane().add(Btn_creaVehi, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, -1));
 
         id_compa12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa12.setText("COLOR");
-        C_vehiculo.getContentPane().add(id_compa12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
-        C_vehiculo.getContentPane().add(vehi_modelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 120, -1));
-        C_vehiculo.getContentPane().add(vehi_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 120, -1));
-        C_vehiculo.getContentPane().add(vehi_vin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 120, -1));
+        C_vehiculo.getContentPane().add(id_compa12, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, -1));
+        C_vehiculo.getContentPane().add(vehi_modelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 120, -1));
+        C_vehiculo.getContentPane().add(vehi_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 120, -1));
+        C_vehiculo.getContentPane().add(vehi_vin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 120, -1));
         C_vehiculo.getContentPane().add(Vehi_motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 120, -1));
 
         id_compa13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa13.setText("TRANSMISION");
-        C_vehiculo.getContentPane().add(id_compa13, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+        C_vehiculo.getContentPane().add(id_compa13, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
 
         id_compa14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa14.setText("MODELO");
-        C_vehiculo.getContentPane().add(id_compa14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
+        C_vehiculo.getContentPane().add(id_compa14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
 
         id_compa16.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa16.setText("CREAR VEHICULO");
@@ -543,34 +536,44 @@ public class Principal extends javax.swing.JFrame {
         C_vehiculo.getContentPane().add(id_compa17, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, -1, -1));
 
         vehi_trans.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mecanico", "Automatico" }));
-        C_vehiculo.getContentPane().add(vehi_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 200, 110, -1));
+        C_vehiculo.getContentPane().add(vehi_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 110, -1));
 
-        vehi_carro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urbano", "Sedan (Turismo)", "Familiar", "Deportivo", "SUV (Camioneta)", "Pick-Up media cabina", "Pick-Up 1 cabina", "Pick -Up 2 cabinas", "Camion de trabajo" }));
-        C_vehiculo.getContentPane().add(vehi_carro, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 250, 110, -1));
+        vehi_carro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urbano", "Sedan (Turismo)", "Familiar", "Deportivo", "SUV (Camioneta)", "Pick-Up media cabina", "Pick-Up 1 cabina", "Pick -Up 2 cabinas", "Camion de trabajo", "Convertible" }));
+        C_vehiculo.getContentPane().add(vehi_carro, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 110, -1));
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel27.setText("ID COMPANIA A LA QUE PERTENECE");
-        C_vehiculo.getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
+        C_vehiculo.getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, -1, -1));
 
         cb_vehiculo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cb_vehiculoItemStateChanged(evt);
             }
         });
-        C_vehiculo.getContentPane().add(cb_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 110, -1));
+        C_vehiculo.getContentPane().add(cb_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 110, -1));
 
         tf_compania.setEditable(false);
-        C_vehiculo.getContentPane().add(tf_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 100, -1));
+        C_vehiculo.getContentPane().add(tf_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 100, -1));
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel29.setText("PRECIO");
+        C_vehiculo.getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, -1, -1));
+        C_vehiculo.getContentPane().add(tf_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 110, -1));
+
+        jLabel49.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel49.setText("MARCA");
+        C_vehiculo.getContentPane().add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
+        C_vehiculo.getContentPane().add(tf_marca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 110, -1));
 
         lb_Fondo_C_empre4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
-        C_vehiculo.getContentPane().add(lb_Fondo_C_empre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 490, 560));
+        C_vehiculo.getContentPane().add(lb_Fondo_C_empre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 560));
 
         M_Vehiculo.setTitle("Modificar Vehiculo");
         M_Vehiculo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         id_compa15.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa15.setText("TIPO CARROCERIA");
-        M_Vehiculo.getContentPane().add(id_compa15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, -1, -1));
+        M_Vehiculo.getContentPane().add(id_compa15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
 
         id_compa18.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa18.setText("VIN");
@@ -582,25 +585,25 @@ public class Principal extends javax.swing.JFrame {
                 boton_modificar_vehiMouseClicked(evt);
             }
         });
-        M_Vehiculo.getContentPane().add(boton_modificar_vehi, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, -1, -1));
+        M_Vehiculo.getContentPane().add(boton_modificar_vehi, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, -1));
 
         id_compa19.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa19.setText("COLOR");
-        M_Vehiculo.getContentPane().add(id_compa19, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
-        M_Vehiculo.getContentPane().add(vehi_modelo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 120, -1));
-        M_Vehiculo.getContentPane().add(vehi_color1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 120, -1));
+        M_Vehiculo.getContentPane().add(id_compa19, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+        M_Vehiculo.getContentPane().add(vehi_modelo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 120, -1));
+        M_Vehiculo.getContentPane().add(vehi_color1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 120, -1));
 
         vehi_vin1.setEditable(false);
         M_Vehiculo.getContentPane().add(vehi_vin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 120, -1));
-        M_Vehiculo.getContentPane().add(vehi_motor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 120, -1));
+        M_Vehiculo.getContentPane().add(vehi_motor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 120, -1));
 
         id_compa20.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa20.setText("TRANSMISION");
-        M_Vehiculo.getContentPane().add(id_compa20, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
+        M_Vehiculo.getContentPane().add(id_compa20, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
 
         id_compa21.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa21.setText("MODELO");
-        M_Vehiculo.getContentPane().add(id_compa21, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
+        M_Vehiculo.getContentPane().add(id_compa21, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
 
         id_compa22.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa22.setText("MODIFICAR VEHICULOS");
@@ -608,23 +611,33 @@ public class Principal extends javax.swing.JFrame {
 
         id_compa23.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa23.setText("Tipo Motor");
-        M_Vehiculo.getContentPane().add(id_compa23, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
+        M_Vehiculo.getContentPane().add(id_compa23, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, -1, -1));
 
         vehi_trans1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mecanico", "Automatico" }));
-        M_Vehiculo.getContentPane().add(vehi_trans1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 110, -1));
+        M_Vehiculo.getContentPane().add(vehi_trans1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 110, -1));
 
-        vehi_carro1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urbano", "Sedan (Turismo)", "Familiar", "Deportivo", "SUV (Camioneta)", "Pick-Up media cabina", "Pick-Up 1 cabina", "Pick -Up 2 cabinas", "Camion de trabajo" }));
-        M_Vehiculo.getContentPane().add(vehi_carro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 110, -1));
+        vehi_carro1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urbano", "Sedan (Turismo)", "Familiar", "Deportivo", "SUV (Camioneta)", "Pick-Up media cabina", "Pick-Up 1 cabina", "Pick -Up 2 cabinas", "Camion de trabajo", "Convertible" }));
+        M_Vehiculo.getContentPane().add(vehi_carro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 110, -1));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel28.setText("ID COMPANIA A LA QUE PERTENECE");
-        M_Vehiculo.getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, -1, -1));
+        M_Vehiculo.getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
 
         mod_id_compania.setEditable(false);
-        M_Vehiculo.getContentPane().add(mod_id_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 70, -1));
+        M_Vehiculo.getContentPane().add(mod_id_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 70, -1));
 
         mod_nombre_compania.setEditable(false);
-        M_Vehiculo.getContentPane().add(mod_nombre_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 80, -1));
+        M_Vehiculo.getContentPane().add(mod_nombre_compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 80, -1));
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel30.setText("MARCA");
+        M_Vehiculo.getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, -1, -1));
+        M_Vehiculo.getContentPane().add(marca_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 130, -1));
+        M_Vehiculo.getContentPane().add(precio_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 130, -1));
+
+        jLabel50.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel50.setText("Precio");
+        M_Vehiculo.getContentPane().add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
 
         lb_Fondo_C_empre5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
         M_Vehiculo.getContentPane().add(lb_Fondo_C_empre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 490, 560));
@@ -1122,6 +1135,20 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jButton12.setText("Inventario");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton12MouseClicked(evt);
+            }
+        });
+
+        jButton17.setText("Vender Vehiculo");
+        jButton17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton17MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout V_ConcesionarioLayout = new javax.swing.GroupLayout(V_Concesionario.getContentPane());
         V_Concesionario.getContentPane().setLayout(V_ConcesionarioLayout);
         V_ConcesionarioLayout.setHorizontalGroup(
@@ -1136,6 +1163,10 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(boton_modificar_concesionario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(boton_listar_concesionario)
+                        .addGap(77, 77, 77)
+                        .addComponent(jButton12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(boton_eliminar_concesionario)))
                 .addContainerGap())
@@ -1150,7 +1181,9 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(boton_agregar_concesionario)
                     .addComponent(boton_modificar_concesionario)
                     .addComponent(boton_eliminar_concesionario)
-                    .addComponent(boton_listar_concesionario))
+                    .addComponent(boton_listar_concesionario)
+                    .addComponent(jButton12)
+                    .addComponent(jButton17))
                 .addContainerGap())
         );
 
@@ -1813,36 +1846,35 @@ public class Principal extends javax.swing.JFrame {
         authLayout.setHorizontalGroup(
             authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(authLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel41)
-                    .addComponent(jLabel42))
-                .addGap(18, 18, 18)
-                .addGroup(authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPasswordField1)
                     .addGroup(authLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 35, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, authLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton14)
-                .addGap(87, 87, 87))
+                        .addContainerGap()
+                        .addGroup(authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel41)
+                            .addComponent(jLabel42))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                            .addComponent(jPasswordField1)))
+                    .addGroup(authLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jButton14)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         authLayout.setVerticalGroup(
             authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, authLayout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addGroup(authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel41)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(authLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel42)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(26, 26, 26)
                 .addComponent(jButton14)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         usted_es.setTitle("LogIn");
@@ -2003,264 +2035,155 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        C_Empresa1.setTitle("Crear Empresa");
-
-        jLabel45.setText("Crear Empresa");
-
-        jLabel46.setText("RTN:");
-
-        jLabel47.setText("Nombre:");
-
-        jLabel48.setText("Direccion:");
-
-        jLabel49.setText("Telefono:");
-
-        jLabel50.setText("Tipo Empresa:");
-
-        jButton20.setText("Crear");
-        jButton20.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton20MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout C_Empresa1Layout = new javax.swing.GroupLayout(C_Empresa1.getContentPane());
-        C_Empresa1.getContentPane().setLayout(C_Empresa1Layout);
-        C_Empresa1Layout.setHorizontalGroup(
-            C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(C_Empresa1Layout.createSequentialGroup()
-                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(C_Empresa1Layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(jLabel45))
-                    .addGroup(C_Empresa1Layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(C_Empresa1Layout.createSequentialGroup()
-                                .addComponent(jLabel48)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(direccion_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(C_Empresa1Layout.createSequentialGroup()
-                                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel47)
-                                    .addComponent(jLabel46))
-                                .addGap(18, 18, 18)
-                                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rtn_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nombre_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(C_Empresa1Layout.createSequentialGroup()
-                                .addComponent(jLabel49)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(telefono_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(C_Empresa1Layout.createSequentialGroup()
-                                .addComponent(jLabel50)
-                                .addGap(18, 18, 18)
-                                .addComponent(tipo_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(90, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, C_Empresa1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton20)
-                .addGap(130, 130, 130))
-        );
-        C_Empresa1Layout.setVerticalGroup(
-            C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(C_Empresa1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel45)
-                .addGap(34, 34, 34)
-                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel46)
-                    .addComponent(rtn_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel47)
-                    .addComponent(nombre_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel48)
-                    .addComponent(direccion_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel49)
-                    .addComponent(telefono_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(C_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel50)
-                    .addComponent(tipo_empresa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jButton20)
-                .addGap(105, 105, 105))
-        );
-
-        M_Empresa1.setTitle("Modificar Empresa");
-
-        jLabel51.setText("Modificar Empresa");
-
-        jLabel52.setText("RTN:");
-
-        jLabel53.setText("Nombre:");
-
-        jLabel54.setText("Direccion:");
-
-        jLabel55.setText("Telefono:");
-
-        jLabel56.setText("Tipo Empresa:");
-
-        jButton21.setText("GUARDAR CAMBIOS");
-        jButton21.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton21MouseClicked(evt);
-            }
-        });
-
-        rtn_empresa3.setEditable(false);
-
-        javax.swing.GroupLayout M_Empresa1Layout = new javax.swing.GroupLayout(M_Empresa1.getContentPane());
-        M_Empresa1.getContentPane().setLayout(M_Empresa1Layout);
-        M_Empresa1Layout.setHorizontalGroup(
-            M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(M_Empresa1Layout.createSequentialGroup()
-                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(M_Empresa1Layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(jLabel51))
-                    .addGroup(M_Empresa1Layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(M_Empresa1Layout.createSequentialGroup()
-                                .addComponent(jLabel54)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(direccion_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(M_Empresa1Layout.createSequentialGroup()
-                                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel53)
-                                    .addComponent(jLabel52))
-                                .addGap(18, 18, 18)
-                                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rtn_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nombre_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(M_Empresa1Layout.createSequentialGroup()
-                                .addComponent(jLabel55)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(telefono_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(M_Empresa1Layout.createSequentialGroup()
-                                .addComponent(jLabel56)
-                                .addGap(18, 18, 18)
-                                .addComponent(tipo_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(90, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, M_Empresa1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton21)
-                .addGap(130, 130, 130))
-        );
-        M_Empresa1Layout.setVerticalGroup(
-            M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(M_Empresa1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel51)
-                .addGap(34, 34, 34)
-                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel52)
-                    .addComponent(rtn_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel53)
-                    .addComponent(nombre_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel54)
-                    .addComponent(direccion_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel55)
-                    .addComponent(telefono_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(M_Empresa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel56)
-                    .addComponent(tipo_empresa3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jButton21)
-                .addGap(105, 105, 105))
-        );
-
-        Vista_Persona.setTitle("Empresa - Concesionario");
-
-        tabla_empresas2.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_compra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "VIN", "ID_COMPANIA", "PRECIO"
+                "ID_Compania (vehiculo)", "Vin_Vehiculo", "Precio_Vehiculo", "Fecha_Ingreso"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                true, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane10.setViewportView(tabla_empresas2);
+        jScrollPane8.setViewportView(tabla_compra);
 
-        jButton19.setText("Modificar Datos Personales");
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel45.setText("Inventario del Concesionario Seleccionado");
+
+        jButton19.setText("Comprar / Ver detalles de todos los vehiculos");
         jButton19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton19MouseClicked(evt);
             }
         });
 
-        Listar3.setText("Listar");
-        Listar3.addMouseListener(new java.awt.event.MouseAdapter() {
+        listar_compra_a.setText("Listar");
+        listar_compra_a.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Listar3MouseClicked(evt);
+                listar_compra_aMouseClicked(evt);
             }
         });
 
-        jLabel59.setText("Pais del Concesionario:");
-
-        jLabel60.setText("Nombre del Concesionario: ");
-
-        javax.swing.GroupLayout Vista_PersonaLayout = new javax.swing.GroupLayout(Vista_Persona.getContentPane());
-        Vista_Persona.getContentPane().setLayout(Vista_PersonaLayout);
-        Vista_PersonaLayout.setHorizontalGroup(
-            Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Vista_PersonaLayout.createSequentialGroup()
+        javax.swing.GroupLayout Inventario_concesionarioLayout = new javax.swing.GroupLayout(Inventario_concesionario.getContentPane());
+        Inventario_concesionario.getContentPane().setLayout(Inventario_concesionarioLayout);
+        Inventario_concesionarioLayout.setHorizontalGroup(
+            Inventario_concesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_concesionarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(Vista_PersonaLayout.createSequentialGroup()
-                        .addComponent(jLabel59)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(Vista_PersonaLayout.createSequentialGroup()
-                        .addComponent(jLabel60)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(Listar3)
-                        .addComponent(jButton19)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGroup(Inventario_concesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
+                    .addGroup(Inventario_concesionarioLayout.createSequentialGroup()
+                        .addGroup(Inventario_concesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel45)
+                            .addGroup(Inventario_concesionarioLayout.createSequentialGroup()
+                                .addComponent(jButton19)
+                                .addGap(18, 18, 18)
+                                .addComponent(listar_compra_a)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        Vista_PersonaLayout.setVerticalGroup(
-            Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Vista_PersonaLayout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
-                .addGroup(Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(Vista_PersonaLayout.createSequentialGroup()
-                        .addGroup(Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel59)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(Vista_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel60)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
-                        .addComponent(Listar3)))
-                .addGap(44, 44, 44)
-                .addComponent(jButton19)
+        Inventario_concesionarioLayout.setVerticalGroup(
+            Inventario_concesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_concesionarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addGroup(Inventario_concesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton19)
+                    .addComponent(listar_compra_a))
+                .addContainerGap())
+        );
+
+        Ver_Vehiculos.setTitle("Vehiculos");
+
+        tabla_vehiculos1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "VIN", "TIPO_MOTOR", "COLOR", "TRANSMISION", "TIPO_CARROCERIA", "MODELO", "ID COMPANIA", "MARCA", "PRECIO"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane10.setViewportView(tabla_vehiculos1);
+
+        boton_agregar_vehiculo1.setText("Comprar");
+        boton_agregar_vehiculo1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_agregar_vehiculo1MouseClicked(evt);
+            }
+        });
+
+        jLabel46.setText("Dia");
+
+        jLabel47.setText("Mes");
+
+        jLabel48.setText("Año");
+
+        dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
+
+        mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+
+        ano.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020" }));
+
+        javax.swing.GroupLayout Ver_VehiculosLayout = new javax.swing.GroupLayout(Ver_Vehiculos.getContentPane());
+        Ver_Vehiculos.getContentPane().setLayout(Ver_VehiculosLayout);
+        Ver_VehiculosLayout.setHorizontalGroup(
+            Ver_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Ver_VehiculosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Ver_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+                    .addGroup(Ver_VehiculosLayout.createSequentialGroup()
+                        .addGroup(Ver_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(boton_agregar_vehiculo1)
+                            .addGroup(Ver_VehiculosLayout.createSequentialGroup()
+                                .addGroup(Ver_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel46)
+                                    .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(22, 22, 22)
+                                .addGroup(Ver_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel47)
+                                    .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(36, 36, 36)
+                                .addGroup(Ver_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel48)
+                                    .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        Ver_VehiculosLayout.setVerticalGroup(
+            Ver_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ver_VehiculosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(Ver_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel46)
+                    .addComponent(jLabel47)
+                    .addComponent(jLabel48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Ver_VehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addComponent(boton_agregar_vehiculo1)
                 .addContainerGap())
         );
 
@@ -2461,7 +2384,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void Btn_creaVehiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_creaVehiMouseClicked
         //creacion vehiculos
-        String motor = "", transmision = "", modelo = "", carroceria = "", color = "", vin = "";
+        String motor = "", transmision = "", modelo = "", carroceria = "", color = "", vin = "", marca="", precio="";
         String compania="";
         motor = Vehi_motor.getText();
         Vehi_motor.setText("");
@@ -2474,11 +2397,13 @@ public class Principal extends javax.swing.JFrame {
         vehi_modelo.setText("");
         carroceria = vehi_carro.getSelectedItem().toString();
         vehi_carro.setSelectedIndex(0);
-        System.out.println(carroceria);
         color = vehi_color.getText();
         vehi_color.setText("");
         compania=cb_vehiculo.getSelectedItem().toString();
-        JOptionPane.showMessageDialog(C_Planta, "Se creó el vehiculo");
+        marca=tf_marca1.getText();
+        precio=tf_precio.getText();
+        tf_precio.setText("");
+        tf_marca1.setText("");
         C_vehiculo.dispose();
         String mensaje="";
         VehiculoBO vbo =new VehiculoBO();
@@ -2490,9 +2415,10 @@ public class Principal extends javax.swing.JFrame {
         v.setModelo(modelo);
         v.setTransmision(transmision);
         v.setID_Compania(compania);
+        v.setMarca(marca);
+        v.setPrecio(precio);
         try {
             mensaje=vbo.agregarVehiculo(v);
-            System.out.println("Mensaje\n "+mensaje);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -2502,6 +2428,7 @@ public class Principal extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         //muestra la ventana de los vehiculos, donde hace el CRUD
+        JOptionPane.showMessageDialog(C_Planta, "Se creó el vehiculo");
         V_Vehiculo.setModal(true);
         V_Vehiculo.pack();
         V_Vehiculo.setLocationRelativeTo(this);
@@ -2528,10 +2455,12 @@ public class Principal extends javax.swing.JFrame {
             
         }
         DefaultComboBoxModel modelo=(DefaultComboBoxModel)cb_vehiculo.getModel();
+        modelo.removeAllElements();
         for (int i = 0; i <data.size(); i++) {
             modelo.addElement(data.get(i));
         }
         cb_vehiculo.setModel(modelo);
+       // cb_vehiculo.setModel(modelo);
         C_vehiculo.setModal(true);
         C_vehiculo.pack();
         C_vehiculo.setLocationRelativeTo(this);
@@ -2579,6 +2508,8 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
            mod_id_compania.setText(data.get(6));
+           marca_modificar.setText(data.get(7));
+           precio_modificar.setText(data.get(8));
            CompaniaBO cbo=new CompaniaBO();
            ArrayList<String>d=new ArrayList();
             try {
@@ -2607,7 +2538,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void boton_modificar_vehiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_modificar_vehiMouseClicked
         // TODO add your handling code here:
-        String motor = "", transmision = "", modelo = "", carroceria = "", color = "", vin = "";
+        String motor = "", transmision = "", modelo = "", carroceria = "", color = "", vin = "", marca="", precio="";
         motor = vehi_motor1.getText();
         vehi_motor1.setText("");
         transmision = vehi_trans1.getSelectedItem().toString();
@@ -2622,6 +2553,10 @@ public class Principal extends javax.swing.JFrame {
         System.out.println(carroceria);
         color = vehi_color1.getText();
         vehi_color1.setText("");
+        marca=marca_modificar.getText();
+        marca_modificar.setText("");
+        precio=precio_modificar.getText();
+        precio_modificar.setText("");
         JOptionPane.showMessageDialog(M_Vehiculo, "Se modifico el vehiculo con exito ");
         M_Vehiculo.dispose();
         String mensaje="";
@@ -2633,6 +2568,8 @@ public class Principal extends javax.swing.JFrame {
         v.setTipo_carroceria(carroceria);
         v.setModelo(modelo);
         v.setTransmision(transmision);
+        v.setMarca(marca);
+        v.setPrecio(precio);
         try {
             mensaje=vbo.modificarVehiculo(v);
             System.out.println("Mensaje\n "+mensaje);
@@ -2669,7 +2606,7 @@ public class Principal extends javax.swing.JFrame {
                     ex.printStackTrace();
                 }
             }
-            
+            JOptionPane.showMessageDialog(this, "Vehiculo Borrado Exitosamente");
         }
     }//GEN-LAST:event_boton_eliminar_vehiculoMouseClicked
 
@@ -2683,6 +2620,7 @@ public class Principal extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         DefaultComboBoxModel modelo=(DefaultComboBoxModel)crear_planta_compania.getModel();
+        modelo.removeAllElements();
         for (int i = 0; i <companias.size(); i++) {
             modelo.addElement(companias.get(i));
         }
@@ -3429,11 +3367,18 @@ public class Principal extends javax.swing.JFrame {
         CompaniaBO cbo=new CompaniaBO();
         ArrayList<String>dato=new ArrayList();
         try {
-            dato=cbo.obtenerNombreCompania(cb_vehiculo.getSelectedItem().toString());
+            if(cb_vehiculo.getSelectedIndex()!=-1){
+                dato=cbo.obtenerNombreCompania("'"+cb_vehiculo.getSelectedItem().toString()+"'");
+            }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+           // ex.printStackTrace();
         }
-        tf_compania.setText(dato.get(0));
+        if(dato.size()==0){
+            
+        }
+        else{
+            tf_compania.setText(dato.get(0));
+        }
     }//GEN-LAST:event_cb_vehiculoItemStateChanged
 
     private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
@@ -3515,10 +3460,10 @@ public class Principal extends javax.swing.JFrame {
             }
             else{
                 JOptionPane.showMessageDialog(this, "Bienvenido");
-                Vista_Persona.setModal(true);
-                Vista_Persona.pack();
-                Vista_Persona.setLocationRelativeTo(this);
-                Vista_Persona.setVisible(true);
+//                Vista_Persona.setModal(true);
+//                Vista_Persona.pack();
+//                Vista_Persona.setLocationRelativeTo(this);
+//                Vista_Persona.setVisible(true);
                 usted_es.dispose();
         }
      }
@@ -3532,22 +3477,6 @@ public class Principal extends javax.swing.JFrame {
     private void Listar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Listar2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_Listar2MouseClicked
-
-    private void jButton20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton20MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton20MouseClicked
-
-    private void jButton21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton21MouseClicked
-
-    private void jButton19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton19MouseClicked
-
-    private void Listar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Listar3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Listar3MouseClicked
 
     private void pc_paisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_pc_paisItemStateChanged
         // TODO add your handling code here:
@@ -3567,6 +3496,85 @@ public class Principal extends javax.swing.JFrame {
         }
         nc_empresa.setModel(modelo);
     }//GEN-LAST:event_pc_paisItemStateChanged
+
+    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        // TODO add your handling code here:
+        if(tabla_concesionarios.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento de la tabla para registar la venta");
+        }
+        else{
+            concesionario_actual=tabla_concesionarios.getValueAt(tabla_concesionarios.getSelectedRow(),0).toString();
+            CompraBO cbo=new CompraBO();
+            try {
+                cbo.obtenerCompra(tabla_compra, "'"+concesionario_actual+"'");
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            Inventario_concesionario.setModal(true);
+            Inventario_concesionario.pack();
+            Inventario_concesionario.setLocationRelativeTo(this);
+            Inventario_concesionario.setVisible(true);
+            
+        }
+    }//GEN-LAST:event_jButton12MouseClicked
+
+    private void jButton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseClicked
+        // TODO add your handling code here:
+        if(tabla_concesionarios.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento de la tabla para registar la venta");
+        }
+        else{
+            
+        }
+    }//GEN-LAST:event_jButton17MouseClicked
+
+    private void boton_agregar_vehiculo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_agregar_vehiculo1MouseClicked
+        // TODO add your handling code here:
+        String compania="", precio="", vin="", fecha="";
+        fecha=dia.getSelectedItem().toString()+"-"+mes.getSelectedItem().toString()+"-"+ano.getSelectedItem().toString();
+        vin=tabla_vehiculos1.getValueAt(tabla_vehiculos1.getSelectedRow(), 0).toString();
+        precio=tabla_vehiculos1.getValueAt(tabla_vehiculos1.getSelectedRow(), 8).toString();
+        compania=tabla_vehiculos1.getValueAt(tabla_vehiculos1.getSelectedRow(), 6).toString();
+        Compra c=new Compra(concesionario_actual,compania,precio,vin,fecha);
+        System.out.println("id conce "+concesionario_actual+" fecha "+fecha+" vin "+vin+" precio "+precio+" Compania "+compania);
+        CompraBO vbo=new CompraBO();
+        try {
+            vbo.agregarCompra(c);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(this, "Compra Registrada");
+        try {
+            vbo.obtenerCompra(tabla_compra, "'"+concesionario_actual+"'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_boton_agregar_vehiculo1MouseClicked
+
+    private void jButton19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseClicked
+        // TODO add your handling code here:
+        VehiculoBO vbo=new VehiculoBO();
+        try {
+            vbo.listarVehiculo(tabla_vehiculos1);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        Ver_Vehiculos.setModal(true);
+        Ver_Vehiculos.pack();
+        Ver_Vehiculos.setLocationRelativeTo(this);
+        Ver_Vehiculos.setVisible(true);
+    }//GEN-LAST:event_jButton19MouseClicked
+
+    private void listar_compra_aMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listar_compra_aMouseClicked
+        // TODO add your handling code here:
+        CompraBO cbo=new CompraBO();
+        try {
+            cbo.obtenerCompra(tabla_compra, "'"+concesionario_actual+"'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_listar_compra_aMouseClicked
 
     /**
      * @param args the command line arguments
@@ -3619,7 +3627,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog C_Compania;
     private javax.swing.JDialog C_Conse;
     private javax.swing.JDialog C_Empresa;
-    private javax.swing.JDialog C_Empresa1;
     private javax.swing.JDialog C_Persona;
     private javax.swing.JDialog C_Planta;
     private javax.swing.JDialog C_Proveedor;
@@ -3633,15 +3640,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Crear_empresa;
     private javax.swing.JButton Crear_proveedor;
     private javax.swing.JButton Crear_vehiculo;
+    private javax.swing.JDialog Inventario_concesionario;
     private javax.swing.JDialog Jd_Mcreacion;
     private javax.swing.JButton Listar;
     private javax.swing.JButton Listar1;
     private javax.swing.JButton Listar2;
-    private javax.swing.JButton Listar3;
     private javax.swing.JDialog M_Compania;
     private javax.swing.JDialog M_Conse;
     private javax.swing.JDialog M_Empresa;
-    private javax.swing.JDialog M_Empresa1;
     private javax.swing.JDialog M_Persona;
     private javax.swing.JDialog M_Planta;
     private javax.swing.JDialog M_Proveedor;
@@ -3658,14 +3664,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog V_Proveedor;
     private javax.swing.JDialog V_Vehiculo;
     private javax.swing.JTextField Vehi_motor;
+    private javax.swing.JDialog Ver_Vehiculos;
     private javax.swing.JDialog Vista_Empresa;
-    private javax.swing.JDialog Vista_Persona;
+    private javax.swing.JComboBox<String> ano;
     private javax.swing.JDialog auth;
     private javax.swing.JButton boton_agregar_companias;
     private javax.swing.JButton boton_agregar_concesionario;
     private javax.swing.JButton boton_agregar_planta;
     private javax.swing.JButton boton_agregar_proveedor;
     private javax.swing.JButton boton_agregar_vehiculo;
+    private javax.swing.JButton boton_agregar_vehiculo1;
     private javax.swing.JButton boton_eliminar_companias;
     private javax.swing.JButton boton_eliminar_concesionario;
     private javax.swing.JButton boton_eliminar_planta;
@@ -3694,10 +3702,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField conse_ubicacion;
     private javax.swing.JTextField conse_ubicacion1;
     private javax.swing.JComboBox<String> crear_planta_compania;
+    private javax.swing.JComboBox<String> dia;
     private javax.swing.JTextField direccion_empresa;
     private javax.swing.JTextField direccion_empresa1;
-    private javax.swing.JTextField direccion_empresa2;
-    private javax.swing.JTextField direccion_empresa3;
     private javax.swing.JTextField direccion_persona;
     private javax.swing.JTextField direccion_persona1;
     private javax.swing.JRadioButton f;
@@ -3743,15 +3750,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -3759,8 +3766,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3782,7 +3787,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -3805,17 +3812,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -3828,6 +3827,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lb_Fondo_C_empre;
@@ -3840,15 +3840,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lb_Fondo_C_empre8;
     private javax.swing.JLabel lb_fondo1;
     private javax.swing.JLabel lb_fondocreacion;
+    private javax.swing.JButton listar_compra_a;
     private javax.swing.JRadioButton m;
     private javax.swing.JRadioButton m1;
+    private javax.swing.JTextField marca_modificar;
+    private javax.swing.JComboBox<String> mes;
     private javax.swing.JTextField mod_id_compania;
     private javax.swing.JTextField mod_nombre_compania;
     private javax.swing.JComboBox<String> nc_empresa;
     private javax.swing.JTextField nombre_empresa;
     private javax.swing.JTextField nombre_empresa1;
-    private javax.swing.JTextField nombre_empresa2;
-    private javax.swing.JTextField nombre_empresa3;
     private javax.swing.JTextField nombre_persona;
     private javax.swing.JTextField nombre_persona1;
     private javax.swing.JComboBox<String> pc_pais;
@@ -3859,37 +3860,35 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField planta_nombre1;
     private javax.swing.JTextField planta_tipo;
     private javax.swing.JTextField planta_tipo1;
+    private javax.swing.JTextField precio_modificar;
     private javax.swing.JRadioButton rb_empresa;
     private javax.swing.JRadioButton rb_persona;
     private javax.swing.JTextField rtn;
     private javax.swing.JTextField rtn_empresa;
     private javax.swing.JTextField rtn_empresa1;
-    private javax.swing.JTextField rtn_empresa2;
-    private javax.swing.JTextField rtn_empresa3;
     private javax.swing.JTextField rtn_persona;
     private javax.swing.JTextField rtn_persona1;
     private javax.swing.JTable tabla_companias;
+    private javax.swing.JTable tabla_compra;
     private javax.swing.JTable tabla_concesionarios;
     private javax.swing.JTable tabla_empresas;
     private javax.swing.JTable tabla_empresas1;
-    private javax.swing.JTable tabla_empresas2;
     private javax.swing.JTable tabla_personas;
     private javax.swing.JTable tabla_plantas;
     private javax.swing.JTable tabla_proveedores;
     private javax.swing.JTable tabla_vehiculos;
+    private javax.swing.JTable tabla_vehiculos1;
     private javax.swing.JTextField telefono_empresa;
     private javax.swing.JTextField telefono_empresa1;
-    private javax.swing.JTextField telefono_empresa2;
-    private javax.swing.JTextField telefono_empresa3;
     private javax.swing.JTextField telefono_persona;
     private javax.swing.JTextField telefono_persona1;
     private javax.swing.JTextField tf_compania;
+    private javax.swing.JTextField tf_marca1;
     private javax.swing.JTextField tf_nombre_compania;
     private javax.swing.JTextField tf_nombre_empresa;
+    private javax.swing.JTextField tf_precio;
     private javax.swing.JTextField tipo_empresa;
     private javax.swing.JTextField tipo_empresa1;
-    private javax.swing.JTextField tipo_empresa2;
-    private javax.swing.JTextField tipo_empresa3;
     private javax.swing.JDialog usted_es;
     private javax.swing.JComboBox<String> vehi_carro;
     private javax.swing.JComboBox<String> vehi_carro1;
@@ -3904,6 +3903,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField vehi_vin1;
     // End of variables declaration//GEN-END:variables
 String cliente;
+String concesionario_actual;
     /*
     --compañia : id compañia, nombre, marca
     --proveedor: id proveedor nombre proveedor

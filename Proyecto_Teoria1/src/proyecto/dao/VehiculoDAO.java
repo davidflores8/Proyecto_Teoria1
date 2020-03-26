@@ -27,7 +27,7 @@ public class VehiculoDAO {
     
     public String agregarVehiculo (Connection con, Vehiculo v){
         PreparedStatement pst = null;
-        String sql = "begin crear_Vehiculo(?,?,?,?,?,?,?); end;";
+        String sql = "begin crear_Vehiculo(?,?,?,?,?,?,?,?,?); end;";
         try {
             pst =con.prepareStatement(sql);
             pst.setString(1, v.getVIN());
@@ -37,6 +37,8 @@ public class VehiculoDAO {
             pst.setString(5, v.getTipo_carroceria());
             pst.setString(6, v.getModelo());
             pst.setString(7, v.getID_Compania());
+            pst.setString(8, v.getMarca());
+            pst.setString(9, v.getPrecio());
             mensaje="GUARDADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -50,7 +52,7 @@ public class VehiculoDAO {
     
     public String modificarVehiculo (Connection con, Vehiculo v){
         PreparedStatement pst = null;
-        String sql = "begin Modificar_Vehiculo(?,?,?,?,?,?);end;";
+        String sql = "begin Modificar_Vehiculo(?,?,?,?,?,?,?,?,?);end;";
         
         try {
             pst =con.prepareStatement(sql);
@@ -60,6 +62,9 @@ public class VehiculoDAO {
             pst.setString(4, v.getTransmision());
             pst.setString(5, v.getTipo_carroceria());
             pst.setString(6, v.getModelo());
+            pst.setString(7, v.getID_Compania());
+            pst.setString(8, v.getMarca());
+            pst.setString(8, v.getPrecio());
             mensaje="MODIFICADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -95,7 +100,7 @@ public class VehiculoDAO {
        
         DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
         String sql="SELECT * FROM VEHICULO ORDER BY VIN";
-        String [] fila = new String [7];
+        String [] fila = new String [9];
         Statement st=null;
         ResultSet rs=null;
         modelo.setRowCount(0);
@@ -103,7 +108,7 @@ public class VehiculoDAO {
             st=con.createStatement();
             rs=st.executeQuery(sql);
             while (rs.next()){
-                for (int i = 0; i <7; i++) {
+                for (int i = 0; i <9; i++) {
                     fila[i]=rs.getString(i+1);
                 }
                 modelo.addRow(fila);
@@ -125,7 +130,7 @@ public class VehiculoDAO {
             st=con.createStatement();
             rs=st.executeQuery(sql);
             while (rs.next()){
-                    for(int i=0; i<7; i++){
+                    for(int i=0; i<9; i++){
                         datos.add(rs.getString(i+1));
                     }
             }

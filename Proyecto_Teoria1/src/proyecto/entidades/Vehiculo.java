@@ -10,26 +10,53 @@ package proyecto.entidades;
  * @author David
  */
 public class Vehiculo {
+    String VIN;
+     String tipo_motor;
+     String color;
+     String transmision;
      String tipo_carroceria;
      String modelo;
-     String transmision;
-     String color;
-     String VIN;
-     String tipo_motor;
      String ID_Compania;
+     String Marca;
+     String precio;
 
     public Vehiculo() {
     }
 
-    public Vehiculo(String tipo_carroceria, String modelo, String transmision, String color, String VIN, String tipo_motor, String ID_Compania) {
-        this.tipo_carroceria = tipo_carroceria;
-        this.modelo = modelo;
-        this.transmision = transmision;
-        this.color = color;
+    public Vehiculo(String VIN, String tipo_motor, String color, String transmision, String tipo_carroceria, String modelo, String ID_Compania, String Marca, String precio) {
         this.VIN = VIN;
         this.tipo_motor = tipo_motor;
-        this.ID_Compania=ID_Compania;
+        this.color = color;
+        this.transmision = transmision;
+        this.tipo_carroceria = tipo_carroceria;
+        this.modelo = modelo;
+        this.ID_Compania = ID_Compania;
+        this.Marca = Marca;
+        this.precio = precio;
     }
+
+    
+    
+
+    public String getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(String precio) {
+        this.precio = precio;
+    }
+
+    
+
+    public String getMarca() {
+        return Marca;
+    }
+
+    public void setMarca(String Marca) {
+        this.Marca = Marca;
+    }
+    
+   
 
     public String getID_Compania() {
         return ID_Compania;

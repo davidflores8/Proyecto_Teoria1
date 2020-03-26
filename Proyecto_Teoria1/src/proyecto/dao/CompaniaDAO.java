@@ -106,7 +106,7 @@ public class CompaniaDAO {
     
     public ArrayList obtenerCompanias(Connection con){
         ArrayList <String> datos = new ArrayList();
-        String sql="SELECT ID_COMPANIA FROM COMPANIA";
+        String sql="SELECT ID_COMPANIA FROM COMPANIA ORDER BY ID_COMPANIA";
         Statement st=null;
         ResultSet rs=null;
         try {

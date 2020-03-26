@@ -93,9 +93,7 @@ public class CompraDAO {
             System.out.println("Ya paso por obtener");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado "+e.getMessage());
-        }
-       
-        
+        }    
     }
    
     public void obtenerCompraID(Connection con, JTable tabla, String ID){

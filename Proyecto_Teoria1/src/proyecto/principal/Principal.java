@@ -353,11 +353,21 @@ public class Principal extends javax.swing.JFrame {
         jLabel60 = new javax.swing.JLabel();
         nc_empresa1 = new javax.swing.JComboBox<>();
         jButton23 = new javax.swing.JButton();
+        Marketing = new javax.swing.JDialog();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton24 = new javax.swing.JButton();
+        jLabel52 = new javax.swing.JLabel();
+        Login_marketing = new javax.swing.JDialog();
+        jLabel44 = new javax.swing.JLabel();
+        mk_nombre = new javax.swing.JTextField();
+        jButton22 = new javax.swing.JButton();
+        jLabel51 = new javax.swing.JLabel();
+        mk_password = new javax.swing.JPasswordField();
         Bt_Menu_Creacion = new javax.swing.JButton();
         Bt_Menu_Modificar = new javax.swing.JButton();
         Bt_Menu_Eliminacion = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
         lb_fondo1 = new javax.swing.JLabel();
 
         Jd_Mcreacion.setTitle("Ventana Principal");
@@ -1982,6 +1992,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jButton21.setText("Comprar Vehiculo");
+        jButton21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton21MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout VistaLayout = new javax.swing.GroupLayout(Vista.getContentPane());
         Vista.getContentPane().setLayout(VistaLayout);
@@ -2316,6 +2331,109 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(69, Short.MAX_VALUE))
         );
 
+        Marketing.setTitle("Reporte de ventas");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "RTN", "ID_CONCESIONARIO", "FECHA_VENTA", "PRECIO_VEHICULO", "VIN_VENTA"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane13.setViewportView(jTable1);
+
+        jButton24.setText("Reportes");
+
+        jLabel52.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel52.setText("Tabla de Ventas");
+
+        javax.swing.GroupLayout MarketingLayout = new javax.swing.GroupLayout(Marketing.getContentPane());
+        Marketing.getContentPane().setLayout(MarketingLayout);
+        MarketingLayout.setHorizontalGroup(
+            MarketingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MarketingLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(MarketingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MarketingLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton24))
+                    .addGroup(MarketingLayout.createSequentialGroup()
+                        .addComponent(jLabel52)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        MarketingLayout.setVerticalGroup(
+            MarketingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MarketingLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addComponent(jButton24)
+                .addContainerGap())
+        );
+
+        Login_marketing.setTitle("Bienvenido");
+
+        jLabel44.setText("Ingrese su nombre de usuario:");
+
+        jButton22.setText("Ingresar");
+        jButton22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton22MouseClicked(evt);
+            }
+        });
+
+        jLabel51.setText("Ingrese su contraseña: ");
+
+        javax.swing.GroupLayout Login_marketingLayout = new javax.swing.GroupLayout(Login_marketing.getContentPane());
+        Login_marketing.getContentPane().setLayout(Login_marketingLayout);
+        Login_marketingLayout.setHorizontalGroup(
+            Login_marketingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Login_marketingLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Login_marketingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(Login_marketingLayout.createSequentialGroup()
+                        .addComponent(jLabel44)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mk_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Login_marketingLayout.createSequentialGroup()
+                        .addComponent(jLabel51)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mk_password)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Login_marketingLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton22)
+                .addGap(89, 89, 89))
+        );
+        Login_marketingLayout.setVerticalGroup(
+            Login_marketingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Login_marketingLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(Login_marketingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel44)
+                    .addComponent(mk_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(Login_marketingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel51)
+                    .addComponent(mk_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(jButton22)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana Principal");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2331,6 +2449,11 @@ public class Principal extends javax.swing.JFrame {
 
         Bt_Menu_Modificar.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         Bt_Menu_Modificar.setText("Marketing");
+        Bt_Menu_Modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Bt_Menu_ModificarMouseClicked(evt);
+            }
+        });
         getContentPane().add(Bt_Menu_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, 30));
 
         Bt_Menu_Eliminacion.setFont(new java.awt.Font("Leelawadee UI", 1, 13)); // NOI18N
@@ -2350,9 +2473,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, -1, -1));
-
-        jButton13.setText("Reportes");
-        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, -1, -1));
 
         lb_fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WhatsApp Image 2020-03-05 at 6.43.00 PM.jpeg"))); // NOI18N
         getContentPane().add(lb_fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 700));
@@ -3692,6 +3812,9 @@ public class Principal extends javax.swing.JFrame {
         fecha=dia.getSelectedItem().toString()+"-"+mes.getSelectedItem().toString()+"-"+ano.getSelectedItem().toString();
         vin=tabla_vehiculos1.getValueAt(tabla_vehiculos1.getSelectedRow(), 0).toString();
         precio=tabla_vehiculos1.getValueAt(tabla_vehiculos1.getSelectedRow(), 8).toString();
+        int precio1=Integer.parseInt(precio);
+        precio1=precio1*2;
+        precio=String.valueOf(precio1);
         compania=tabla_vehiculos1.getValueAt(tabla_vehiculos1.getSelectedRow(), 6).toString();
         Compra c=new Compra(concesionario_actual,compania,precio,vin,fecha);
         System.out.println("id conce "+concesionario_actual+" fecha "+fecha+" vin "+vin+" precio "+precio+" Compania "+compania);
@@ -3797,7 +3920,55 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseClicked
         // TODO add your handling code here:
-        
+        if(tipo_cliente_actual.equals("Persona")){
+            String id=rtn_cliente_actual;
+            String ID="'"+id+"'";
+            PersonaBO pbo=new PersonaBO();
+            ArrayList<String> data=new ArrayList();
+            try {
+                data=pbo.obtenerPersona(ID);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            rtn_persona1.setText(data.get(0));
+            nombre_persona1.setText(data.get(1));
+            direccion_persona1.setText(data.get(2));
+            telefono_persona1.setText(data.get(3));
+            id_persona1.setText(data.get(4));
+            if(data.get(5).equals("Masculino")){
+                m1.setSelected(true);
+            }
+            else{
+                f1.setSelected(true);
+            }
+            ingreso_persona1.setText(data.get(6));
+            M_Persona.setModal(true);
+            M_Persona.pack();
+            M_Persona.setLocationRelativeTo(this);
+            M_Persona.setVisible(true);
+        }
+        else{
+            String id="";
+            id=rtn_cliente_actual;
+            String ID="'"+id+"'";
+            System.out.println("ID "+ID);
+            EmpresaBO ebo=new EmpresaBO();
+            ArrayList<String> data=new ArrayList();
+            try {
+                data=ebo.obtenerEmpresa(ID);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            rtn_empresa1.setText(data.get(0));
+            nombre_empresa1.setText(data.get(1));
+            direccion_empresa1.setText(data.get(2));
+            telefono_empresa1.setText(data.get(3));
+            tipo_empresa1.setText(data.get(4));
+            M_Empresa.setModal(true);
+            M_Empresa.pack();
+            M_Empresa.setLocationRelativeTo(this);
+            M_Empresa.setVisible(true);
+        }
     }//GEN-LAST:event_jButton18MouseClicked
 
     private void Bt_Menu_EliminacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bt_Menu_EliminacionMouseClicked
@@ -3820,6 +3991,43 @@ public class Principal extends javax.swing.JFrame {
         Localizacion.setLocationRelativeTo(this);
         Localizacion.setVisible(true);
     }//GEN-LAST:event_Bt_Menu_EliminacionMouseClicked
+
+    private void jButton21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MouseClicked
+        // TODO add your handling code here:
+        if(tabla_inventario1.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un vehiculo para poder comprarlo");
+        }
+        else{
+            String RTN="",conse="",fecha="", precio="", vin=""; 
+            
+        }
+    }//GEN-LAST:event_jButton21MouseClicked
+
+    private void jButton22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton22MouseClicked
+        // TODO add your handling code here:
+        if(mk_nombre.getText().equals("mkt") && mk_password.getText().equals("mkt")){
+            JOptionPane.showMessageDialog(this, "Bienvenido");
+           mk_nombre.setText("");
+           mk_password.setText(""); 
+           Marketing.setModal(true);
+           Marketing.pack();
+           Marketing.setLocationRelativeTo(this);
+           Marketing.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Nombre de usuario y/o contrañena incorrecto");
+            mk_nombre.setText("");
+            mk_password.setText("");
+        }
+    }//GEN-LAST:event_jButton22MouseClicked
+
+    private void Bt_Menu_ModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bt_Menu_ModificarMouseClicked
+        // TODO add your handling code here:
+        Login_marketing.setModal(true);
+        Login_marketing.pack();
+        Login_marketing.setLocationRelativeTo(this);
+        Login_marketing.setVisible(true);
+    }//GEN-LAST:event_Bt_Menu_ModificarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -3893,6 +4101,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Listar3;
     private javax.swing.JDialog Localizacion;
     private javax.swing.JDialog Login_cliente;
+    private javax.swing.JDialog Login_marketing;
     private javax.swing.JDialog M_Compania;
     private javax.swing.JDialog M_Conse;
     private javax.swing.JDialog M_Empresa;
@@ -3900,6 +4109,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog M_Planta;
     private javax.swing.JDialog M_Proveedor;
     private javax.swing.JDialog M_Vehiculo;
+    private javax.swing.JDialog Marketing;
     private javax.swing.JTextField Proveedor_id;
     private javax.swing.JTextField Proveedor_id1;
     private javax.swing.JTextField Proveedor_nombre;
@@ -3999,7 +4209,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
@@ -4009,7 +4218,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -4055,6 +4266,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
@@ -4062,6 +4274,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
@@ -4075,6 +4289,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -4083,6 +4298,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lb_Fondo_C_empre;
     private javax.swing.JLabel lb_Fondo_C_empre1;
@@ -4099,6 +4315,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JRadioButton m1;
     private javax.swing.JTextField marca_modificar;
     private javax.swing.JComboBox<String> mes;
+    private javax.swing.JTextField mk_nombre;
+    private javax.swing.JPasswordField mk_password;
     private javax.swing.JTextField mod_id_compania;
     private javax.swing.JTextField mod_nombre_compania;
     private javax.swing.JComboBox<String> nc_empresa;

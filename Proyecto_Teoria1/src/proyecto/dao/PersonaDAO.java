@@ -115,7 +115,7 @@ public class PersonaDAO {
         return null;
     }
     
-    public ArrayList obtenerEmpresa(Connection con, String ID){
+    public ArrayList obtenerPersona(Connection con, String ID){
         ArrayList <String> datos = new ArrayList();
         String sql="SELECT * FROM PERSONA WHERE RTN = "+ID;
         Statement st=null;
@@ -132,8 +132,9 @@ public class PersonaDAO {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado "+e.getMessage());
         }
-        return datos;
-        
+        return datos; 
     }
+    
+    
     
 }

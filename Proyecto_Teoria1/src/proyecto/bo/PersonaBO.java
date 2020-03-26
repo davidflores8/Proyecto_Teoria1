@@ -83,7 +83,7 @@ public class PersonaBO {
         ArrayList <String> datos=new ArrayList();
         Connection con =Conexion.getConnection();
         try {
-            datos=edao.obtenerEmpresa(con, ID);
+            datos=edao.obtenerPersona(con, ID);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -99,6 +99,8 @@ public class PersonaBO {
         return datos;
         
     }
+    
+    
     
     public void listarPersona(JTable tabla) throws SQLException{
         Connection con =Conexion.getConnection();

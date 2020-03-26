@@ -72,7 +72,7 @@ public class CompraDAO {
     }
     
     
-        public void obtenerCompra(Connection con, JTable tabla, String vin){
+    public void obtenerCompra(Connection con, JTable tabla, String vin){
         String[]datos= new String[4];
         String sql="SELECT ID_COMPANIA, VIN_COMPRA, PRECIO_COMPRA, FECHA_INGRESO FROM COMPRA WHERE ID_CONCESIONARIO = "+vin;
         DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
@@ -98,6 +98,30 @@ public class CompraDAO {
         
     }
    
-    
+    public void obtenerCompraID(Connection con, JTable tabla, String ID){
+        String[]datos= new String[4];
+        String sql="SELECT ID_COMPANIA, VIN_COMPRA, PRECIO_COMPRA, FECHA_INGRESO FROM COMPRA WHERE ID_CONCESIONARIO = "+ID;
+        DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
+        modelo.setNumRows(0);
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                    for(int i=0; i<4; i++){
+                        datos[i]=rs.getString(i+1);
+                    }
+                    modelo.addRow(datos);
+                    
+            }
+            tabla.setModel(modelo);
+            System.out.println("Ya paso por obtener");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado "+e.getMessage());
+        }
+       
+        
+    }
     
 }

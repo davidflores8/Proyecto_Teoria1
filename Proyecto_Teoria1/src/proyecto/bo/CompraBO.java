@@ -67,4 +67,25 @@ public class CompraBO {
         return datos;
         
     }
+        
+        public ArrayList obtenerCompraID(JTable tabla, String id) throws SQLException{
+        ArrayList <String> datos=new ArrayList();
+        Connection con =Conexion.getConnection();
+        try {
+            cdao.obtenerCompraID(con, tabla, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return datos;
+        
+    }
 }

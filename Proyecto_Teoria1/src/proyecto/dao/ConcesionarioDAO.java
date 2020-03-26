@@ -107,9 +107,9 @@ public class ConcesionarioDAO {
         return null;
     }
     
-    public ArrayList obtenerNombrePorUbicacionConcesionario(Connection con, String ID){
+    public ArrayList obtenerIDPorUbicacionConcesionario(Connection con, String ID){
         ArrayList <String> datos = new ArrayList();
-        String sql="SELECT NOMBRE_CONCESIONARIO FROM CONCESIONARIO WHERE UBICACION_CONCESIONARIO = "+ID;
+        String sql="SELECT ID_CONCESIONARIO FROM CONCESIONARIO WHERE UBICACION_CONCESIONARIO = "+ID;
         Statement st=null;
         ResultSet rs=null;
         try {
@@ -167,4 +167,6 @@ public class ConcesionarioDAO {
         return datos;
         
     }
+    
+    
 }

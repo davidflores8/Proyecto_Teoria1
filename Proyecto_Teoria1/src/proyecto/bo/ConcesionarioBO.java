@@ -101,11 +101,11 @@ public class ConcesionarioBO {
         
     }
     
-        public ArrayList obtenerNombrePorUbicacionConcesionario(String ID) throws SQLException{
+        public ArrayList obtenerIDPorUbicacionConcesionario(String ID) throws SQLException{
         ArrayList <String> datos=new ArrayList();
         Connection con =Conexion.getConnection();
         try {
-            datos=cdao.obtenerNombrePorUbicacionConcesionario(con, ID);
+            datos=cdao.obtenerIDPorUbicacionConcesionario(con, ID);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -148,5 +148,7 @@ public class ConcesionarioBO {
         cdao.listarConcesionario(con, tabla);
         con.close();
     }
+    
+
     
 }

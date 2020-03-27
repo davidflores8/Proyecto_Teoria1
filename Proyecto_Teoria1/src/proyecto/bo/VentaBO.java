@@ -100,6 +100,26 @@ public class VentaBO {
     return d;
 }
     
+     public ArrayList obtenerMesCarroceria(String vin) throws SQLException{
+    Connection con =Conexion.getConnection();
+    ArrayList<String>d=new ArrayList();
+    try {
+        d=vdao.obtenerMesCarroceria(con, vin);
+    } catch (Exception e) {
+        mensaje=mensaje+ " "+e.getMessage();
+    }
+    finally{
+        try {
+            if(con!=null){
+                con.close();
+            }
+        } catch (Exception e) {
+            mensaje=mensaje+ " "+e.getMessage();
+        }
+    }
+    return d;
+}
+    
     public ArrayList obtenerMarca() throws SQLException{
     Connection con =Conexion.getConnection();
     ArrayList<String>d=new ArrayList();

@@ -101,6 +101,27 @@ public class VehiculoBO {
         
     }
     
+    public ArrayList obtenerVehiculoConvertible() throws SQLException{
+        ArrayList <String> datos=new ArrayList();
+        Connection con =Conexion.getConnection();
+        try {
+            datos=vdao.obtenerVehiculoConvertible(con);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return datos;
+        
+    }
+    
      public ArrayList obtenerVehiculoPorMarcayMes(String vin, String marca) throws SQLException{
         ArrayList <String> datos=new ArrayList();
         Connection con =Conexion.getConnection();

@@ -215,7 +215,6 @@ public class Principal extends javax.swing.JFrame {
         boton_eliminar_concesionario = new javax.swing.JButton();
         boton_listar_concesionario = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
         C_Conse = new javax.swing.JDialog();
         conse_nombre = new javax.swing.JTextField();
         conse_id = new javax.swing.JTextField();
@@ -225,6 +224,7 @@ public class Principal extends javax.swing.JFrame {
         id_compa9 = new javax.swing.JLabel();
         id_compa30 = new javax.swing.JLabel();
         conse_ubicacion = new javax.swing.JTextField();
+        jLabel74 = new javax.swing.JLabel();
         M_Conse = new javax.swing.JDialog();
         conse_nombre1 = new javax.swing.JTextField();
         conse_id1 = new javax.swing.JTextField();
@@ -414,7 +414,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel73 = new javax.swing.JLabel();
         jScrollPane19 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablar5 = new javax.swing.JTable();
         jButton28 = new javax.swing.JButton();
         Login_marketing = new javax.swing.JDialog();
         jLabel44 = new javax.swing.JLabel();
@@ -1233,13 +1233,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton17.setText("Vender Vehiculo");
-        jButton17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton17MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout V_ConcesionarioLayout = new javax.swing.GroupLayout(V_Concesionario.getContentPane());
         V_Concesionario.getContentPane().setLayout(V_ConcesionarioLayout);
         V_ConcesionarioLayout.setHorizontalGroup(
@@ -1256,8 +1249,6 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(boton_listar_concesionario)
                         .addGap(77, 77, 77)
                         .addComponent(jButton12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(boton_eliminar_concesionario)))
                 .addContainerGap())
@@ -1273,18 +1264,17 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(boton_modificar_concesionario)
                     .addComponent(boton_eliminar_concesionario)
                     .addComponent(boton_listar_concesionario)
-                    .addComponent(jButton12)
-                    .addComponent(jButton17))
+                    .addComponent(jButton12))
                 .addContainerGap())
         );
 
         C_Conse.setTitle("Crear Concesionario");
         C_Conse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        C_Conse.getContentPane().add(conse_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 120, -1));
+        C_Conse.getContentPane().add(conse_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 100, -1));
 
         conse_id.setEditable(false);
         conse_id.setText("*Generado automaticamente*");
-        C_Conse.getContentPane().add(conse_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 150, -1));
+        C_Conse.getContentPane().add(conse_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 150, -1));
 
         Btn_crearconse.setText("Crear");
         Btn_crearconse.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1292,23 +1282,27 @@ public class Principal extends javax.swing.JFrame {
                 Btn_crearconseMouseClicked(evt);
             }
         });
-        C_Conse.getContentPane().add(Btn_crearconse, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
+        C_Conse.getContentPane().add(Btn_crearconse, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, -1, -1));
 
         id_compa8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa8.setText("ID Concesionario");
-        C_Conse.getContentPane().add(id_compa8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        C_Conse.getContentPane().add(id_compa8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
         jLabel3.setText("CREACION DE CONCESIONARIO");
-        C_Conse.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+        C_Conse.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
 
         id_compa9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa9.setText("Nombre consecionario");
-        C_Conse.getContentPane().add(id_compa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+        C_Conse.getContentPane().add(id_compa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
 
         id_compa30.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         id_compa30.setText("Ubicacion consecionario");
-        C_Conse.getContentPane().add(id_compa30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
-        C_Conse.getContentPane().add(conse_ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 120, -1));
+        C_Conse.getContentPane().add(id_compa30, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
+        C_Conse.getContentPane().add(conse_ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 120, -1));
+
+        jLabel74.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngtree-minimalistic-mint-green-poster-background-image_234071.jpg"))); // NOI18N
+        jLabel74.setText("jLabel74");
+        C_Conse.getContentPane().add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 420));
 
         M_Conse.setTitle("Modificar Concesionario");
         M_Conse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1543,14 +1537,19 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel33.setText("Modificar Persona");
 
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel34.setText("RTN:");
 
+        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel35.setText("Nombre:");
 
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel36.setText("Direccion:");
 
+        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel37.setText("Telefono:");
 
+        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel38.setText("ID");
 
         jButton11.setText("GUARDAR CAMBIOS");
@@ -1562,6 +1561,7 @@ public class Principal extends javax.swing.JFrame {
 
         rtn_persona1.setEditable(false);
 
+        jLabel39.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel39.setText("Sexo:");
 
         buttonGroup1.add(m1);
@@ -1570,6 +1570,7 @@ public class Principal extends javax.swing.JFrame {
         buttonGroup1.add(f1);
         f1.setText("Femenino");
 
+        jLabel40.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel40.setText("Ingreso Anual:");
 
         javax.swing.GroupLayout M_PersonaLayout = new javax.swing.GroupLayout(M_Persona.getContentPane());
@@ -1928,9 +1929,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel41.setText("Nombre de Usuario: ");
+        jLabel41.setText("Nombre de Usuario (admin): ");
 
-        jLabel42.setText("Password: ");
+        jLabel42.setText("Password (admin): ");
 
         javax.swing.GroupLayout authLayout = new javax.swing.GroupLayout(auth.getContentPane());
         auth.getContentPane().setLayout(authLayout);
@@ -2893,37 +2894,50 @@ public class Principal extends javax.swing.JFrame {
         jLabel73.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel73.setText("Mes en el que mejor se venden los convertibles");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablar5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Mes"
+                "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false
+                false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane19.setViewportView(jTable1);
+        jScrollPane19.setViewportView(tablar5);
 
         jButton28.setText("Generar Reporte");
+        jButton28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton28MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton28)
-                    .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel73))
-                .addContainerGap(281, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addComponent(jLabel73))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jButton28)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2932,9 +2946,9 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel73)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jButton28)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reporte 5", jPanel6);
@@ -2954,7 +2968,7 @@ public class Principal extends javax.swing.JFrame {
 
         Login_marketing.setTitle("Bienvenido");
 
-        jLabel44.setText("Ingrese su nombre de usuario:");
+        jLabel44.setText("Ingrese su nombre de usuario (mkt) :");
 
         jButton22.setText("Ingresar");
         jButton22.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2963,7 +2977,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel51.setText("Ingrese su contraseña: ");
+        jLabel51.setText("Ingrese su contraseña (mkt) : ");
 
         javax.swing.GroupLayout Login_marketingLayout = new javax.swing.GroupLayout(Login_marketing.getContentPane());
         Login_marketing.getContentPane().setLayout(Login_marketingLayout);
@@ -4401,16 +4415,6 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton12MouseClicked
 
-    private void jButton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseClicked
-        // TODO add your handling code here:
-        if(tabla_concesionarios.getSelectedRow()==-1){
-            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento de la tabla para registar la venta");
-        }
-        else{
-            
-        }
-    }//GEN-LAST:event_jButton17MouseClicked
-
     private void boton_agregar_vehiculo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_agregar_vehiculo1MouseClicked
         // TODO add your handling code here:
         String compania="", precio="", vin="", dia12="", mes12="", ano12="", marca="";
@@ -4905,6 +4909,98 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton13MouseClicked
 
+    private void jButton28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton28MouseClicked
+        // TODO add your handling code here:
+        ArrayList<String>datos=new ArrayList();
+        ArrayList<String>total=new ArrayList();
+        
+        VehiculoBO vbo=new VehiculoBO();
+        try {
+            datos=vbo.obtenerVehiculoConvertible();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        VentaBO v=new VentaBO();
+        for (int i = 0; i <datos.size(); i++) {
+            ArrayList<String>datos3=new ArrayList();
+            try {
+                datos3=v.obtenerMesCarroceria("'"+datos.get(i)+"'");
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            for (int j = 0; j <datos3.size(); j++) {
+                total.add(datos3.get(j));
+            } 
+        }
+        int enero=0;
+        int febrero=0;
+        int marzo=0;
+        int abril=0;
+        int mayo=0;
+        int junio=0;
+        int julio=0;
+        int agosto=0;
+        int septiembre=0;
+        int octubre=0;
+        int noviembre=0;
+        int diciembre=0;
+        for (int i = 0; i <total.size(); i++) {
+            System.out.println("total at "+i+" - "+total.get(0));
+            if(total.get(i).equals("1")){
+                enero++;
+            }
+            if(total.get(i).equals("2")){
+                febrero++;
+            }
+            if(total.get(i).equals("3")){
+                marzo++; 
+            }
+            if(total.get(i).equals("4")){
+                abril++;
+            }
+            if(total.get(i).equals("5")){
+                mayo++;
+            }
+            if(total.get(i).equals("6")){
+                junio++;
+            }
+            if(total.get(i).equals("7")){
+                julio++;
+            }
+            if(total.get(i).equals("8")){
+                agosto++;
+            }
+            if(total.get(i).equals("9")){
+                septiembre++;
+            }
+            if(total.get(i).equals("10")){
+                octubre++;
+            }
+            if(total.get(i).equals("11")){
+                noviembre++;
+            }
+            if(total.get(i).equals("12")){
+                diciembre++;
+            }
+        }
+        String[]t=new String[12];
+        t[0]=String.valueOf(enero);
+        t[1]=String.valueOf(febrero);
+        t[2]=String.valueOf(marzo);
+        t[3]=String.valueOf(abril);
+        t[4]=String.valueOf(mayo);
+        t[5]=String.valueOf(junio);
+        t[6]=String.valueOf(julio);
+        t[7]=String.valueOf(agosto);
+        t[8]=String.valueOf(septiembre);
+        t[9]=String.valueOf(octubre);
+        t[10]=String.valueOf(noviembre);
+        t[11]=String.valueOf(diciembre);
+        DefaultTableModel mod=(DefaultTableModel)tablar5.getModel();
+        mod.addRow(t);
+        tablar5.setModel(mod);
+    }//GEN-LAST:event_jButton28MouseClicked
+
     public void burbuja(int arreglo[])
     {
         for(int i = 0; i < arreglo.length - 1; i++)
@@ -5111,7 +5207,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
@@ -5202,6 +5297,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -5231,7 +5327,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lb_Fondo_C_empre;
     private javax.swing.JLabel lb_Fondo_C_empre1;
@@ -5301,6 +5396,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable tablar2_vin;
     private javax.swing.JTable tablar3;
     private javax.swing.JTable tablar4;
+    private javax.swing.JTable tablar5;
     private javax.swing.JTextField telefono_empresa;
     private javax.swing.JTextField telefono_empresa1;
     private javax.swing.JTextField telefono_persona;

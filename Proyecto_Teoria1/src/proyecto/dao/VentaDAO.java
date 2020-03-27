@@ -232,4 +232,26 @@ public class VentaDAO {
     }
     
     
+    public ArrayList obtenerMesCarroceria(Connection con, String vin){
+        ArrayList<String> p=new ArrayList();
+        String sql="SELECT MES_VENTA FROM VENTA WHERE VIN_VENTA = "+vin+" ORDER BY MES_VENTA";
+        String [] fila = new String [1];
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                for (int i = 0; i <1; i++) {
+                    p.add(rs.getString(i+1));
+                }
+            }
+            System.out.println("Ya paso por listar");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar la tabla :( "+e.getMessage());
+        }
+        return p;
+    }
+    
+    
 }

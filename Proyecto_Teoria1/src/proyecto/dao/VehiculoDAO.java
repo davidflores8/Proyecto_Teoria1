@@ -75,6 +75,8 @@ public class VehiculoDAO {
         return mensaje;
     }
     
+    
+    
     public String eliminarVehiculo (Connection con, String vin){
         PreparedStatement pst = null;
         String sql = "begin Eliminar_vehiculo("+vin+");end;";
@@ -140,6 +142,25 @@ public class VehiculoDAO {
         return datos; 
     }
     
+        public ArrayList obtenerVehiculoConvertible(Connection con){
+        ArrayList <String> datos = new ArrayList();
+        String sql="SELECT VIN FROM VEHICULO WHERE TIPO_CARROCERIA = 'Convertible'";
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                    for(int i=0; i<1; i++){
+                        datos.add(rs.getString(i+1));
+                    }
+            }
+            System.out.println("Ya paso por obtener");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado en obtener "+e.getMessage());
+        }
+        return datos; 
+    }
     
     public ArrayList obtenerVehiculoPorMarcayMes(Connection con, String vin, String marca){
         ArrayList<String>datos1=new ArrayList();

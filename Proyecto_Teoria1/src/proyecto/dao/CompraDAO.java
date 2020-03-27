@@ -25,14 +25,16 @@ public class CompraDAO {
     
     public String agregarCompra(Connection con, Compra c){
         PreparedStatement pst = null;
-        String sql = "begin Crear_compra(?,?,?,?,?); end;";
+        String sql = "begin Crear_compra(?,?,?,?,?,?,?); end;";
         try {
             pst =con.prepareStatement(sql);
             pst.setString(1, c.getID_Concesionario());
             pst.setString(2, c.getID_Compania());
             pst.setString(3, c.getPrecio_Compra());
             pst.setString(4, c.getVIN_Compra());
-            pst.setString(5, c.getFecha_Ingreso());
+            pst.setString(5, c.getDia());
+            pst.setString(6, c.getMes());
+            pst.setString(7, c.getAno());
             mensaje="GUARDADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -50,7 +52,7 @@ public class CompraDAO {
        
         DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
         String sql="SELECT * FROM COMPRA ORDER BY ID_CONCESIONARIO";
-        String [] fila = new String [5];
+        String [] fila = new String [7];
         Statement st=null;
         ResultSet rs=null;
         modelo.setRowCount(0);
@@ -58,7 +60,7 @@ public class CompraDAO {
             st=con.createStatement();
             rs=st.executeQuery(sql);
             while (rs.next()){
-                for (int i = 1; i <5; i++) {
+                for (int i = 1; i <7; i++) {
                     fila[i]=rs.getString(i+1);
                 }
                 modelo.addRow(fila);
@@ -73,8 +75,8 @@ public class CompraDAO {
     
     
     public void obtenerCompra(Connection con, JTable tabla, String vin){
-        String[]datos= new String[4];
-        String sql="SELECT ID_COMPANIA, VIN_COMPRA, PRECIO_COMPRA, FECHA_INGRESO FROM COMPRA WHERE ID_CONCESIONARIO = "+vin;
+        String[]datos= new String[6];
+        String sql="SELECT ID_COMPANIA, VIN_COMPRA, PRECIO_COMPRA, DIA, MES, ANO FROM COMPRA WHERE ID_CONCESIONARIO = "+vin;
         DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
         modelo.setNumRows(0);
         Statement st=null;
@@ -83,7 +85,7 @@ public class CompraDAO {
             st=con.createStatement();
             rs=st.executeQuery(sql);
             while (rs.next()){
-                    for(int i=0; i<4; i++){
+                    for(int i=0; i<6; i++){
                         datos[i]=rs.getString(i+1);
                     }
                     modelo.addRow(datos);
@@ -98,7 +100,7 @@ public class CompraDAO {
    
     public void obtenerCompraID(Connection con, JTable tabla, String ID){
         String[]datos= new String[4];
-        String sql="SELECT ID_COMPANIA, VIN_COMPRA, PRECIO_COMPRA, FECHA_INGRESO FROM COMPRA WHERE ID_CONCESIONARIO = "+ID;
+        String sql="SELECT ID_COMPANIA, VIN_COMPRA, PRECIO_COMPRA, DIA, MES, ANO FROM COMPRA WHERE ID_CONCESIONARIO = "+ID;
         DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
         modelo.setNumRows(0);
         Statement st=null;

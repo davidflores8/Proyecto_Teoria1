@@ -14,16 +14,46 @@ public class Compra {
     String ID_Compania;
     String Precio_Compra;
     String VIN_Compra;
-    String Fecha_Ingreso;
+    String Dia;
+    String Mes;
+    String Ano;
 
-    public Compra(String ID_Concesionario, String ID_Compania, String Precio_Compra, String VIN_Compra, String Fecha_Ingreso) {
+    public Compra(String ID_Concesionario, String ID_Compania, String Precio_Compra, String VIN_Compra, String Dia, String Mes, String Ano) {
         this.ID_Concesionario = ID_Concesionario;
         this.ID_Compania = ID_Compania;
         this.Precio_Compra = Precio_Compra;
         this.VIN_Compra = VIN_Compra;
-        this.Fecha_Ingreso = Fecha_Ingreso;
+        this.Dia = Dia;
+        this.Mes = Mes;
+        this.Ano = Ano;
     }
 
+    public String getDia() {
+        return Dia;
+    }
+
+    public void setDia(String Dia) {
+        this.Dia = Dia;
+    }
+
+    public String getMes() {
+        return Mes;
+    }
+
+    public void setMes(String Mes) {
+        this.Mes = Mes;
+    }
+
+    public String getAno() {
+        return Ano;
+    }
+
+    public void setAno(String Ano) {
+        this.Ano = Ano;
+    }
+
+
+    
     public String getID_Concesionario() {
         return ID_Concesionario;
     }
@@ -56,13 +86,6 @@ public class Compra {
         this.VIN_Compra = VIN_Compra;
     }
 
-    public String getFecha_Ingreso() {
-        return Fecha_Ingreso;
-    }
-
-    public void setFecha_Ingreso(String Fecha_Ingreso) {
-        this.Fecha_Ingreso = Fecha_Ingreso;
-    }
     
     
     

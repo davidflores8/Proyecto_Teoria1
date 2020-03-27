@@ -24,7 +24,7 @@ public class VentaDAO {
     
     public String agregarVenta(Connection con, Venta v){
         PreparedStatement pst = null;
-        String sql = "begin crear_compra(?,?,?,?,?); end;";
+        String sql = "INSERT INTO VENTA VALUES(?,?,?,?,?)";
         try {
             pst =con.prepareStatement(sql);
             pst.setString(1, v.getRTN_Venta());

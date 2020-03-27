@@ -2633,12 +2633,10 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel62)
-                            .addComponent(rb_ano)
-                            .addComponent(rb_mes))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel62)
+                        .addComponent(rb_ano)
+                        .addComponent(rb_mes))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel64)
@@ -2648,8 +2646,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ano_mkt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mes_mkt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(marca_rp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(marca_rp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(27, 27, 27)
                 .addComponent(jButton13)
                 .addGap(424, 424, 424))
@@ -2775,8 +2772,7 @@ public class Principal extends javax.swing.JFrame {
 
         tablar3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Marca", "Cantidad de Dolares"
@@ -2801,7 +2797,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(81, 81, 81)
                         .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(257, 257, 257)
+                        .addGap(251, 251, 251)
                         .addComponent(jButton26)))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
@@ -2809,10 +2805,10 @@ public class Principal extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton26)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reporte 3", jPanel4);
@@ -4747,16 +4743,50 @@ public class Principal extends javax.swing.JFrame {
                 }
                 mp.get(i).setPrecio(n);
         }
-        System.out.println("ArrayList MarcaPrecio");
+        int[] arreglo=new int[mp.size()];
         for (int i = 0; i <mp.size(); i++) {
-            System.out.println("marca = "+mp.get(i).getMarca());
-            System.out.println("Precio = "+mp.get(i).getPrecio());
-            System.out.println(" ");
+            arreglo[i]=mp.get(i).getPrecio();
         }
-            
+        burbuja(arreglo);
+        int p_mayor=arreglo[0];
+        int p_menor=arreglo[1];
+        String[] m1=new String[2];
+        String[] m2=new String[2];
+        for (int i = 0; i <mp.size(); i++) {
+            if(mp.get(i).getPrecio()==p_mayor){
+                m1[0]=mp.get(i).getMarca();
+                String n=String.valueOf(p_mayor);
+                m1[1]=n;
+            }
+            if(mp.get(i).getPrecio()==p_menor){
+                m2[0]=mp.get(i).getMarca();
+                String n=String.valueOf(p_menor);
+                m2[1]=n;
+            }
+        }
+       DefaultTableModel modelo=(DefaultTableModel)tablar3.getModel();
+       modelo.addRow(m1);
+       modelo.addRow(m2);
+       tablar3.setModel(modelo);
         
     }//GEN-LAST:event_jButton26MouseClicked
 
+    public void burbuja(int arreglo[])
+    {
+        for(int i = 0; i < arreglo.length - 1; i++)
+        {
+            for(int j = 0; j < arreglo.length - 1; j++)
+            {
+                if (arreglo[j] < arreglo[j + 1])
+                {
+                    int tmp = arreglo[j+1];
+                    arreglo[j+1] = arreglo[j];
+                    arreglo[j] = tmp;
+                }
+            }
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

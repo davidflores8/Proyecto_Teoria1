@@ -52,7 +52,7 @@ public class VehiculoDAO {
     
     public String modificarVehiculo (Connection con, Vehiculo v){
         PreparedStatement pst = null;
-        String sql = "begin Modificar_Vehiculo(?,?,?,?,?,?,?,?,?);end;";
+        String sql = "begin Modificar_Vehiculo(?,?,?,?,?,?,?,?); end;";
         
         try {
             pst =con.prepareStatement(sql);
@@ -62,8 +62,7 @@ public class VehiculoDAO {
             pst.setString(4, v.getTransmision());
             pst.setString(5, v.getTipo_carroceria());
             pst.setString(6, v.getModelo());
-            pst.setString(7, v.getID_Compania());
-            pst.setString(8, v.getMarca());
+            pst.setString(7, v.getMarca());
             pst.setString(8, v.getPrecio());
             mensaje="MODIFICADO CORRECTAMENTE";
             pst.execute();
@@ -136,11 +135,55 @@ public class VehiculoDAO {
             }
             System.out.println("Ya paso por obtener");
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado en obtener "+e.getMessage());
+        }
+        return datos; 
+    }
+    
+    
+    public ArrayList obtenerVehiculoPorMarcayMes(Connection con, String vin, String marca){
+        ArrayList<String>datos1=new ArrayList();
+        String sql="SELECT * FROM VEHICULO WHERE VIN = "+vin+" AND MARCA = "+marca;
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                    for(int i=0; i<9; i++){
+                        System.out.println("datoo "+rs.getString(i+1));
+                        datos1.add(rs.getString(i+1));   
+                    }
+            }
+            System.out.println("Ya paso por obtener");
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado "+e.getMessage());
         }
-        return datos;
-        
+        return datos1; 
     }
+    
+    
+    public ArrayList obtenerMarcaVehiculo(Connection con){
+        ArrayList <String> datos = new ArrayList();
+        String sql="SELECT MARCA FROM VEHICULO GROUP BY MARCA";
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                    for(int i=0; i<1; i++){
+                        datos.add(rs.getString(i+1));
+                    }
+            }
+            System.out.println("Ya paso por obtener");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado en obtener "+e.getMessage());
+        }
+        return datos; 
+    }
+    
+    
 }
     
    

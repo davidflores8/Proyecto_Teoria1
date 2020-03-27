@@ -100,6 +100,27 @@ public class Planta_fabricacionBO {
         
     }
     
+        public ArrayList obtenerPlantaTransmision() throws SQLException{
+        ArrayList <String> datos=new ArrayList();
+        Connection con =Conexion.getConnection();
+        try {
+            datos=pfdao.obtenerPlantaTransmision(con);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return datos;
+        
+    }
+    
     public void listarPlanta(JTable tabla) throws SQLException{
         Connection con =Conexion.getConnection();
         pfdao.listarPlanta(con, tabla);

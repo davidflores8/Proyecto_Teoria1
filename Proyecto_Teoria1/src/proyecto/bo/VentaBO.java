@@ -41,6 +41,45 @@ public class VentaBO {
         return mensaje;
     }
     
+    public String listarVentaPorMes(String mes, String marca, JTable tabla) throws SQLException{
+        Connection con =Conexion.getConnection();
+        try {
+            mensaje=vdao.listarVentaPorMes(con, mes, marca, tabla);
+        } catch (Exception e) {
+            mensaje=mensaje+ " "+e.getMessage();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                mensaje=mensaje+ " "+e.getMessage();
+            }
+        }
+        return mensaje;
+    }
+    
+
+    public String listarVentaPorAno(String mes, String marca, JTable tabla) throws SQLException{
+    Connection con =Conexion.getConnection();
+    try {
+        mensaje=vdao.listarVentaPorAno(con, mes, marca, tabla);
+    } catch (Exception e) {
+        mensaje=mensaje+ " "+e.getMessage();
+    }
+    finally{
+        try {
+            if(con!=null){
+                con.close();
+            }
+        } catch (Exception e) {
+            mensaje=mensaje+ " "+e.getMessage();
+        }
+    }
+    return mensaje;
+}
+
     
     public void listarVenta(JTable tabla) throws SQLException{
         Connection con =Conexion.getConnection();
@@ -48,6 +87,9 @@ public class VentaBO {
         con.close();
     }
     
-  
+    
+   
+   
+
        
 }

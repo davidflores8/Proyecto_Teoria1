@@ -17,8 +17,9 @@ public class Compra {
     String Dia;
     String Mes;
     String Ano;
+    String Marca;
 
-    public Compra(String ID_Concesionario, String ID_Compania, String Precio_Compra, String VIN_Compra, String Dia, String Mes, String Ano) {
+    public Compra(String ID_Concesionario, String ID_Compania, String Precio_Compra, String VIN_Compra, String Dia, String Mes, String Ano, String Marca) {
         this.ID_Concesionario = ID_Concesionario;
         this.ID_Compania = ID_Compania;
         this.Precio_Compra = Precio_Compra;
@@ -26,7 +27,20 @@ public class Compra {
         this.Dia = Dia;
         this.Mes = Mes;
         this.Ano = Ano;
+        this.Marca = Marca;
     }
+
+    
+    
+    public String getMarca() {
+        return Marca;
+    }
+
+    public void setMarca(String Marca) {
+        this.Marca = Marca;
+    }
+
+    
 
     public String getDia() {
         return Dia;

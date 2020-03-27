@@ -119,7 +119,6 @@ public class ConcesionarioBO {
             }
         }
         return datos;
-        
     }
         
         public ArrayList obtenerUbicacionConcesionario() throws SQLException{

@@ -12,17 +12,35 @@ package proyecto.entidades;
 public class Venta {
     String RTN_Venta;
     String ID_Concesionario_Venta;
-    String Fecha_Venta;
     String Precio_Vehiculo;
     String VIN_Venta;
+    String Dia_Venta;
+    String Mes_Venta;
+    String Ano_Venta;
+    String Marca;
 
-    public Venta(String RTN_Venta, String ID_Concesionario_Venta, String Fecha_Venta, String Precio_Vehiculo, String VIN_Venta) {
+    public Venta(String RTN_Venta, String ID_Concesionario_Venta, String Precio_Vehiculo, String VIN_Venta, String Dia_Venta, String Mes_Venta, String Ano_Venta, String Marca) {
         this.RTN_Venta = RTN_Venta;
         this.ID_Concesionario_Venta = ID_Concesionario_Venta;
-        this.Fecha_Venta = Fecha_Venta;
         this.Precio_Vehiculo = Precio_Vehiculo;
         this.VIN_Venta = VIN_Venta;
+        this.Dia_Venta = Dia_Venta;
+        this.Mes_Venta = Mes_Venta;
+        this.Ano_Venta = Ano_Venta;
+        this.Marca = Marca;
     }
+
+    public String getMarca() {
+        return Marca;
+    }
+
+    public void setMarca(String Marca) {
+        this.Marca = Marca;
+    }
+
+    
+
+    
 
     public String getRTN_Venta() {
         return RTN_Venta;
@@ -40,12 +58,28 @@ public class Venta {
         this.ID_Concesionario_Venta = ID_Concesionario_Venta;
     }
 
-    public String getFecha_Venta() {
-        return Fecha_Venta;
+    public String getDia_Venta() {
+        return Dia_Venta;
     }
 
-    public void setFecha_Venta(String Fecha_Venta) {
-        this.Fecha_Venta = Fecha_Venta;
+    public void setDia_Venta(String Dia_Venta) {
+        this.Dia_Venta = Dia_Venta;
+    }
+
+    public String getMes_Venta() {
+        return Mes_Venta;
+    }
+
+    public void setMes_Venta(String Mes_Venta) {
+        this.Mes_Venta = Mes_Venta;
+    }
+
+    public String getAno_Venta() {
+        return Ano_Venta;
+    }
+
+    public void setAno_Venta(String Ano_Venta) {
+        this.Ano_Venta = Ano_Venta;
     }
 
     public String getPrecio_Vehiculo() {

@@ -101,6 +101,48 @@ public class VehiculoBO {
         
     }
     
+     public ArrayList obtenerVehiculoPorMarcayMes(String vin, String marca) throws SQLException{
+        ArrayList <String> datos=new ArrayList();
+        Connection con =Conexion.getConnection();
+        try {
+            datos=vdao.obtenerVehiculoPorMarcayMes(con, vin, marca);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return datos;
+        
+    }
+        
+    public ArrayList obtenerMarcaVehiculo() throws SQLException{
+        ArrayList <String> datos=new ArrayList();
+        Connection con =Conexion.getConnection();
+        try {
+            datos=vdao.obtenerMarcaVehiculo(con);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return datos;
+        
+    }
+    
     public void listarVehiculo (JTable tabla) throws SQLException{
         Connection con =Conexion.getConnection();
         vdao.listarVehiculo(con, tabla);

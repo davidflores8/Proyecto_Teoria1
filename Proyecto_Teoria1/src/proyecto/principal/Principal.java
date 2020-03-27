@@ -4737,24 +4737,25 @@ public class Principal extends javax.swing.JFrame {
         int veces=1;
         for (int i = 0; i <s.size(); i++) {
             String marca=s.get(i);
-
             for (int j = 0; j <t.size(); j++) {
-                if(marca.endsWith(t.get(j))){
+                if(marca.equals(t.get(j))){
                     veces++;
                 }
             }
             mp.add(new MarcaPrecio(s.get(i),veces));
             veces=1;
         }
-
+            //
+            
         int[] ar=new int[mp.size()];
         for (int i = 0; i <mp.size(); i++) {
             ar[i]=mp.get(i).getPrecio();
         }
         burbuja(ar);
-
         String[]r1=new String[2];
         String[]r2=new String[2];
+        
+        
         for (int i = 0; i <ar.length; i++) {
             if(mp.get(i).getPrecio()==ar[0]){
                 r1[0]=mp.get(i).getMarca();
@@ -4762,7 +4763,7 @@ public class Principal extends javax.swing.JFrame {
             }
             if(mp.get(i).getPrecio()==ar[1]){
                 r2[0]=mp.get(i).getMarca();
-                r2[1]=String.valueOf(ar[0]);
+                r2[1]=String.valueOf(ar[1]);
             }
         }
         DefaultTableModel modelo=(DefaultTableModel)tablar4.getModel();

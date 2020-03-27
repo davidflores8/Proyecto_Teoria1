@@ -80,6 +80,45 @@ public class VentaBO {
     return mensaje;
 }
 
+    public ArrayList listarPrecioMarca(String marca) throws SQLException{
+    Connection con =Conexion.getConnection();
+    ArrayList<String>d=new ArrayList();
+    try {
+        d=vdao.listarPrecioPorMarca(con, marca);
+    } catch (Exception e) {
+        mensaje=mensaje+ " "+e.getMessage();
+    }
+    finally{
+        try {
+            if(con!=null){
+                con.close();
+            }
+        } catch (Exception e) {
+            mensaje=mensaje+ " "+e.getMessage();
+        }
+    }
+    return d;
+}
+    
+    public ArrayList obtenerMarca() throws SQLException{
+    Connection con =Conexion.getConnection();
+    ArrayList<String>d=new ArrayList();
+    try {
+        d=vdao.obtenerMarca(con);
+    } catch (Exception e) {
+        mensaje=mensaje+ " "+e.getMessage();
+    }
+    finally{
+        try {
+            if(con!=null){
+                con.close();
+            }
+        } catch (Exception e) {
+            mensaje=mensaje+ " "+e.getMessage();
+        }
+    }
+    return d;
+}
     
     public void listarVenta(JTable tabla) throws SQLException{
         Connection con =Conexion.getConnection();
@@ -87,9 +126,10 @@ public class VentaBO {
         con.close();
     }
     
-    
-   
-   
-
-       
+    public void obtenerVentaPorVin(String vin, JTable tabla) throws SQLException{
+        Connection con =Conexion.getConnection();
+        vdao.obtenerVentaPorVIN(con, vin, tabla);
+        con.close();
+    }
+     
 }

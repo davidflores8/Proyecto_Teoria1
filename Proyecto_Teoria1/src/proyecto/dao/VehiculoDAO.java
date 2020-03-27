@@ -183,6 +183,51 @@ public class VehiculoDAO {
         return datos; 
     }
     
+    public String listarVehiculoTransmision(Connection con, String transmision, JTable tabla){
+        DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();
+        String sql="SELECT VIN FROM VEHICULO WHERE TRANSMISION = "+transmision;
+        String [] fila = new String [1];
+        Statement st=null;
+        ResultSet rs=null;
+        modelo.setRowCount(0);
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                for (int i = 0; i <1; i++) {
+                    fila[i]=rs.getString(i+1);
+                }
+                modelo.addRow(fila);
+            }
+            tabla.setModel(modelo);
+            System.out.println("Ya paso por listar");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar la tabla :("+e.getMessage());
+        }
+        return null;
+    }
+    
+    
+    public ArrayList obtenerVehiculoPorTransmision(Connection con, String vin){
+        ArrayList<String>datos1=new ArrayList();
+        String sql="SELECT VIN FROM VEHICULO WHERE TRANSMISION = "+vin;
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                    for(int i=0; i<1; i++){
+                        System.out.println("datoo "+rs.getString(i+1));
+                        datos1.add(rs.getString(i+1));   
+                    }
+            }
+            System.out.println("Ya paso por obtener");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar el dato seleccionado "+e.getMessage());
+        }
+        return datos1; 
+    }
     
 }
     

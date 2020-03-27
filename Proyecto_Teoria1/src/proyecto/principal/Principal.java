@@ -30,6 +30,7 @@ import proyecto.entidades.Compania;
 import proyecto.entidades.Compra;
 import proyecto.entidades.Concesionario;
 import proyecto.entidades.Empresa;
+import proyecto.entidades.MarcaPrecio;
 import proyecto.entidades.Persona;
 import proyecto.entidades.Planta_fabricacion;
 import proyecto.entidades.Proveedor;
@@ -401,6 +402,9 @@ public class Principal extends javax.swing.JFrame {
         tablar2_rtn = new javax.swing.JTable();
         jButton25 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        tablar3 = new javax.swing.JTable();
+        jButton26 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -2665,6 +2669,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel69.setText("VIN de Vehiculos");
 
         jButton24.setText("Buscar");
+        jButton24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton24MouseClicked(evt);
+            }
+        });
 
         tablar2_vin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2764,15 +2773,46 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(224, 255, 224));
 
+        tablar3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Marca", "Cantidad de Dolares"
+            }
+        ));
+        jScrollPane14.setViewportView(tablar3);
+
+        jButton26.setText("Generar reporte");
+        jButton26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton26MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 647, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(jButton26)))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 372, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton26)
+                .addContainerGap(230, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reporte 3", jPanel4);
@@ -4655,6 +4695,68 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_rb_mesItemStateChanged
 
+    private void jButton24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton24MouseClicked
+        // TODO add your handling code here:
+        String transmision="'"+reporte_transmision.getSelectedItem().toString()+"'";
+        ArrayList<String>clientes=new ArrayList();
+        VehiculoBO vbo=new VehiculoBO();
+        try {
+            vbo.listarVehiculotransmision(transmision, tablar2_vin);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            clientes=vbo.obtenerVehiculoPorTransmision(transmision);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        VentaBO v= new VentaBO();
+        for (int i = 0; i <clientes.size(); i++) {
+            try {
+                v.obtenerVentaPorVin(clientes.get(i), tablar2_rtn);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        
+    }//GEN-LAST:event_jButton24MouseClicked
+
+    private void jButton26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseClicked
+        // TODO add your handling code here:
+        VentaBO v=new VentaBO();
+        ArrayList<String>marcas=new ArrayList();
+        try {
+            marcas=v.obtenerMarca();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        ArrayList<MarcaPrecio>mp=new ArrayList();
+        for (int i = 0; i <marcas.size(); i++) {
+                mp.add(new MarcaPrecio(marcas.get(i)));
+                ArrayList<String>p=new ArrayList();
+                try {
+                    p=v.listarPrecioMarca("'"+marcas.get(i)+"'");
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                int n=0;
+                for (int j = 0; j <p.size(); j++) {
+                    String p1=p.get(j);
+                    int n1=Integer.valueOf(p1);
+                    n=n+n1;
+                }
+                mp.get(i).setPrecio(n);
+        }
+        System.out.println("ArrayList MarcaPrecio");
+        for (int i = 0; i <mp.size(); i++) {
+            System.out.println("marca = "+mp.get(i).getMarca());
+            System.out.println("Precio = "+mp.get(i).getPrecio());
+            System.out.println(" ");
+        }
+            
+        
+    }//GEN-LAST:event_jButton26MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -4855,6 +4957,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -4945,6 +5048,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
@@ -5024,6 +5128,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable tabla_ventas1;
     private javax.swing.JTable tablar2_rtn;
     private javax.swing.JTable tablar2_vin;
+    private javax.swing.JTable tablar3;
     private javax.swing.JTextField telefono_empresa;
     private javax.swing.JTextField telefono_empresa1;
     private javax.swing.JTextField telefono_persona;

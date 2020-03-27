@@ -149,4 +149,30 @@ public class VehiculoBO {
         con.close();
     }
     
+    public void listarVehiculotransmision(String t,JTable tabla) throws SQLException{
+        Connection con =Conexion.getConnection();
+        vdao.listarVehiculoTransmision(con, t, tabla);
+        con.close();
+    }
+    
+    public ArrayList obtenerVehiculoPorTransmision(String vin) throws SQLException{
+        ArrayList <String> datos=new ArrayList();
+        Connection con =Conexion.getConnection();
+        try {
+            datos=vdao.obtenerVehiculoPorTransmision(con, vin);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return datos;
+        
+    }
 }

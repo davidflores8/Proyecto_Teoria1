@@ -405,9 +405,17 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane14 = new javax.swing.JScrollPane();
         tablar3 = new javax.swing.JTable();
         jButton26 = new javax.swing.JButton();
+        jLabel71 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        tablar4 = new javax.swing.JTable();
+        jButton27 = new javax.swing.JButton();
+        jLabel72 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
+        jLabel73 = new javax.swing.JLabel();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton28 = new javax.swing.JButton();
         Login_marketing = new javax.swing.JDialog();
         jLabel44 = new javax.swing.JLabel();
         mk_nombre = new javax.swing.JTextField();
@@ -2787,6 +2795,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jLabel71.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel71.setText("Las dos marcas por cantidad de dolares vendidas en 2019");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -2794,69 +2805,139 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(230, 230, 230)
+                        .addComponent(jButton26))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addComponent(jButton26)))
+                        .addGap(81, 81, 81)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel71)
+                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel71)
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(jButton26)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reporte 3", jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 216));
 
+        tablar4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Marca", "Cantidad"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane18.setViewportView(tablar4);
+
+        jButton27.setText("Generar Reporte");
+        jButton27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton27MouseClicked(evt);
+            }
+        });
+
+        jLabel72.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel72.setText("Las dos marcas por cantidad de ventas en 2019");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 647, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(235, 235, 235)
+                        .addComponent(jButton27))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel72)
+                            .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 372, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel72)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton27)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reporte 4", jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(237, 255, 255));
 
+        jLabel73.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel73.setText("Mes en el que mejor se venden los convertibles");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Mes"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane19.setViewportView(jTable1);
+
+        jButton28.setText("Generar Reporte");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 647, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton28)
+                    .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel73))
+                .addContainerGap(281, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 372, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel73)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jButton28)
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reporte 5", jPanel6);
-
-        jPanel7.setBackground(new java.awt.Color(255, 237, 249));
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 647, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 372, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Reporte 6", jPanel7);
 
         javax.swing.GroupLayout MarketingLayout = new javax.swing.GroupLayout(Marketing.getContentPane());
         Marketing.getContentPane().setLayout(MarketingLayout);
@@ -4627,69 +4708,118 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton16MouseClicked
 
-    private void rb_anoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rb_anoItemStateChanged
-        // TODO add your handling code here:
-        if(rb_ano.isSelected()){
-            ano_mkt.setEnabled(true);
-            mes_mkt.setEnabled(false);
-        }
-        else if(rb_mes.isSelected())
-        {
-            mes_mkt.setEnabled(true);
-            ano_mkt.setEnabled(false);
-        }
-        
-    }//GEN-LAST:event_rb_anoItemStateChanged
-
-    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
-        // TODO add your handling code here:
-        if(rb_mes.isSelected()){
-            ArrayList<String>datos=new ArrayList();
-            String mes="'"+mes_mkt.getSelectedItem().toString()+"'";
-            String marca="'"+marca_rp1.getSelectedItem().toString()+"'";
-            VentaBO vbo=new VentaBO();
-            VehiculoBO b=new VehiculoBO();
-            try {
-                vbo.listarVentaPorMes(mes, marca, tabla_ventas1);
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-            
-        }
-        else{
-            ArrayList<String>datos=new ArrayList();
-            String mes="'"+ano_mkt.getSelectedItem().toString()+"'";
-            String marca="'"+marca_rp1.getSelectedItem().toString()+"'";
-            VentaBO vbo=new VentaBO();
-            VehiculoBO b=new VehiculoBO();
-            try {
-                vbo.listarVentaPorAno(mes, marca,tabla_ventas1);
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-            
-        }
-        
-        
-    }//GEN-LAST:event_jButton13MouseClicked
-
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
-    private void rb_mesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rb_mesItemStateChanged
+    private void jButton27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton27MouseClicked
         // TODO add your handling code here:
-        if(rb_ano.isSelected()){
-            ano_mkt.setEnabled(true);
-            mes_mkt.setEnabled(false);
+
+        VentaBO vbo=new VentaBO();
+        ArrayList<String> s=new ArrayList();
+        ArrayList<String> t=new ArrayList();
+        ArrayList<MarcaPrecio> mp=new ArrayList();
+        try {
+            s=vbo.obtenerTodasMarcasAG();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-        else if(rb_mes.isSelected())
-        {
-            mes_mkt.setEnabled(true);
-            ano_mkt.setEnabled(false);
+        try {
+            t=vbo.obtenerTodasMarcas();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-    }//GEN-LAST:event_rb_mesItemStateChanged
+        int veces=1;
+        for (int i = 0; i <s.size(); i++) {
+            String marca=s.get(i);
+
+            for (int j = 0; j <t.size(); j++) {
+                if(marca.endsWith(t.get(j))){
+                    veces++;
+                }
+            }
+            mp.add(new MarcaPrecio(s.get(i),veces));
+            veces=1;
+        }
+
+        int[] ar=new int[mp.size()];
+        for (int i = 0; i <mp.size(); i++) {
+            ar[i]=mp.get(i).getPrecio();
+        }
+        burbuja(ar);
+
+        String[]r1=new String[2];
+        String[]r2=new String[2];
+        for (int i = 0; i <ar.length; i++) {
+            if(mp.get(i).getPrecio()==ar[0]){
+                r1[0]=mp.get(i).getMarca();
+                r1[1]=String.valueOf(ar[0]);
+            }
+            if(mp.get(i).getPrecio()==ar[1]){
+                r2[0]=mp.get(i).getMarca();
+                r2[1]=String.valueOf(ar[0]);
+            }
+        }
+        DefaultTableModel modelo=(DefaultTableModel)tablar4.getModel();
+        modelo.addRow(r1);
+        modelo.addRow(r2);
+        tablar4.setModel(modelo);
+    }//GEN-LAST:event_jButton27MouseClicked
+
+    private void jButton26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseClicked
+        // TODO add your handling code here:
+        VentaBO v=new VentaBO();
+        ArrayList<String>marcas=new ArrayList();
+        try {
+            marcas=v.obtenerMarca();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        ArrayList<MarcaPrecio>mp=new ArrayList();
+        for (int i = 0; i <marcas.size(); i++) {
+            mp.add(new MarcaPrecio(marcas.get(i)));
+            ArrayList<String>p=new ArrayList();
+            try {
+                p=v.listarPrecioMarca("'"+marcas.get(i)+"'");
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            int n=0;
+            for (int j = 0; j <p.size(); j++) {
+                String p1=p.get(j);
+                int n1=Integer.valueOf(p1);
+                n=n+n1;
+            }
+            mp.get(i).setPrecio(n);
+        }
+        int[] arreglo=new int[mp.size()];
+        for (int i = 0; i <mp.size(); i++) {
+            arreglo[i]=mp.get(i).getPrecio();
+        }
+        burbuja(arreglo);
+        int p_mayor=arreglo[0];
+        int p_menor=arreglo[1];
+        String[] m1=new String[2];
+        String[] m2=new String[2];
+        for (int i = 0; i <mp.size(); i++) {
+            if(mp.get(i).getPrecio()==p_mayor){
+                m1[0]=mp.get(i).getMarca();
+                String n=String.valueOf(p_mayor);
+                m1[1]=n;
+            }
+            if(mp.get(i).getPrecio()==p_menor){
+                m2[0]=mp.get(i).getMarca();
+                String n=String.valueOf(p_menor);
+                m2[1]=n;
+            }
+        }
+        DefaultTableModel modelo=(DefaultTableModel)tablar3.getModel();
+        modelo.addRow(m1);
+        modelo.addRow(m2);
+        tablar3.setModel(modelo);
+
+    }//GEN-LAST:event_jButton26MouseClicked
 
     private void jButton24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton24MouseClicked
         // TODO add your handling code here:
@@ -4714,62 +4844,66 @@ public class Principal extends javax.swing.JFrame {
                 ex.printStackTrace();
             }
         }
-        
+
     }//GEN-LAST:event_jButton24MouseClicked
 
-    private void jButton26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseClicked
+    private void rb_mesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rb_mesItemStateChanged
         // TODO add your handling code here:
-        VentaBO v=new VentaBO();
-        ArrayList<String>marcas=new ArrayList();
-        try {
-            marcas=v.obtenerMarca();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        if(rb_ano.isSelected()){
+            ano_mkt.setEnabled(true);
+            mes_mkt.setEnabled(false);
         }
-        ArrayList<MarcaPrecio>mp=new ArrayList();
-        for (int i = 0; i <marcas.size(); i++) {
-                mp.add(new MarcaPrecio(marcas.get(i)));
-                ArrayList<String>p=new ArrayList();
-                try {
-                    p=v.listarPrecioMarca("'"+marcas.get(i)+"'");
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-                int n=0;
-                for (int j = 0; j <p.size(); j++) {
-                    String p1=p.get(j);
-                    int n1=Integer.valueOf(p1);
-                    n=n+n1;
-                }
-                mp.get(i).setPrecio(n);
+        else if(rb_mes.isSelected())
+        {
+            mes_mkt.setEnabled(true);
+            ano_mkt.setEnabled(false);
         }
-        int[] arreglo=new int[mp.size()];
-        for (int i = 0; i <mp.size(); i++) {
-            arreglo[i]=mp.get(i).getPrecio();
+    }//GEN-LAST:event_rb_mesItemStateChanged
+
+    private void rb_anoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rb_anoItemStateChanged
+        // TODO add your handling code here:
+        if(rb_ano.isSelected()){
+            ano_mkt.setEnabled(true);
+            mes_mkt.setEnabled(false);
         }
-        burbuja(arreglo);
-        int p_mayor=arreglo[0];
-        int p_menor=arreglo[1];
-        String[] m1=new String[2];
-        String[] m2=new String[2];
-        for (int i = 0; i <mp.size(); i++) {
-            if(mp.get(i).getPrecio()==p_mayor){
-                m1[0]=mp.get(i).getMarca();
-                String n=String.valueOf(p_mayor);
-                m1[1]=n;
+        else if(rb_mes.isSelected())
+        {
+            mes_mkt.setEnabled(true);
+            ano_mkt.setEnabled(false);
+        }
+
+    }//GEN-LAST:event_rb_anoItemStateChanged
+
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        // TODO add your handling code here:
+        if(rb_mes.isSelected()){
+            ArrayList<String>datos=new ArrayList();
+            String mes="'"+mes_mkt.getSelectedItem().toString()+"'";
+            String marca="'"+marca_rp1.getSelectedItem().toString()+"'";
+            VentaBO vbo=new VentaBO();
+            VehiculoBO b=new VehiculoBO();
+            try {
+                vbo.listarVentaPorMes(mes, marca, tabla_ventas1);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
-            if(mp.get(i).getPrecio()==p_menor){
-                m2[0]=mp.get(i).getMarca();
-                String n=String.valueOf(p_menor);
-                m2[1]=n;
-            }
+
         }
-       DefaultTableModel modelo=(DefaultTableModel)tablar3.getModel();
-       modelo.addRow(m1);
-       modelo.addRow(m2);
-       tablar3.setModel(modelo);
-        
-    }//GEN-LAST:event_jButton26MouseClicked
+        else{
+            ArrayList<String>datos=new ArrayList();
+            String mes="'"+ano_mkt.getSelectedItem().toString()+"'";
+            String marca="'"+marca_rp1.getSelectedItem().toString()+"'";
+            VentaBO vbo=new VentaBO();
+            VehiculoBO b=new VehiculoBO();
+            try {
+                vbo.listarVentaPorAno(mes, marca,tabla_ventas1);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+
+        }
+
+    }//GEN-LAST:event_jButton13MouseClicked
 
     public void burbuja(int arreglo[])
     {
@@ -4988,6 +5122,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -5063,6 +5199,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -5071,7 +5210,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
@@ -5082,6 +5220,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane18;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -5091,6 +5231,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lb_Fondo_C_empre;
     private javax.swing.JLabel lb_Fondo_C_empre1;
@@ -5159,6 +5300,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable tablar2_rtn;
     private javax.swing.JTable tablar2_vin;
     private javax.swing.JTable tablar3;
+    private javax.swing.JTable tablar4;
     private javax.swing.JTextField telefono_empresa;
     private javax.swing.JTextField telefono_empresa1;
     private javax.swing.JTextField telefono_persona;

@@ -140,6 +140,46 @@ public class VentaDAO {
         return p;
     }
     
+    public ArrayList obtenerTodasMarcasAG(Connection con){
+        ArrayList<String> p=new ArrayList();
+        String sql="SELECT MARCA FROM VENTA WHERE ANO_VENTA = "+"'"+2019+"'"+"GROUP BY MARCA";
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                for (int i = 0; i <1; i++) {
+                    p.add(rs.getString(i+1));
+                }
+            }
+            System.out.println("Ya paso por listar");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar la tabla :( "+e.getMessage());
+        }
+        return p;
+    }
+    
+    public ArrayList obtenerTodasMarcas(Connection con){
+        ArrayList<String> p=new ArrayList();
+        String sql="SELECT MARCA FROM VENTA WHERE ANO_VENTA = "+"'"+2019+"'"+"ORDER BY MARCA";
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while (rs.next()){
+                for (int i = 0; i <1; i++) {
+                    p.add(rs.getString(i+1));
+                }
+            }
+            System.out.println("Ya paso por listar");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar la tabla :( "+e.getMessage());
+        }
+        return p;
+    }
+    
     public String listarVentaPorMes(Connection con, String mes, String marca, JTable tabla){
        
         DefaultTableModel modelo= (DefaultTableModel) tabla.getModel();

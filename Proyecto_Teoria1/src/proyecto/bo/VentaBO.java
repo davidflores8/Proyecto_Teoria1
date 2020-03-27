@@ -120,6 +120,46 @@ public class VentaBO {
     return d;
 }
     
+    public ArrayList obtenerTodasMarcasAG() throws SQLException{
+    Connection con =Conexion.getConnection();
+    ArrayList<String>d=new ArrayList();
+    try {
+        d=vdao.obtenerTodasMarcasAG(con);
+    } catch (Exception e) {
+        mensaje=mensaje+ " "+e.getMessage();
+    }
+    finally{
+        try {
+            if(con!=null){
+                con.close();
+            }
+        } catch (Exception e) {
+            mensaje=mensaje+ " "+e.getMessage();
+        }
+    }
+    return d;
+}
+    
+    public ArrayList obtenerTodasMarcas() throws SQLException{
+    Connection con =Conexion.getConnection();
+    ArrayList<String>d=new ArrayList();
+    try {
+        d=vdao.obtenerTodasMarcasAG(con);
+    } catch (Exception e) {
+        mensaje=mensaje+ " "+e.getMessage();
+    }
+    finally{
+        try {
+            if(con!=null){
+                con.close();
+            }
+        } catch (Exception e) {
+            mensaje=mensaje+ " "+e.getMessage();
+        }
+    }
+    return d;
+}
+    
     public void listarVenta(JTable tabla) throws SQLException{
         Connection con =Conexion.getConnection();
         vdao.listarVenta(con, tabla);
